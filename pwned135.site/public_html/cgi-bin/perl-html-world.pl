@@ -1,4 +1,4 @@
-!/usr/bin/perl
+#!/usr/bin/perl
 
 print "Cache-Control: no-cache\n";
 print "Content-type: text/html\n\n";
