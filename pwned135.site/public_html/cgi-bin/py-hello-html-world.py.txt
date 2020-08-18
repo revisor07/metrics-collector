@@ -6,7 +6,7 @@ import cgi
 import cgitb
 
 #Print HTML header
-print("Cache-Control: no-cache")
+print("Cache-Control: no-cache\n")
 print("Content-type:text/html\r\n\r\n")
 print('<html>')
 print('<head>')
@@ -21,5 +21,3 @@ print(" \n")
 print('<br>Your current IP address is: ', os.getenv("REMOTE_ADDR"), '</br>')
 print("</body></html>")
 #Print HTML footer
-
-
