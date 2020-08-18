@@ -6,7 +6,7 @@
 $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 $parts = parse_url($url);
 parse_str($parts['query'], $query);
-echo parse_url($url, PHP_URL_QUERY); 
+echo "Query String: " . parse_url($url, PHP_URL_QUERY) . "<br>"; 
 foreach($query as $key => $value) {
     echo "$key  = $value <br>";
 }
@@ -14,3 +14,4 @@ foreach($query as $key => $value) {
 ?>
 
 </html>
+
