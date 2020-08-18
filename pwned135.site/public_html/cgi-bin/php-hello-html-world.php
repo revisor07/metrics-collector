@@ -3,7 +3,7 @@
 <body>
 <?php
 $date = date('m/d/Y h:i:s a', time());
-$ip = $_SERVER['REMOTE_ADDR']
+$ip = $_SERVER['REMOTE_ADDR'];
 
 print "<h1> Hello Team Pwned </h1>";
 print "Current time: " . $date . "<br>";
