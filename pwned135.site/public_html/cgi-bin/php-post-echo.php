@@ -5,7 +5,7 @@
 
 <?php
 $body = stream_get_contents(STDIN);
-print_r(body)
+print(body)
 
 $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 $parts = parse_url($url);
