@@ -9,13 +9,13 @@ $query = parse_url($url, PHP_URL_QUERY);
 $body = stream_get_contents(STDIN);
 #print_r(body)
 
-print("<b>HTTP Protocol: </b> $_SERVER[SERVER_PROTOCOL]");
+print("<b>HTTP Protocol: </b> $_SERVER[SERVER_PROTOCOL] <br>");
 
-print("<b>HTTP Method: </b> $_SERVER[REQUEST_METHOD]");
+print("<b>HTTP Method: </b> $_SERVER[REQUEST_METHOD] <br>");
 
-print("<b>Query String: </b> $query");
+print("<b>Query String: </b> $query <br>");
 
-print("<b>Message Body: </b> $body");
+print("<b>Message Body: </b> $body <br>");
 
 
 
