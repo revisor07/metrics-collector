@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html>
-<body>
 <?php
 header('Content-type: application/json');
 $title = "Team Pwned";
@@ -15,5 +12,3 @@ echo json_encode($data);
 
 ?>
 
-</body>
-</html>
