@@ -5,15 +5,8 @@
 
 <?php
 $body = stream_get_contents(STDIN);
-print(body)
+print("Message body: $body")
 
-$url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-$parts = parse_url($url);
-parse_str($parts['query'], $query);
-echo "<b>Query String: </b>" . parse_url($url, PHP_URL_QUERY) . "<br>"; 
-foreach($query as $key => $value) {
-    echo "$key  = $value <br>";
-}
 
 ?>
 </body>
