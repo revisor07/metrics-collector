@@ -5,7 +5,7 @@
 
 <?php
 #print_r($_POST)
-print("Message body: $_POST[]")
+print_r("Message body: $_POST")
 #foreach($_POST as $key => $value) {
 #    echo "$key  = $value <br>";
 #}
