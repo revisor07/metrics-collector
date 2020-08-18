@@ -4,8 +4,8 @@
 <hr>
 
 <?php
-$body = stream_get_contents(STDIN);
-print("Message body: $body")
+print_r($_POST)
+#print("Message body: $_POST[]")
 
 
 ?>
