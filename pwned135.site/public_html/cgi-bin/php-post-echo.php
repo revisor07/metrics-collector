@@ -6,7 +6,7 @@
 <?php
 #print_r($_POST)
 #print("Message body: $_POST[]")
-foreach($$_POST as $key => $value) {
+foreach($_POST as $key => $value) {
     echo "$key  = $value <br>";
 }
 
