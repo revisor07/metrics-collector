@@ -15,7 +15,7 @@ print("<b>HTTP Method: </b> $_SERVER[REQUEST_METHOD] <br>");
 
 print("<b>Query String: </b> $query <br>");
 
-print("<b>Message Body:");
+print("<b>Message Body :");
 foreach($_POST as $key => $value) {
     echo "$key  = $value <br>";
 }
