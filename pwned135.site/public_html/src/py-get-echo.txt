@@ -13,7 +13,7 @@ print("Raw query string: \n<br/><br/>", os.getenv("QUERY_STRING"))
 print("<table> Formatted Query String:")
 raw = cgi.FieldStorage()
 for first in raw.keys():
-   print(first + '=' + raw.getfirt(first) + "\n")
+   print(first + '=' + raw.getvalue(first) + "\n")
 print("</table>")
 
 print("</body>")

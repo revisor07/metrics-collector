@@ -11,7 +11,7 @@ print("<html><head><title>POST Request Echo</title></head><body><h1 align=center
 print("<b>Message Body:</b></br>\n")
 raw = cgi.FieldStorage()
 for first in raw.keys():
-   print(first + '=' + raw.getfirst(first) + "\n")
+   print(first + '=' + raw.getvalue(first) + "\n")
 
 print("</body>")
 print("</html>")
