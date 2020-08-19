@@ -10,9 +10,14 @@ session_start();
   <h1>Perl Sessions Page 1</h1>
   <?php
   $name = $_POST["username"];
+  $cookie_name = "username";
+  $cookie_value = $name;
   if ($name){
 	print("<p><b>Name:</b> $name");
-  }else{
+	setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");}
+  elseif (isset($_COOKIE[$cookie_name])){
+  	print("<p><b>Name:</b> $_COOKIE[$cookie_name]");}
+  else{
 	print "<p><b>Name:</b> You do not have a name set</p>";
   }
   ?>
