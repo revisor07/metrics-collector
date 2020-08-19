@@ -12,6 +12,7 @@ session_start();
   $name = $_POST["username"];
   $cookie_name = "username";
   $cookie_value = $name;
+  echo $name;
   if ($name){
 	print("<p><b>Name:</b> $name");
 	setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");}
