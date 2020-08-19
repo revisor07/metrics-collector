@@ -14,5 +14,6 @@ foreach($query as $key => $value) {
 
 ?>
 </body>
+
 </html>
 
