@@ -1,5 +1,5 @@
 <?php
-
+session_id("session1");
 session_start();
 ?>
 
@@ -7,7 +7,7 @@ session_start();
 <html>
   <head><title>Perl Sessions</title></head>
 <body>
-  <h1>Perl Sessions Page 1</h1>
+  <h1>Perl Sessions Page 2</h1>
   <p><b>Name:</b> You do not have a name set</p>
   <br>
   <br>

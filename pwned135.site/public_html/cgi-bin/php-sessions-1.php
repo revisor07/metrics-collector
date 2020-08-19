@@ -1,5 +1,5 @@
 <?php
-
+session_id("session1");
 session_start();
 ?>
 
@@ -9,13 +9,15 @@ session_start();
 <body>
   <h1>Perl Sessions Page 1</h1>
   <?php
+  foreach($_POST as $key => $value) {
+    echo "$key  = $value <br>";
+  }
   if ($name){
 	print("<p><b>Name:</b> $name");
   }else{
 	print "<p><b>Name:</b> You do not have a name set</p>";
   }
   ?>
-  <p><b>Name:</b> You do not have a name set</p>
   <br>
   <br>
   <a href="/cgi-bin/perl-sessions-2.php">Session Page 2</a><br>
