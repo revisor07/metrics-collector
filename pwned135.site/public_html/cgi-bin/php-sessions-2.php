@@ -17,6 +17,7 @@ session_start();
   }
   ?>
   <br>
+  <br>
   <a href="/cgi-bin/php-sessions-1.php">Session Page 1</a><br>
   <a href="/cgi-bin/php-state-demo.php">Perl CGI Form</a><br>
   <form style="margin-top:30px" action="/cgi-bin/php-destroy-session.php" method="get">
