@@ -9,9 +9,7 @@ session_start();
 <body>
   <h1>Perl Sessions Page 1</h1>
   <?php
-  foreach($_POST as $key => $value) {
-    echo "$key  = $value <br>";
-  }
+  $name = $_POST["username"]
   if ($name){
 	print("<p><b>Name:</b> $name");
   }else{
