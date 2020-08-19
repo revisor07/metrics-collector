@@ -5,11 +5,12 @@
 
 <?php
 // remove all session variables
+setcookie("username", "", time() - 3600);
 session_unset();
 
 // destroy the session
 session_destroy();
-setcookie("username", "", time() - 3600);
+
 ?>
 
 <h1>Session Destroyed</h1>
