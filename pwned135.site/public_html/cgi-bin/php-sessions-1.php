@@ -8,6 +8,13 @@ session_start();
   <head><title>Perl Sessions</title></head>
 <body>
   <h1>Perl Sessions Page 1</h1>
+  <?php
+  if ($name){
+	print("<p><b>Name:</b> $name");
+  }else{
+	print "<p><b>Name:</b> You do not have a name set</p>";
+  }
+  ?>
   <p><b>Name:</b> You do not have a name set</p>
   <br>
   <br>
