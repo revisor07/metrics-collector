@@ -2,25 +2,23 @@
 
 # Import modules for CGI handling
 from os import environ
-import sha, time, Cookie, os, shelve
 import cgi, cgitb
 import random
+import datetime
+import random
+import Cookie
 
 
 form = cgi.FieldStorage()
 name = form.getvalue('username')
 
+expiration = datetime.datetime.now() + datetime.timedelta(days=30)
 cookie = Cookie.SimpleCookie()
-string_cookie = os.environ.get('HTTP_COOKIE')
-
-if not string_cookie:
-    sid = sha.new(repr(time.time())).hexdigest()
-    cookie['sid'] = sid
-    cookie['username'] = name
-else:
-    cookie.load(string_cookie)
-    sid = cookie['sid'].value
-    cookie['username'] = name
+cookie["session"] = random.randint(1, 1000000000)
+cookie["session"]["domain"] = ".jayconrod.com"
+cookie["session"]["path"] = "/"
+cookie["session"]["expires"] = \
+  expiration.strftime("%a, %d-%b-%Y %H:%M:%S PST")
 
 print("Content-type:text/html\r\n\r\n")
 
@@ -31,4 +29,5 @@ print("<br>")
 print("<a href=\"/cgi-bin/py-session-2.py\" style=\"display:inline-block;margin-top:20px;\">Session Page 2</a></br>")
 print("<a href=\"/cgi-bin/py-state-demo.py\" style=\"display:inline-block;margin-top:20px;\">Python CGI Form</a></br>\n")
 print("<br>")
-print("<input type = \"submit\" value = \"Destroy Session\"></form>")
+print("<form style=\"margin-top:30px\" action=\"/cgi-bin/php-destroy-session.php\" method=\"get\">")
+print("<button type=\"submit\">Destroy Session</button></form>")

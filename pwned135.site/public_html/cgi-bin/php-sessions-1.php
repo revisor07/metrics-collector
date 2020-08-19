@@ -5,9 +5,9 @@ session_start();
 
 <!DOCTYPE html>
 <html>
-  <head><title>Perl Sessions</title></head>
+  <head><title>PHP Sessions</title></head>
 <body>
-  <h1>Perl Sessions Page 1</h1>
+  <h1>PHP Sessions Page 1</h1>
   <?php
   $name = $_POST["username"];
   $cookie_name = "username";
@@ -27,6 +27,5 @@ session_start();
   <a href="/cgi-bin/php-state-demo.php">Perl CGI Form</a><br>
   <form style="margin-top:30px" action="/cgi-bin/php-destroy-session.php" method="get">
   <button type="submit">Destroy Session</button></form>
-
 </body>
 </html>
