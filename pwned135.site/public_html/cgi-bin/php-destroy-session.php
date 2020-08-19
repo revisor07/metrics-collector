@@ -14,7 +14,6 @@ if (isset($_SERVER['HTTP_COOKIE'])) {
         setcookie($name, '', time()-1000, '/');
     }
 }
-#setcookie("username", "", time() - 3600);
 session_unset();
 
 // destroy the session
