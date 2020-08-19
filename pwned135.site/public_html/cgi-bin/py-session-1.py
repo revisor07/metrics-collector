@@ -16,25 +16,11 @@ string_cookie = os.environ.get('HTTP_COOKIE')
 if not string_cookie:
     sid = sha.new(repr(time.time())).hexdigest()
     cookie['sid'] = sid
-    message = 'New session'
+    cookie['username'] = name
 else:
     cookie.load(string_cookie)
     sid = cookie['sid'].value
-cookie['sid']['expires'] = name
-
-# The shelve module will persist the session data
-# and expose it as a dictionary
-os.environ['DOCUMENT_ROOT'] = '.'
-session_dir = os.environ['DOCUMENT_ROOT'] + '/tmp/.session'
-session = shelve.open('%s/sess_%s' % (session_dir, sid), writeback=True)
-
-# Retrieve last visit time from the session
-lastvisit = session.get('lastvisit')
-if lastvisit:
-    message = 'Welcome back. Your last visit was at ' + \
-      time.asctime(time.gmtime(float(lastvisit)))
-# Save the current time in the session
-session['lastvisit'] = repr(time.time())
+    cookie['username'] = name
 
 print("Content-type:text/html\r\n\r\n")
 
