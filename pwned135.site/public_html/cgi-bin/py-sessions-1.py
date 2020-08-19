@@ -26,7 +26,7 @@ print("<h1>Python Session 1 Page</h1><hr />")
 print('<b>Name: </b>', name)
 print("<br>")
 
-print("<a href=\"/cgi-bin/py-session-2.py\" style=\"display:inline-block;margin-top:20px;\">Session Page 2</a></br>")
+print("<a href=\"/cgi-bin/py-sessions-2.py\" style=\"display:inline-block;margin-top:20px;\">Session Page 2</a></br>")
 print("<a href=\"/cgi-bin/py-state-demo.py\" style=\"display:inline-block;margin-top:20px;\">Python CGI Form</a></br>\n")
 print("<br>")
 print("<form style=\"margin-top:30px\" action=\"/cgi-bin/php-destroy-session.php\" method=\"get\">")

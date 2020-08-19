@@ -18,8 +18,8 @@ except (Cookie.CookieError, KeyError):
 print("<b>Name: </b>", user_id)
 print("<br>")
 
-print("<a href=\"/py-session-1.py\" style=\"display:inline-block;margin-top:20px;\">Session Page 1</a></br>")
-print("<a href=\"/py-state-demo.py\" style=\"display:inline-block;margin-top:20px;\">Python CGI Form</a></br>\n")
+print("<a href=\"/cgi-bin/py-sessions-1.py\" style=\"display:inline-block;margin-top:20px;\">Session Page 1</a></br>")
+print("<a href=\"/cgi-bin/py-state-demo.py\" style=\"display:inline-block;margin-top:20px;\">Python CGI Form</a></br>\n")
 print("<br>")
 print("<form style=\"margin-top:30px\" action=\"/cgi-bin/php-destroy-session.php\" method=\"get\">")
 print("<button type=\"submit\">Destroy Session</button></form>")

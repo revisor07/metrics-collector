@@ -9,11 +9,12 @@ print("<html><head><title>GET query string</title></head>\
 	<body><h1 align=center>GET query string</h1>\
   	<hr/>\n")
 
-print("Raw query string: \n<br/>", os.getenv("QUERY_STRING"))
-print("\n Formatted Query String:")
+print("Raw query string: \n<br/><br/>", os.getenv("QUERY_STRING"))
+print("<table> Formatted Query String:")
 raw = cgi.FieldStorage()
 for first in raw.keys():
-   print(first + '=' + raw.getvalue(first) + "\n")
+   print(first + '=' + raw.getfirt(first) + "\n")
+print("</table>")
 
 print("</body>")
 print("</html>")

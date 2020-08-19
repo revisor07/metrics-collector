@@ -7,7 +7,7 @@
 <body data-gr-c-s-loaded="true">
   <h1 align="center">Session Test</h1>
   <hr>
-  <label for="cgi-lang">CGI using PHP</label>
+  <label for="cgi-lang">CGI using Perl</label>
   <form action="/cgi-bin/php-sessions-1.php" method="Post" id="form">
     <label>What is your name? <input type="text" name="username" autocomplete="off"></label>
     <br>

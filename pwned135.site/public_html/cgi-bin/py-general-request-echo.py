@@ -25,7 +25,7 @@ print("<p><b>Message Body:</b> </p>")
 
 raw = cgi.FieldStorage()
 for first in raw.keys():
-   print(first + '=' + raw.getvalue(first) + "\n")
+   print(first + '=' + raw.getfirst(first) + "\n")
 
 # Print the HTML file bottom
 print("</body></html>\n")

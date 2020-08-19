@@ -11,7 +11,7 @@ print("Content-type:text/html\r\n\r\n")
 print("<h1 align='center'>Session Test</h1><hr />")
 print("<label>CGI using Python</label>")
 
-print("<form action = \"/cgi-bin/py-session-1.py\" method = \"post\" target = \"_blank\">")
+print("<form action = \"/cgi-bin/py-sessions-1.py\" method = \"post\" target = \"_blank\">")
 print("<label for=\"username\">What is your name?</label>")
 print("<input type=\"text\"  id=\"username\" name = \"username\"></br>")
 print("<input type = \"submit\" value = \"Test Sessioning\"></form>")
