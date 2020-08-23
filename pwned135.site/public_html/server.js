@@ -36,7 +36,7 @@ var code = {
 	"access_code" : "FRTS45W1"
 }
 server.get('/api/browsers', function (req, res, body) { res.json({ code })
-  var data = JSON.parse(body);
+  var data = JSON.parse(test);
   var responseJson = JSON.stringify(data.response);
 
   var query = connection.query('INSERT INTO metricName SET column=?', [responseJson], function(err, result) {
