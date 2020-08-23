@@ -11,7 +11,7 @@ server.use(jsonServer.defaults());
 // Add custom routes
 server.get('/custom', function (req, res) { res.json({ msg: 'hello' }) })
 
-server.get('/browsers', function (req, res) { res.json({ msg: 'browsers' }) })
+server.get('/api/browsers', function (req, res) { res.json({ msg: 'DATA IS BEING RETURNED' }) })
 
 // Returns an Express router
 var router = jsonServer.router('db.json');
