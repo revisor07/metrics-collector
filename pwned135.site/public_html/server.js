@@ -1,5 +1,5 @@
 // app.js file
-
+var mysql = require('mysql');
 var jsonServer = require('json-server');
 
 // Returns an Express server
