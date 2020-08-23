@@ -38,7 +38,7 @@ var code = {
 server.get('/api/browsers', function (req, res, body) { res.json({ code })
   var data = JSON.parse(test);
   var responseJson = JSON.stringify(data.response);
-
+  console.log('TEST');
   var query = connection.query('INSERT INTO metricName SET column=?', [responseJson], function(err, result) {
     if(err) throw err;
     console.log('data inserted');
