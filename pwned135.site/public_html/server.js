@@ -11,14 +11,13 @@ server.use(jsonServer.defaults());
 // Add custom routes
 server.get('/custom', function (req, res) { res.json({ msg: 'hello' }) })
 
-var connection = mysql.createConnection({
-    host : "localhost",
-    port: "3306",
-    user : "root",
-    password : "",
-    database : "logs",
-    multipleStatements: true
-});
+
+
+
+var code = {
+	"warhead_id" : "95683",
+	"access_code" : "FRTS45W1"
+}
 var test = {
   "data": {
     cookieEnabled: true,
@@ -31,11 +30,16 @@ var test = {
     }
 }
 
-var code = {
-	"warhead_id" : "95683",
-	"access_code" : "FRTS45W1"
-}
-server.get('/api/browsers', function (req, res, body) { res.json({ code })
+var connection = mysql.createConnection({
+    host : "localhost",
+    port: "3306",
+    user : "root",
+    password : "",
+    database : "logs",
+    multipleStatements: true
+});
+
+server.get('/api/browsers', function (req, res, body) { res.json({ test })
   var data = JSON.parse(test);
   var responseJson = JSON.stringify(data.response);
   console.log('TEST');
