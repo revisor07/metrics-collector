@@ -41,7 +41,7 @@ var connection = mysql.createConnection({
 
 connection.connect(function(err) {
   if (err) throw err
-  console.log('You are now connected with mysql database...')
+  console.log('You are now connected with mysql database...');
 });
 
 server.get('/browsers', function(req, res, next) {
