@@ -39,14 +39,15 @@ var connection = mysql.createConnection({
     multipleStatements: true
 });
 
-server.get('/api/browsers', function (req, res, body) { res.json({ test })
-  var data = JSON.parse(test);
+server.get('/api/browsers', function (req, res) { 
+  var data = JSON.parse(test["data"]);
   var responseJson = JSON.stringify(data.response);
   console.log('TEST');
   var query = connection.query('INSERT INTO metricName SET column=?', [responseJson], function(err, result) {
     if(err) throw err;
     console.log('data inserted');
   });
+  res.json({ test })
 })
 
 // Returns an Express router
