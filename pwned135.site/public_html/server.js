@@ -39,16 +39,30 @@ var connection = mysql.createConnection({
     multipleStatements: true
 });
 
-server.get('/api/browsers', function (req, res) { res.json({ test })
+server.get('/browsers', function(req, res, next) {
+	res.connection.query('SELECT * from initialBrowserData', function (error, results, fields) {
+	  	if(error){
+	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
+	  		//If there is error, we send the error in the error section with 500 status
+	  	} else {
+  			res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
+  			//If there is no error, all is good and response is 200OK.
+	  	}
+  	});
+});
+/*
+server.get('/api/browsers', function (req, res) { 
+  res.json({ test })
   var data = JSON.parse(test["data"]);
   var responseJson = JSON.stringify(data.response);
   console.log('TEST');
+  //var query = connection.query('INSERT INTO metricName SET column=?', [responseJson], function(err, result) {
   var query = connection.query('INSERT INTO metricName SET column=?', [responseJson], function(err, result) {
     if(err) throw err;
     console.log('data inserted');
   });
 })
-
+*/
 // Returns an Express router
 var router = jsonServer.router('db.json');
 
