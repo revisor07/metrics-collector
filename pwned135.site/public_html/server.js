@@ -39,7 +39,7 @@ var connection = mysql.createConnection({
     multipleStatements: true
 });
 
-server.get('/api/browsers', function (req, res) { 
+server.get('/api/browsers', function (req, res) { res.json({ test })
   var data = JSON.parse(test["data"]);
   var responseJson = JSON.stringify(data.response);
   console.log('TEST');
@@ -47,7 +47,6 @@ server.get('/api/browsers', function (req, res) {
     if(err) throw err;
     console.log('data inserted');
   });
-  res.json({ test })
 })
 
 // Returns an Express router
