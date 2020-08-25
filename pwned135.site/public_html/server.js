@@ -39,6 +39,11 @@ var connection = mysql.createConnection({
     multipleStatements: true
 });
 
+connection.connect(function(err) {
+  if (err) throw err
+  console.log('You are now connected with mysql database...')
+})
+
 server.get('/browsers', function(req, res, next) {
 	connection.query('SELECT * from initialBrowserData', function (error, results, fields) {
 	  	if(error){
