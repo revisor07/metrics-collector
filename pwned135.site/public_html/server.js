@@ -84,7 +84,7 @@ server.post('/browser', function (req, res, next) {
 	});
 });
 */
-router.post('/browser', (req, res, next) => {
+server.post('/browser', (req, res, next) => {
   db.query(
     //"INSERT INTO Domains(Domain) VALUES (?)", JSON.stringify(req.body));
     'INSERT INTO initialBrowserData(data, vitalsScore) VALUES (?, ?);', [data, vitalsScore])
