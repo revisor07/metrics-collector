@@ -47,14 +47,12 @@ server.get('/browsers', function(req, res, next) {
 	connection.query('SELECT * from initialBrowserData', function (error, results, fields) {
 	  	if(error){
 	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
-	  		//If there is error, we send the error in the error section with 500 status
 	  	} else {
-  			//res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
   			res.send(JSON.stringify({results}));
-  			//If there is no error, all is good and response is 200OK.
 	  	}
   	});
 });
+
 
 /*
 server.get('/api/browsers', function (req, res) { 
