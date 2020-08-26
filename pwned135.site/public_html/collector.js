@@ -459,7 +459,9 @@ function reportPerf(measureName, data, customProperties = {}) {
           return response.json();
         }).then(function(data) {
           console.log('success', data;
-        });
+        }).catch(function(error) {
+        console.log(error);
+      });
     }
   });
 }
