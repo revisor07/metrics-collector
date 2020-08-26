@@ -2,35 +2,10 @@
 <html>
 <head>
   <!--Script Reference-->
-  <!--<script src="https://cdn.zinggrid.com/zinggrid.min.js" defer></script>-->
+  <script src="https://cdn.zinggrid.com/zinggrid.min.js" defer></script>
 </head>
 <body>
-
-<script>
-  <?php
-    $mysqli = new mysqli("localhost", "root", "", "logs");
-
-    if($mysqli->connect_error) {
-      die('Connect Error (' . $myssqli->connect_errno . ')' . $mysqli->connect_error);
-    }
-    $mydata = []; /* will be used to store result array */
-
-    if ($result = $mysqli->query("SELECT * FROM initialBroswerData2")) {
-      $mydata = $result->fetch_all(MYSQLI_ASSOC);
-      $result->close();
-    }
-  ?>
-  var dataValues = <?php echo json_encode($mydata) ?>;
-  <?php
-    $mysqli->close();
-  ?>
-  window.onload = function() {
-  document.querySelector('zing-grid').data = dataValues;
-  }
-</script>
-
-
   <!--Grid Component-->
-  <zing-grid></zing-grid>
+  <zing-grid src="http://localhost:3000/database"></zing-grid>
 </body>
 </html>

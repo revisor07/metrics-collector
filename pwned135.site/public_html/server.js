@@ -50,6 +50,13 @@ connection.connect(function(err) {
   console.log('Mysql Connected...');
 });
 
+server.get('/database', function(req, res) {
+  connection.query(queryString, function(err, rows, fields) {
+    if (err) throw err;
+    res.send(rows);
+  });
+});
+
 //get whole browser
 server.get('/browser', function(req, res, next) {
 	connection.query('SELECT * from initialBrowserData', function (error, results, fields) {
