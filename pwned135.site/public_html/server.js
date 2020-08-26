@@ -77,7 +77,7 @@ server.post('/browser', function (req, res, next) {
 	//var postData  = req.body;
 	console.log(req.body);
 	//connection.query('INSERT INTO initialBrowserData SET ?', postData, function (error, results, fields) {
-	connection.query('INSERT INTO initialBrowserData(data, vitalsScore) VALUES (?, ?)', [data, vitalsScore] function (error, results, fields) {
+	connection.query('INSERT INTO initialBrowserData(data, vitalsScore) VALUES (?, ?)', [data, vitalsScore], function (error, results, fields) {
 	  if (error) throw error;
 	  res.end(JSON.stringify(results));
 	});
