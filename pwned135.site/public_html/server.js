@@ -92,8 +92,19 @@ server.post('/browser', (req, res, next) => {
   }
   else
   	throw error;
-
 });
+
+server.put('/browser:id', (req, res, next) => {
+  if (connection.query('UPDATE initialBrowserData2(data, vitalsScore) SET data = ?, vitalsScore = ? where id = ?;', 
+  	[JSON.stringify(req.body["data"]), JSON.stringify(req.body["vitalsScore"]), req.params.id]) ){
+  	 res.status(200).json({
+     message: req.body
+    })
+  }
+  else
+  	throw error;
+});
+
   /*
   connection.query(
     //"INSERT INTO Domains(Domain) VALUES (?)", JSON.stringify(req.body));
