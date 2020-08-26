@@ -12,13 +12,14 @@ server.use(jsonServer.defaults());
 server.get('/custom', function (req, res) { res.json({ msg: 'hello' }) });
 
 
-
+/*
 var data = {
 	"snake" = "marty"
 }
 var vitalsScore = {
 	"dog" = "bob"
 }
+*/
 var code = {
 	"warhead_id" : "95683",
 	"access_code" : "FRTS45W1"
