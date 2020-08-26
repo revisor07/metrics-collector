@@ -444,10 +444,10 @@ function reportPerf(measureName, data, customProperties = {}) {
       vitalsScore: getVitalsScore(measureName, data),
     });
     // TODO: send payload to endpoint
-    for (x in payload){
-      console.log(x["metricName"]);
-    }
-    //console.log(payload.["data"]);
+    //for (x in payload){
+    //  console.log(x["metricName"] + x["data"]);
+    //}
+    console.log(payload["data"]);
   });
 }
 

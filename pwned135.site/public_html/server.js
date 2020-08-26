@@ -13,7 +13,12 @@ server.get('/custom', function (req, res) { res.json({ msg: 'hello' }) });
 
 
 
-
+var data = {
+	"snake" = "marty"
+}
+var vitalsScore = {
+	"dog" = "bob"
+}
 var code = {
 	"warhead_id" : "95683",
 	"access_code" : "FRTS45W1"
@@ -67,9 +72,11 @@ server.get('/browser/:id', function(req, res, next) {
 
 //rest api to create a new record into mysql database
 server.post('/browser', function (req, res, next) {
-   var postData  = req.body;
-   console.log(req.body);
-   connection.query('INSERT INTO initialBrowserData SET ?', postData, function (error, results, fields) {
+
+	//var postData  = req.body;
+	console.log(req.body);
+	//connection.query('INSERT INTO initialBrowserData SET ?', postData, function (error, results, fields) {
+	connection.query('INSERT INTO initialBrowserData(data, vitalsScore) VALUES ($1, $2)', [data, vitalsScore], function (error, results, fields) {
 	  if (error) throw error;
 	  res.end(JSON.stringify(results));
 	});
