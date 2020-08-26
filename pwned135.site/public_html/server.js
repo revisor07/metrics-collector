@@ -14,10 +14,10 @@ server.get('/custom', function (req, res) { res.json({ msg: 'hello' }) });
 
 
 var data = {
-	"snake" = "marty"
+	"snake" : "marty"
 }
 var vitalsScore = {
-	"dog" = "bob"
+	"dog" : "bob"
 }
 
 var code = {
@@ -70,7 +70,7 @@ server.get('/browser/:id', function(req, res, next) {
 	  	}
   	});
 });
-/*
+
 //rest api to create a new record into mysql database
 server.post('/browser', function (req, res, next) {
 
@@ -82,7 +82,7 @@ server.post('/browser', function (req, res, next) {
 	  res.end(JSON.stringify(results));
 	});
 });
-*/
+
 
 
 
