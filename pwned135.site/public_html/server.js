@@ -50,7 +50,7 @@ connection.connect(function(err) {
   console.log('Mysql Connected...');
 });
 
-server.get('/database', function(req, res) {
+server.get('/logs', function(req, res) {
   connection.query(queryString, function(err, rows, fields) {
     if (err) throw err;
     res.send(rows);
