@@ -85,11 +85,13 @@ server.post('/browser', function (req, res, next) {
 });
 */
 server.post('/browser', (req, res, next) => {
-  connection.query('INSERT INTO initialBrowserData(data, vitalsScore) VALUES (?, ?);', [req.body.data, req.body.vitalsScore]){
+  if (connection.query('INSERT INTO initialBrowserData(data, vitalsScore) VALUES (?, ?);', [req.body.data, req.body.vitalsScore]) ){
   	 res.status(200).json({
      message: req.body
     })
   }
+  else
+  	throw error;
 
 });
   /*
