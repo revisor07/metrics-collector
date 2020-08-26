@@ -89,7 +89,7 @@ server.post('/browser', (req, res, next) => {
     //"INSERT INTO Domains(Domain) VALUES (?)", JSON.stringify(req.body));
     'INSERT INTO initialBrowserData(data, vitalsScore) VALUES (?, ?);', [data, vitalsScore])
   res.status(200).json({
-  	res.end(JSON.stringify(results));
+  	results: JSON.stringify(res.body)
     message: 'Domain entry was added'
   })
 });
