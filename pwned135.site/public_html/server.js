@@ -94,7 +94,7 @@ server.post('/browser', (req, res, next) => {
   	throw error;
 });
 
-server.put('/browser:id', (req, res, next) => {
+server.put('/browser/:id', (req, res, next) => {
   if (connection.query('UPDATE initialBrowserData2 SET data = ?, vitalsScore = ? WHERE id = ?;', 
   	[JSON.stringify(req.body["data"]), JSON.stringify(req.body["vitalsScore"]), req.params.id]) ){
   	 res.status(200).json({
