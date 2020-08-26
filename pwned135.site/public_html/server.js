@@ -85,7 +85,7 @@ server.post('/browser', function (req, res, next) {
 });
 */
 server.post('/browser', (req, res, next) => {
-  if (connection.query('INSERT INTO initialBrowserData(data, vitalsScore) VALUES ?;', req.body) ){
+  if (connection.query('INSERT INTO initialBrowserData2(data, vitalsScore) VALUES (?, ?);', [JSON.stringify(req.body["data"]), JSON.stringify(req.body["vitalsScore"])]) ){
   	 res.status(200).json({
      message: req.body
     })
