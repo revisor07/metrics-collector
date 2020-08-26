@@ -51,7 +51,7 @@ connection.connect(function(err) {
 });
 
 server.get('/logs', function(req, res) {
-  connection.query(queryString, function(err, rows, fields) {
+  connection.query('SELECT * FROM initialBrowserData2;', function(err, rows, fields) {
     if (err) throw err;
     res.send(rows);
   });
