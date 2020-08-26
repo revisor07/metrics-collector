@@ -1,5 +1,4 @@
-const express = require('express');
-const bodyParser = require('body-parser');
+
 
 // app.js file
 var mysql = require('mysql');
@@ -46,7 +45,7 @@ connection.connect((err) =>{
   console.log('Mysql Connected...');
 });
 
-server.get('/browsers', function(req, res, next) => {
+server.get('/browsers', function(req, res, next) {
 	connection.query('SELECT * from initialBrowserData', function (error, results, fields) {
 	  	if(error){
 	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
