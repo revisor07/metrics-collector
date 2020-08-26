@@ -85,11 +85,12 @@ server.post('/browser', function (req, res, next) {
 });
 */
 server.post('/browser', (req, res, next) => {
+  
   connection.query(
     //"INSERT INTO Domains(Domain) VALUES (?)", JSON.stringify(req.body));
     'INSERT INTO initialBrowserData(data, vitalsScore) VALUES (?, ?);', [req.body.data, req.body.vitalsScore])
   res.status(200).json({
-    message: 'success'
+    message: req.body.data
   })
 
 });
