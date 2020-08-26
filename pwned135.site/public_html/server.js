@@ -66,7 +66,7 @@ server.get('/browser/:id', function(req, res, next) {
 });
 
 //rest api to create a new record into mysql database
-server.post('/browser', function (req, res, next) {
+server.post('/browser', function (req, res) {
    var postData  = req.body;
    console.log(req.body);
    connection.query('INSERT INTO initialBrowserData SET ?', postData, function (error, results, fields) {
