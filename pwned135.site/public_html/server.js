@@ -106,7 +106,7 @@ server.put('/browser/:id', (req, res, next) => {
 });
 
 server.delete('/browser/:id', (req, res, next) => {
-  if (connection.query('DELETE FROM initialBrowserData2 WHERE id = ?;', req.params.id ){
+  if (connection.query('DELETE FROM initialBrowserData2 WHERE id = ?;', req.params.id )){
   	 res.status(200).json({
      message: "entry deleted"
     })
