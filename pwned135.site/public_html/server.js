@@ -85,13 +85,13 @@ server.post('/browser', function (req, res, next) {
 });
 */
 server.post('/browser', (req, res, next) => {
-  print("snake");
   if (connection.query('INSERT INTO initialBrowserData(data, vitalsScore) VALUES (?, ?);', [req.body.data, req.body.vitalsScore]) == true){
-  	print("snake");
+  	console.log("SNAKE")
   }
   res.status(200).json({
      message: req.body
     })
+});
   /*
   connection.query(
     //"INSERT INTO Domains(Domain) VALUES (?)", JSON.stringify(req.body));
@@ -100,7 +100,7 @@ server.post('/browser', (req, res, next) => {
     message: req.body
   })
 */
-});
+
 
 
 
