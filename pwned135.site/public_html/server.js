@@ -1,6 +1,4 @@
 
-const express = require('express');
-const bodyParser = require('body-parser');
 // app.js file
 var mysql = require('mysql');
 var jsonServer = require('json-server');
@@ -33,7 +31,7 @@ var test = {
     }
 }
 
-const connection = mysql.createConnection({
+var connection = mysql.createConnection({
     host : "localhost",
     //port: "3306",
     user : "root",
@@ -45,7 +43,7 @@ connection.connect(function(err) {
   if(err) throw err;
   console.log('Mysql Connected...');
 });
-*/
+
 server.get('/browsers', function(req, res, next) {
 	connection.query('SELECT * from initialBrowserData', function (error, results, fields) {
 	  	if(error){
