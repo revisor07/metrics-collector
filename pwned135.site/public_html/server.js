@@ -29,7 +29,7 @@ var test = {
     userAgent: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537"
     }
 }
-/*
+
 var connection = mysql.createConnection({
     host : "localhost",
     //port: "3306",
@@ -54,7 +54,7 @@ server.get('/browsers', function(req, res, next) {
 	  	}
   	});
 });
-*/
+
 /*
 server.get('/api/browsers', function (req, res) { 
   res.json({ test })
