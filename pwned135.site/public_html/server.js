@@ -33,14 +33,14 @@ var test = {
 }
 
 const connection = mysql.createConnection({
-    host : "localhost",
+    host : 'localhost',
     //port: "3306",
-    user : "root",
-    password : "",
-    database : "logs",
+    user : 'root',
+    password : '',
+    database : 'logs'
 });
 
-connection.connect((err) =>{
+connection.connect(function(err) {
   if(err) throw err;
   console.log('Mysql Connected...');
 });
