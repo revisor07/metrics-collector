@@ -71,21 +71,10 @@ server.get('/browser/:id', function(req, res, next) {
 	  	}
   	});
 });
-/*
-//rest api to create a new record into mysql database
-server.post('/browser', function (req, res, next) {
 
-	//var postData  = req.body;
-	console.log(req.body);
-	//connection.query('INSERT INTO initialBrowserData SET ?', postData, function (error, results, fields) {
-	connection.query('INSERT INTO initialBrowserData(data, vitalsScore) VALUES (?, ?);', [data, vitalsScore], function (error, results, fields) {
-	  if (error) throw error;
-	  res.end(JSON.stringify(results));
-	});
-});
-*/
 server.post('/browser', (req, res, next) => {
-  if (connection.query('INSERT INTO initialBrowserData2(data, vitalsScore) VALUES (?, ?);', [JSON.stringify(req.body["data"]), JSON.stringify(req.body["vitalsScore"])]) ){
+  if (connection.query('INSERT INTO initialBrowserData2(data, vitalsScore) VALUES (?, ?);', 
+  	[JSON.stringify(req.body["data"]), JSON.stringify(req.body["vitalsScore"])]) ){
   	 res.status(200).json({
      message: req.body
     })
@@ -115,14 +104,7 @@ server.delete('/browser/:id', (req, res, next) => {
   	throw error;
 });
 
-  /*
-  connection.query(
-    //"INSERT INTO Domains(Domain) VALUES (?)", JSON.stringify(req.body));
-    'INSERT INTO initialBrowserData(data, vitalsScore) VALUES (?, ?);', [req.body.data, req.body.vitalsScore])
-  res.status(200).json({
-    message: req.body
-  })
-*/
+
 
 
 
