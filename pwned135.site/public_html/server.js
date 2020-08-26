@@ -1,10 +1,11 @@
 // app.js file
 var mysql = require('mysql');
 var jsonServer = require('json-server');
+const bodyparser = require('body-parser');
 
 // Returns an Express server
 var server = jsonServer.create();
-
+server.use(bodyparser.json());
 // Set default middlewares (logger, static, cors and no-cache)
 server.use(jsonServer.defaults());
 
@@ -70,17 +71,26 @@ server.get('/browser/:id', function(req, res, next) {
 	  	}
   	});
 });
-
+/*
 //rest api to create a new record into mysql database
 server.post('/browser', function (req, res, next) {
 
 	//var postData  = req.body;
 	console.log(req.body);
 	//connection.query('INSERT INTO initialBrowserData SET ?', postData, function (error, results, fields) {
-	connection.query('INSERT INTO initialBrowserData(data, vitalsScore) VALUE (?, ?)', [data, vitalsScore], function (error, results, fields) {
+	connection.query('INSERT INTO initialBrowserData(data, vitalsScore) VALUES (?, ?);', [data, vitalsScore], function (error, results, fields) {
 	  if (error) throw error;
 	  res.end(JSON.stringify(results));
 	});
+});
+*/
+router.post('/browser', (req, res, next) => {
+  db.query(
+    //"INSERT INTO Domains(Domain) VALUES (?)", JSON.stringify(req.body));
+    'INSERT INTO initialBrowserData(data, vitalsScore) VALUES (?, ?);', [data, vitalsScore])
+  res.status(200).json({
+    message: 'Domain entry was added'
+  })
 });
 
 
