@@ -444,7 +444,10 @@ function reportPerf(measureName, data, customProperties = {}) {
       vitalsScore: getVitalsScore(measureName, data),
     });
     // TODO: send payload to endpoint
-    console.log(payload.metricName["initialBrowserData"]);
+    for (x in payload){
+      console.log(x["data"] + x["metricName"]);
+    }
+    //console.log(payload.["data"]);
   });
 }
 
