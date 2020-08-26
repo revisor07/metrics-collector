@@ -1,3 +1,6 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+
 // app.js file
 var mysql = require('mysql');
 var jsonServer = require('json-server');
@@ -9,7 +12,7 @@ var server = jsonServer.create();
 server.use(jsonServer.defaults());
 
 // Add custom routes
-server.get('/custom', function (req, res) { res.json({ msg: 'hello' }) })
+server.get('/custom', function (req, res) { res.json({ msg: 'hello' }) });
 
 
 
@@ -30,21 +33,20 @@ var test = {
     }
 }
 
-var connection = mysql.createConnection({
+const connection = mysql.createConnection({
     host : "localhost",
     //port: "3306",
     user : "root",
     password : "",
     database : "logs",
-    multipleStatements: true
 });
 
-connection.connect(function(err) {
-  if (err) throw err
-  console.log('You are now connected with mysql database...');
+connection.connect((err) =>{
+  if(err) throw err;
+  console.log('Mysql Connected...');
 });
 
-server.get('/browsers', function(req, res, next) {
+server.get('/browsers', function(req, res, next) => {
 	connection.query('SELECT * from initialBrowserData', function (error, results, fields) {
 	  	if(error){
 	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
