@@ -40,12 +40,12 @@ const connection = mysql.createConnection({
     password : "",
     database : "logs",
 });
-
+/*
 connection.connect(function(err) {
   if(err) throw err;
   console.log('Mysql Connected...');
 });
-
+*/
 server.get('/browsers', function(req, res, next) {
 	connection.query('SELECT * from initialBrowserData', function (error, results, fields) {
 	  	if(error){
