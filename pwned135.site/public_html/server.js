@@ -1,4 +1,3 @@
-
 // app.js file
 var mysql = require('mysql');
 var jsonServer = require('json-server');
@@ -30,7 +29,7 @@ var test = {
     userAgent: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537"
     }
 }
-
+/*
 var connection = mysql.createConnection({
     host : "localhost",
     //port: "3306",
