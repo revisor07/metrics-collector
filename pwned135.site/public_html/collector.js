@@ -445,7 +445,7 @@ function reportPerf(measureName, data, customProperties = {}) {
     });
     // TODO: send payload to endpoint
     for (x in payload){
-      console.log(x["data"] + x["metricName"]);
+      console.log(x["metricName"]);
     }
     //console.log(payload.["data"]);
   });
