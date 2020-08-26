@@ -56,7 +56,7 @@ server.get('/browsers', function(req, res, next) {
 
 //select by id #
 server.get('/browsers/:id', function(req, res, next) {
-	connection.query('SELECT * from initialBrowserData WHERE id=?', [req.params.id], function (error, results, fields) {
+	connection.query('SELECT * from initialBrowserData WHERE id=?', [id], function (error, results, fields) {
 	  	if(error){
 	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
 	  	} else {
