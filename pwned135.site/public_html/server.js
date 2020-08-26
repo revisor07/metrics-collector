@@ -87,11 +87,14 @@ server.post('/browser', function (req, res, next) {
 server.post('/browser', (req, res, next) => {
   connection.query(
     //"INSERT INTO Domains(Domain) VALUES (?)", JSON.stringify(req.body));
-    'INSERT INTO initialBrowserData(data, vitalsScore) VALUES (?, ?);', [data, vitalsScore])
+    'INSERT INTO initialBrowserData(data, vitalsScore) VALUES (?, ?);', [data, vitalsScore], function (error, results, fields))
+  res.send(JSON.stringify({results}));
+  /*
   res.status(200).json({
   	results: JSON.stringify(res.body)
     message: 'Domain entry was added'
   })
+  */
 });
 
 
