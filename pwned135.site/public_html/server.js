@@ -105,6 +105,16 @@ server.put('/browser/:id', (req, res, next) => {
   	throw error;
 });
 
+server.delete('/browser/:id', (req, res, next) => {
+  if (connection.query('DELETE FROM initialBrowserData2 WHERE id = ?;', req.params.id ){
+  	 res.status(200).json({
+     message: "entry deleted"
+    })
+  }
+  else
+  	throw error;
+});
+
   /*
   connection.query(
     //"INSERT INTO Domains(Domain) VALUES (?)", JSON.stringify(req.body));
