@@ -457,7 +457,7 @@ function reportPerf(measureName, data, customProperties = {}) {
         headers: {
           "Content-Type" : "application/json",
         },
-        body: JSON.parse(obj),})
+        body: JSON.stringify(obj),})
         .then(function(response) {
           return response.json();
         }).then(function(data) {
