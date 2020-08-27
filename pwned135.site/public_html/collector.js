@@ -461,7 +461,7 @@ function reportPerf(measureName, data, customProperties = {}) {
         .then(function(response) {
           return response.json();
         }).then(function(data) {
-          console.log('success', data)
+          console.log('success', response.body)
         }).catch(function(error) {
         console.log(error);
       });
