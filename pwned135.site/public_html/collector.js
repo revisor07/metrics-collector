@@ -448,7 +448,7 @@ function reportPerf(measureName, data, customProperties = {}) {
     //  console.log(x["metricName"] + x["data"]);
     //}
     //console.log(payload["data"]);
-    if(measureName == "initialBrowsingData") {
+    if(measureName == "initialBrowserData") {
       var data = payload["data"];
       var vitalsScore = payload["vitalsScore"];
       console.log("data");
