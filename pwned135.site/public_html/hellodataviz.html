@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+
+  <h2>*★,°*:.☆*.°★*Charts*★,°*:.☆*.°★* </h2>
+</head>
+
+<body>
+<script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+<div id="threeSeries"></div>
+<script>
+  zingchart.render({
+    id: 'threeSeries',
+    data: {
+      type: 'line',
+      series: [
+        { values: [54,23,34,23,43] },
+        { values: [10,15,16,20,40] }
+      ]
+    }
+  });
+</script>
+
+
+<div id="twoSeries"></div>
+<script>
+  zingchart.render({
+    id: 'twoSeries',
+    data: {
+      type: 'bar',
+      series: [
+        { values: [54,23,34,23,43] },
+        { values: [10,15,16,20,40] }
+      ]
+    }
+  });
+</script>
+
+<div id="pie"></div>
+<script>
+  zingchart.render({
+    id: 'pie',
+    data: {
+      type: 'pie',
+      series: [
+        { values: [54,23,34,23,43] },
+        { values: [10,15,16,20,40] }
+      ]
+    }
+  });
+</script>
+</body>
+
+</html>

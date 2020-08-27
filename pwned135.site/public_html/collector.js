@@ -434,7 +434,7 @@ function pushTask(cb) {
  * Sends the User timing measure to analyticsTracker
  */
 function reportPerf(measureName, data, customProperties = {}) {
-  pushTask(() => {
+  pushTask ( () => {
     // Send metric to custom Analytics service
     let payload = ({
       metricName: measureName,
@@ -443,11 +443,43 @@ function reportPerf(measureName, data, customProperties = {}) {
       navigatorInformation: getNavigatorInfo(),
       vitalsScore: getVitalsScore(measureName, data),
     });
-    // TODO: send payload to endpoint
-    //for (x in payload){
-    //  console.log(x["metricName"] + x["data"]);
+
+
+    //console.log(payload);
+    
+    var name = ""
+    if(measureName == "initialBrowserData")
+      name = "browser";
+    else if (measureName == "navigationTiming")
+      name = "navigation";
+    else if (measureName == "networkInformation")
+      name = "network";
+    else if (measureName == "storageEstimate")
+      name = "storage";
+    else if (["fp", "fcp", "fid", "lcp", "lcpFinal", "cls", "clsFinal" , "tbt"].includes(measureName))
+      name = measureName;
+
+    //if(measureName == "initialBrowserData") {
+      var vitalsScore = payload["vitalsScore"];
+      var obj = {data, vitalsScore}
+      console.log(JSON.stringify(obj));
+      fetch("https://pwned135.site/api/"+name, {
+        method: 'POST',
+        headers: {
+          "Content-Type" : "application/json",
+        },
+        body: JSON.stringify(obj),})
+        .then(function(response) {
+          return response.json();
+        }).then(function(data) {
+          console.log('success', obj)
+        }).catch(function(error) {
+        console.log(error);
+      });
     //}
-    console.log(payload["data"]);
+  
+
+    
   });
 }
 
