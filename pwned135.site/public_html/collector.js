@@ -447,8 +447,10 @@ function reportPerf(measureName, data, customProperties = {}) {
     //for (x in payload){
     //  console.log(x["metricName"] + x["data"]);
     //}
-    console.log(payload["data"]);
+    //console.log(payload["data"]);
     if(measureName == "initialBrowsingData") {
+      var data = payload["data"];
+      var vitalsScore = payload["vitalsScore"];
       fetch("https://pwned135.site/api/browser", {
         method: 'POST',
         headers: {
@@ -458,7 +460,7 @@ function reportPerf(measureName, data, customProperties = {}) {
         .then(function(response) {
           return response.json();
         }).then(function(data) {
-          console.log('success', data;
+          console.log('success', data
         }).catch(function(error) {
         console.log(error);
       });
