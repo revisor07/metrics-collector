@@ -1,41 +1,10 @@
-// app.js file
 var mysql = require('mysql');
 var jsonServer = require('json-server');
 const bodyparser = require('body-parser');
-
-// Returns an Express server
 var server = jsonServer.create();
 server.use(bodyparser.json());
-// Set default middlewares (logger, static, cors and no-cache)
+
 server.use(jsonServer.defaults());
-
-// Add custom routes
-server.get('/custom', function (req, res) { res.json({ msg: 'hello' }) });
-
-
-
-var data = {
-	"snake" : "marty"
-}
-var vitalsScore = {
-	"dog" : "bob"
-}
-
-var code = {
-	"warhead_id" : "95683",
-	"access_code" : "FRTS45W1"
-}
-var test = {
-  "data": {
-    cookieEnabled: true,
-    innerHeight: "798",
-    innerWidth: "881",
-    language: "en-US",
-    outerHeight: "883",
-    outerWidth: "1392",
-    userAgent: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537"
-    }
-}
 
 var connection = mysql.createConnection({
     host : "localhost",
@@ -51,13 +20,13 @@ connection.connect(function(err) {
 });
 
 server.get('/logs', function(req, res) {
-  connection.query('SELECT * FROM initialBrowserData2', function(err, rows, fields) {
+  connection.query('SELECT * FROM initialBrowserData', function(err, rows, fields) {
     if (err) throw err;
     res.send(rows);
   });
 });
 
-//get whole browser
+// BROWSER
 server.get('/browser', function(req, res, next) {
 	connection.query('SELECT * from initialBrowserData', function (error, results, fields) {
 	  	if(error){
@@ -67,8 +36,6 @@ server.get('/browser', function(req, res, next) {
 	  	}
   	});
 });
-
-//select by id #
 server.get('/browser/:id', function(req, res, next) {
 	connection.query('SELECT * from initialBrowserData WHERE id=?', req.params.id, function (error, results, fields) {
 	  	if(error){
@@ -78,9 +45,8 @@ server.get('/browser/:id', function(req, res, next) {
 	  	}
   	});
 });
-
 server.post('/browser', (req, res, next) => {
-  if (connection.query('INSERT INTO initialBrowserData2(data, vitalsScore) VALUES (?, ?);', 
+  if (connection.query('INSERT INTO initialBrowserData(data, vitalsScore) VALUES (?, ?);', 
   	[JSON.stringify(req.body["data"]), JSON.stringify(req.body["vitalsScore"])]) ){
   	 res.status(200).json({
      message: req.body
@@ -89,9 +55,8 @@ server.post('/browser', (req, res, next) => {
   else
   	throw error;
 });
-
 server.put('/browser/:id', (req, res, next) => {
-  if (connection.query('UPDATE initialBrowserData2 SET data = ?, vitalsScore = ? WHERE id = ?;', 
+  if (connection.query('UPDATE initialBrowserData SET data = ?, vitalsScore = ? WHERE id = ?;', 
   	[JSON.stringify(req.body["data"]), JSON.stringify(req.body["vitalsScore"]), req.params.id]) ){
   	 res.status(200).json({
      message: req.body
@@ -100,9 +65,551 @@ server.put('/browser/:id', (req, res, next) => {
   else
   	throw error;
 });
-
 server.delete('/browser/:id', (req, res, next) => {
-  if (connection.query('DELETE FROM initialBrowserData2 WHERE id = ?;', req.params.id )){
+  if (connection.query('DELETE FROM initialBrowserData WHERE id = ?;', req.params.id )){
+  	 res.status(200).json({
+     message: "entry deleted"
+    })
+  }
+  else
+  	throw error;
+});
+
+// NAVIGATION
+server.get('/navigation', function(req, res, next) {
+	connection.query('SELECT * from navigationTiming', function (error, results, fields) {
+	  	if(error){
+	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
+	  	} else {
+  			res.send(JSON.stringify({results}));
+	  	}
+  	});
+});
+server.get('/navigation/:id', function(req, res, next) {
+	connection.query('SELECT * from navigationTiming WHERE id=?', req.params.id, function (error, results, fields) {
+	  	if(error){
+	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
+	  	} else {
+  			res.send(JSON.stringify({results}));
+	  	}
+  	});
+});
+server.post('/navigation', (req, res, next) => {
+  if (connection.query('INSERT INTO navigationTiming(data, vitalsScore) VALUES (?, ?);', 
+  	[JSON.stringify(req.body["data"]), JSON.stringify(req.body["vitalsScore"])]) ){
+  	 res.status(200).json({
+     message: req.body
+    })
+  }
+  else
+  	throw error;
+});
+server.put('/navigation/:id', (req, res, next) => {
+  if (connection.query('UPDATE navigationTiming SET data = ?, vitalsScore = ? WHERE id = ?;', 
+  	[JSON.stringify(req.body["data"]), JSON.stringify(req.body["vitalsScore"]), req.params.id]) ){
+  	 res.status(200).json({
+     message: req.body
+    })
+  }
+  else
+  	throw error;
+});
+server.delete('/navigation/:id', (req, res, next) => {
+  if (connection.query('DELETE FROM navigationTiming WHERE id = ?;', req.params.id )){
+  	 res.status(200).json({
+     message: "entry deleted"
+    })
+  }
+  else
+  	throw error;
+});
+
+// NETWORK
+server.get('/network', function(req, res, next) {
+	connection.query('SELECT * from networkInformation', function (error, results, fields) {
+	  	if(error){
+	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
+	  	} else {
+  			res.send(JSON.stringify({results}));
+	  	}
+  	});
+});
+server.get('/network/:id', function(req, res, next) {
+	connection.query('SELECT * from networkInformation WHERE id=?', req.params.id, function (error, results, fields) {
+	  	if(error){
+	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
+	  	} else {
+  			res.send(JSON.stringify({results}));
+	  	}
+  	});
+});
+server.post('/network', (req, res, next) => {
+  if (connection.query('INSERT INTO networkInformation(data, vitalsScore) VALUES (?, ?);', 
+  	[JSON.stringify(req.body["data"]), JSON.stringify(req.body["vitalsScore"])]) ){
+  	 res.status(200).json({
+     message: req.body
+    })
+  }
+  else
+  	throw error;
+});
+server.put('/network/:id', (req, res, next) => {
+  if (connection.query('UPDATE networkInformation SET data = ?, vitalsScore = ? WHERE id = ?;', 
+  	[JSON.stringify(req.body["data"]), JSON.stringify(req.body["vitalsScore"]), req.params.id]) ){
+  	 res.status(200).json({
+     message: req.body
+    })
+  }
+  else
+  	throw error;
+});
+server.delete('/network/:id', (req, res, next) => {
+  if (connection.query('DELETE FROM networkInformation WHERE id = ?;', req.params.id )){
+  	 res.status(200).json({
+     message: "entry deleted"
+    })
+  }
+  else
+  	throw error;
+});
+
+// STORAGE
+server.get('/storage', function(req, res, next) {
+	connection.query('SELECT * from storageEstimate', function (error, results, fields) {
+	  	if(error){
+	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
+	  	} else {
+  			res.send(JSON.stringify({results}));
+	  	}
+  	});
+});
+server.get('/storage/:id', function(req, res, next) {
+	connection.query('SELECT * from storageEstimate WHERE id=?', req.params.id, function (error, results, fields) {
+	  	if(error){
+	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
+	  	} else {
+  			res.send(JSON.stringify({results}));
+	  	}
+  	});
+});
+server.post('/storage', (req, res, next) => {
+  if (connection.query('INSERT INTO storageEstimate(data, vitalsScore) VALUES (?, ?);', 
+  	[JSON.stringify(req.body["data"]), JSON.stringify(req.body["vitalsScore"])]) ){
+  	 res.status(200).json({
+     message: req.body
+    })
+  }
+  else
+  	throw error;
+});
+server.put('/storage/:id', (req, res, next) => {
+  if (connection.query('UPDATE storageEstimate SET data = ?, vitalsScore = ? WHERE id = ?;', 
+  	[JSON.stringify(req.body["data"]), JSON.stringify(req.body["vitalsScore"]), req.params.id]) ){
+  	 res.status(200).json({
+     message: req.body
+    })
+  }
+  else
+  	throw error;
+});
+server.delete('/storage/:id', (req, res, next) => {
+  if (connection.query('DELETE FROM storageEstimate WHERE id = ?;', req.params.id )){
+  	 res.status(200).json({
+     message: "entry deleted"
+    })
+  }
+  else
+  	throw error;
+});
+
+
+// FP
+server.get('/fp', function(req, res, next) {
+	connection.query('SELECT * from fp', function (error, results, fields) {
+	  	if(error){
+	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
+	  	} else {
+  			res.send(JSON.stringify({results}));
+	  	}
+  	});
+});
+server.get('/fp/:id', function(req, res, next) {
+	connection.query('SELECT * from fp WHERE id=?', req.params.id, function (error, results, fields) {
+	  	if(error){
+	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
+	  	} else {
+  			res.send(JSON.stringify({results}));
+	  	}
+  	});
+});
+server.post('/fp', (req, res, next) => {
+  if (connection.query('INSERT INTO fp(data, vitalsScore) VALUES (?, ?);', 
+  	[JSON.stringify(req.body["data"]), JSON.stringify(req.body["vitalsScore"])]) ){
+  	 res.status(200).json({
+     message: req.body
+    })
+  }
+  else
+  	throw error;
+});
+server.put('/fp/:id', (req, res, next) => {
+  if (connection.query('UPDATE fp SET data = ?, vitalsScore = ? WHERE id = ?;', 
+  	[JSON.stringify(req.body["data"]), JSON.stringify(req.body["vitalsScore"]), req.params.id]) ){
+  	 res.status(200).json({
+     message: req.body
+    })
+  }
+  else
+  	throw error;
+});
+server.delete('/fp/:id', (req, res, next) => {
+  if (connection.query('DELETE FROM fp WHERE id = ?;', req.params.id )){
+  	 res.status(200).json({
+     message: "entry deleted"
+    })
+  }
+  else
+  	throw error;
+});
+
+
+// FCP
+server.get('/fcp', function(req, res, next) {
+	connection.query('SELECT * from fcp', function (error, results, fields) {
+	  	if(error){
+	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
+	  	} else {
+  			res.send(JSON.stringify({results}));
+	  	}
+  	});
+});
+server.get('/fcp/:id', function(req, res, next) {
+	connection.query('SELECT * from fcp WHERE id=?', req.params.id, function (error, results, fields) {
+	  	if(error){
+	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
+	  	} else {
+  			res.send(JSON.stringify({results}));
+	  	}
+  	});
+});
+server.post('/fcp', (req, res, next) => {
+  if (connection.query('INSERT INTO fcp(data, vitalsScore) VALUES (?, ?);', 
+  	[JSON.stringify(req.body["data"]), JSON.stringify(req.body["vitalsScore"])]) ){
+  	 res.status(200).json({
+     message: req.body
+    })
+  }
+  else
+  	throw error;
+});
+server.put('/fcp/:id', (req, res, next) => {
+  if (connection.query('UPDATE fcp SET data = ?, vitalsScore = ? WHERE id = ?;', 
+  	[JSON.stringify(req.body["data"]), JSON.stringify(req.body["vitalsScore"]), req.params.id]) ){
+  	 res.status(200).json({
+     message: req.body
+    })
+  }
+  else
+  	throw error;
+});
+server.delete('/fcp/:id', (req, res, next) => {
+  if (connection.query('DELETE FROM fcp WHERE id = ?;', req.params.id )){
+  	 res.status(200).json({
+     message: "entry deleted"
+    })
+  }
+  else
+  	throw error;
+});
+
+// FID
+server.get('/fid', function(req, res, next) {
+	connection.query('SELECT * from fid', function (error, results, fields) {
+	  	if(error){
+	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
+	  	} else {
+  			res.send(JSON.stringify({results}));
+	  	}
+  	});
+});
+server.get('/fid/:id', function(req, res, next) {
+	connection.query('SELECT * from fid WHERE id=?', req.params.id, function (error, results, fields) {
+	  	if(error){
+	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
+	  	} else {
+  			res.send(JSON.stringify({results}));
+	  	}
+  	});
+});
+server.post('/fid', (req, res, next) => {
+  if (connection.query('INSERT INTO fid(data, vitalsScore) VALUES (?, ?);', 
+  	[JSON.stringify(req.body["data"]), JSON.stringify(req.body["vitalsScore"])]) ){
+  	 res.status(200).json({
+     message: req.body
+    })
+  }
+  else
+  	throw error;
+});
+server.put('/fid/:id', (req, res, next) => {
+  if (connection.query('UPDATE fid SET data = ?, vitalsScore = ? WHERE id = ?;', 
+  	[JSON.stringify(req.body["data"]), JSON.stringify(req.body["vitalsScore"]), req.params.id]) ){
+  	 res.status(200).json({
+     message: req.body
+    })
+  }
+  else
+  	throw error;
+});
+server.delete('/fid/:id', (req, res, next) => {
+  if (connection.query('DELETE FROM fid WHERE id = ?;', req.params.id )){
+  	 res.status(200).json({
+     message: "entry deleted"
+    })
+  }
+  else
+  	throw error;
+});
+
+// LCP
+server.get('/lcp', function(req, res, next) {
+	connection.query('SELECT * from lcp', function (error, results, fields) {
+	  	if(error){
+	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
+	  	} else {
+  			res.send(JSON.stringify({results}));
+	  	}
+  	});
+});
+server.get('/lcp/:id', function(req, res, next) {
+	connection.query('SELECT * from lcp WHERE id=?', req.params.id, function (error, results, fields) {
+	  	if(error){
+	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
+	  	} else {
+  			res.send(JSON.stringify({results}));
+	  	}
+  	});
+});
+server.post('/lcp', (req, res, next) => {
+  if (connection.query('INSERT INTO lcp(data, vitalsScore) VALUES (?, ?);', 
+  	[JSON.stringify(req.body["data"]), JSON.stringify(req.body["vitalsScore"])]) ){
+  	 res.status(200).json({
+     message: req.body
+    })
+  }
+  else
+  	throw error;
+});
+server.put('/lcp/:id', (req, res, next) => {
+  if (connection.query('UPDATE lcp SET data = ?, vitalsScore = ? WHERE id = ?;', 
+  	[JSON.stringify(req.body["data"]), JSON.stringify(req.body["vitalsScore"]), req.params.id]) ){
+  	 res.status(200).json({
+     message: req.body
+    })
+  }
+  else
+  	throw error;
+});
+server.delete('/lcp/:id', (req, res, next) => {
+  if (connection.query('DELETE FROM lcp WHERE id = ?;', req.params.id )){
+  	 res.status(200).json({
+     message: "entry deleted"
+    })
+  }
+  else
+  	throw error;
+});
+
+
+// LCPFINAL
+server.get('/lcpFinal', function(req, res, next) {
+	connection.query('SELECT * from lcpFinal', function (error, results, fields) {
+	  	if(error){
+	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
+	  	} else {
+  			res.send(JSON.stringify({results}));
+	  	}
+  	});
+});
+server.get('/lcpFinal/:id', function(req, res, next) {
+	connection.query('SELECT * from lcpFinal WHERE id=?', req.params.id, function (error, results, fields) {
+	  	if(error){
+	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
+	  	} else {
+  			res.send(JSON.stringify({results}));
+	  	}
+  	});
+});
+server.post('/lcpFinal', (req, res, next) => {
+  if (connection.query('INSERT INTO lcpFinal(data, vitalsScore) VALUES (?, ?);', 
+  	[JSON.stringify(req.body["data"]), JSON.stringify(req.body["vitalsScore"])]) ){
+  	 res.status(200).json({
+     message: req.body
+    })
+  }
+  else
+  	throw error;
+});
+server.put('/lcpFinal/:id', (req, res, next) => {
+  if (connection.query('UPDATE lcpFinal SET data = ?, vitalsScore = ? WHERE id = ?;', 
+  	[JSON.stringify(req.body["data"]), JSON.stringify(req.body["vitalsScore"]), req.params.id]) ){
+  	 res.status(200).json({
+     message: req.body
+    })
+  }
+  else
+  	throw error;
+});
+server.delete('/lcpFinal/:id', (req, res, next) => {
+  if (connection.query('DELETE FROM lcpFinal WHERE id = ?;', req.params.id )){
+  	 res.status(200).json({
+     message: "entry deleted"
+    })
+  }
+  else
+  	throw error;
+});
+
+// CLS
+server.get('/cls', function(req, res, next) {
+	connection.query('SELECT * from lcpFinal', function (error, results, fields) {
+	  	if(error){
+	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
+	  	} else {
+  			res.send(JSON.stringify({results}));
+	  	}
+  	});
+});
+server.get('/cls/:id', function(req, res, next) {
+	connection.query('SELECT * from cls WHERE id=?', req.params.id, function (error, results, fields) {
+	  	if(error){
+	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
+	  	} else {
+  			res.send(JSON.stringify({results}));
+	  	}
+  	});
+});
+server.post('/cls', (req, res, next) => {
+  if (connection.query('INSERT INTO cls(data, vitalsScore) VALUES (?, ?);', 
+  	[JSON.stringify(req.body["data"]), JSON.stringify(req.body["vitalsScore"])]) ){
+  	 res.status(200).json({
+     message: req.body
+    })
+  }
+  else
+  	throw error;
+});
+server.put('/cls/:id', (req, res, next) => {
+  if (connection.query('UPDATE cls SET data = ?, vitalsScore = ? WHERE id = ?;', 
+  	[JSON.stringify(req.body["data"]), JSON.stringify(req.body["vitalsScore"]), req.params.id]) ){
+  	 res.status(200).json({
+     message: req.body
+    })
+  }
+  else
+  	throw error;
+});
+server.delete('/cls/:id', (req, res, next) => {
+  if (connection.query('DELETE FROM cls WHERE id = ?;', req.params.id )){
+  	 res.status(200).json({
+     message: "entry deleted"
+    })
+  }
+  else
+  	throw error;
+});
+
+
+// CLSfinal
+server.get('/clsFinal', function(req, res, next) {
+	connection.query('SELECT * from clsFinal', function (error, results, fields) {
+	  	if(error){
+	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
+	  	} else {
+  			res.send(JSON.stringify({results}));
+	  	}
+  	});
+});
+server.get('/clsFinal/:id', function(req, res, next) {
+	connection.query('SELECT * from clsFinal WHERE id=?', req.params.id, function (error, results, fields) {
+	  	if(error){
+	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
+	  	} else {
+  			res.send(JSON.stringify({results}));
+	  	}
+  	});
+});
+server.post('/clsFinal', (req, res, next) => {
+  if (connection.query('INSERT INTO clsFinal(data, vitalsScore) VALUES (?, ?);', 
+  	[JSON.stringify(req.body["data"]), JSON.stringify(req.body["vitalsScore"])]) ){
+  	 res.status(200).json({
+     message: req.body
+    })
+  }
+  else
+  	throw error;
+});
+server.put('/clsFinal/:id', (req, res, next) => {
+  if (connection.query('UPDATE clsFinal SET data = ?, vitalsScore = ? WHERE id = ?;', 
+  	[JSON.stringify(req.body["data"]), JSON.stringify(req.body["vitalsScore"]), req.params.id]) ){
+  	 res.status(200).json({
+     message: req.body
+    })
+  }
+  else
+  	throw error;
+});
+server.delete('/clsFinal/:id', (req, res, next) => {
+  if (connection.query('DELETE FROM clsFinal WHERE id = ?;', req.params.id )){
+  	 res.status(200).json({
+     message: "entry deleted"
+    })
+  }
+  else
+  	throw error;
+});
+
+// TBT
+server.get('/tbt', function(req, res, next) {
+	connection.query('SELECT * from tbt', function (error, results, fields) {
+	  	if(error){
+	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
+	  	} else {
+  			res.send(JSON.stringify({results}));
+	  	}
+  	});
+});
+server.get('/tbt/:id', function(req, res, next) {
+	connection.query('SELECT * from tbt WHERE id=?', req.params.id, function (error, results, fields) {
+	  	if(error){
+	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
+	  	} else {
+  			res.send(JSON.stringify({results}));
+	  	}
+  	});
+});
+server.post('/tbt', (req, res, next) => {
+  if (connection.query('INSERT INTO tbt(data, vitalsScore) VALUES (?, ?);', 
+  	[JSON.stringify(req.body["data"]), JSON.stringify(req.body["vitalsScore"])]) ){
+  	 res.status(200).json({
+     message: req.body
+    })
+  }
+  else
+  	throw error;
+});
+server.put('/tbt/:id', (req, res, next) => {
+  if (connection.query('UPDATE tbt SET data = ?, vitalsScore = ? WHERE id = ?;', 
+  	[JSON.stringify(req.body["data"]), JSON.stringify(req.body["vitalsScore"]), req.params.id]) ){
+  	 res.status(200).json({
+     message: req.body
+    })
+  }
+  else
+  	throw error;
+});
+server.delete('/tbt/:id', (req, res, next) => {
+  if (connection.query('DELETE FROM tbt WHERE id = ?;', req.params.id )){
   	 res.status(200).json({
      message: "entry deleted"
     })
@@ -116,274 +623,6 @@ server.delete('/browser/:id', (req, res, next) => {
 
 
 
-
-//select all of navigationTiming
-server.get('/navigation', function(req, res, next) {
-	connection.query('SELECT * from navigationTiming', function (error, results, fields) {
-	  	if(error){
-	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
-	  	} else {
-  			res.send(JSON.stringify({results}));
-	  	}
-  	});
-});
-
-
-//get navigationTiming by id #
-server.get('/navigation/:id', function(req, res, next) {
-	connection.query('SELECT * from navigationTiming WHERE id=?', req.params.id, function (error, results, fields) {
-	  	if(error){
-	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
-	  	} else {
-  			res.send(JSON.stringify({results}));
-	  	}
-  	});
-});
-
-
-//get all of networkInformation
-server.get('/network', function(req, res, next) {
-	connection.query('SELECT * from networkInformation', function (error, results, fields) {
-	  	if(error){
-	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
-	  	} else {
-  			res.send(JSON.stringify({results}));
-	  	}
-  	});
-});
-
-
-server.get('/network/:id', function(req, res, next) {
-	connection.query('SELECT * from networkInformation  WHERE id=?', req.params.id, function (error, results, fields) {
-	  	if(error){
-	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
-	  	} else {
-  			res.send(JSON.stringify({results}));
-	  	}
-  	});
-});
-
-
-//get all of storage
-server.get('/storage', function(req, res, next) {
-	connection.query('SELECT * from storageEstimate', function (error, results, fields) {
-	  	if(error){
-	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
-	  	} else {
-  			res.send(JSON.stringify({results}));
-	  	}
-  	});
-});
-
-//get storage by id
-server.get('/storage/:id', function(req, res, next) {
-	connection.query('SELECT * from storageEstimate WHERE id=?', req.params.id, function (error, results, fields) {
-	  	if(error){
-	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
-	  	} else {
-  			res.send(JSON.stringify({results}));
-	  	}
-  	});
-});
-
-
-//get all of fp
-server.get('/fp', function(req, res, next) {
-	connection.query('SELECT * from fp', function (error, results, fields) {
-	  	if(error){
-	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
-	  	} else {
-  			res.send(JSON.stringify({results}));
-	  	}
-  	});
-});
-
-//get fp by id
-server.get('/fp/:id', function(req, res, next) {
-	connection.query('SELECT * from fp WHERE id=?', req.params.id, function (error, results, fields) {
-	  	if(error){
-	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
-	  	} else {
-  			res.send(JSON.stringify({results}));
-	  	}
-  	});
-});
-
-
-//get all of fcp
-server.get('/fcp', function(req, res, next) {
-	connection.query('SELECT * from fcp', function (error, results, fields) {
-	  	if(error){
-	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
-	  	} else {
-  			res.send(JSON.stringify({results}));
-	  	}
-  	});
-});
-
-//get fcp by id
-server.get('/fcp/:id', function(req, res, next) {
-	connection.query('SELECT * from fcp WHERE id=?', req.params.id, function (error, results, fields) {
-	  	if(error){
-	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
-	  	} else {
-  			res.send(JSON.stringify({results}));
-	  	}
-  	});
-});
-
-
-//get all of fid
-server.get('/fid', function(req, res, next) {
-	connection.query('SELECT * from fid', function (error, results, fields) {
-	  	if(error){
-	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
-	  	} else {
-  			res.send(JSON.stringify({results}));
-	  	}
-  	});
-});
-
-//get fid by id
-server.get('/fid/:id', function(req, res, next) {
-	connection.query('SELECT * from fid WHERE id=?', req.params.id, function (error, results, fields) {
-	  	if(error){
-	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
-	  	} else {
-  			res.send(JSON.stringify({results}));
-	  	}
-  	});
-});
-
-
-
-//get all of lcp
-server.get('/lcp', function(req, res, next) {
-	connection.query('SELECT * from lcp', function (error, results, fields) {
-	  	if(error){
-	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
-	  	} else {
-  			res.send(JSON.stringify({results}));
-	  	}
-  	});
-});
-
-//get lcp by id
-server.get('/lcp/:id', function(req, res, next) {
-	connection.query('SELECT * from lcp WHERE id=?', req.params.id, function (error, results, fields) {
-	  	if(error){
-	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
-	  	} else {
-  			res.send(JSON.stringify({results}));
-	  	}
-  	});
-});
-
-
-//get all of lcpFinal
-server.get('/lcpfinal', function(req, res, next) {
-	connection.query('SELECT * from lcpFinal', function (error, results, fields) {
-	  	if(error){
-	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
-	  	} else {
-  			res.send(JSON.stringify({results}));
-	  	}
-  	});
-});
-
-//get lcpFinal by id
-server.get('/lcpfinal/:id', function(req, res, next) {
-	connection.query('SELECT * from lcpfinal WHERE id=?', req.params.id, function (error, results, fields) {
-	  	if(error){
-	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
-	  	} else {
-  			res.send(JSON.stringify({results}));
-	  	}
-  	});
-});
-
-
-
-//get all of cls
-server.get('/cls', function(req, res, next) {
-	connection.query('SELECT * from cls', function (error, results, fields) {
-	  	if(error){
-	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
-	  	} else {
-  			res.send(JSON.stringify({results}));
-	  	}
-  	});
-});
-
-//get cls by id
-server.get('/cls/:id', function(req, res, next) {
-	connection.query('SELECT * from cls WHERE id=?', req.params.id, function (error, results, fields) {
-	  	if(error){
-	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
-	  	} else {
-  			res.send(JSON.stringify({results}));
-	  	}
-  	});
-});
-
-
-//get all of clsFinal
-server.get('/clsfinal', function(req, res, next) {
-	connection.query('SELECT * from clsFinal', function (error, results, fields) {
-	  	if(error){
-	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
-	  	} else {
-  			res.send(JSON.stringify({results}));
-	  	}
-  	});
-});
-
-//get clsFinal by id
-server.get('/clsfinal/:id', function(req, res, next) {
-	connection.query('SELECT * from clsFinal WHERE id=?', req.params.id, function (error, results, fields) {
-	  	if(error){
-	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
-	  	} else {
-  			res.send(JSON.stringify({results}));
-	  	}
-  	});
-});
-
-
-//get all of tbt
-server.get('/tbt', function(req, res, next) {
-	connection.query('SELECT * from tbt', function (error, results, fields) {
-	  	if(error){
-	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
-	  	} else {
-  			res.send(JSON.stringify({results}));
-	  	}
-  	});
-});
-
-//get tbt by id
-server.get('/tbt/:id', function(req, res, next) {
-	connection.query('SELECT * from tbt WHERE id=?', req.params.id, function (error, results, fields) {
-	  	if(error){
-	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
-	  	} else {
-  			res.send(JSON.stringify({results}));
-	  	}
-  	});
-});
-/*
-server.get('/api/browsers', function (req, res) { 
-  res.json({ test })
-  var data = JSON.parse(test["data"]);
-  var responseJson = JSON.stringify(data.response);
-  console.log('TEST');
-  //var query = connection.query('INSERT INTO metricName SET column=?', [responseJson], function(err, result) {
-  var query = connection.query('INSERT INTO metricName SET column=?', [responseJson], function(err, result) {
-    if(err) throw err;
-    console.log('data inserted');
-  });
-})
-*/
 // Returns an Express router
 var router = jsonServer.router('db.json');
 

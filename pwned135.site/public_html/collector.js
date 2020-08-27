@@ -445,7 +445,7 @@ function reportPerf(measureName, data, customProperties = {}) {
     });
 
 
-    console.log(payload);
+    //console.log(payload);
     
     var name = ""
     if(measureName == "initialBrowserData")
