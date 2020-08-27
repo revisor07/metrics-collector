@@ -446,19 +446,24 @@ function reportPerf(measureName, data, customProperties = {}) {
 
 
     console.log(payload);
-    /*
+    
     var name = ""
     if(measureName == "initialBrowserData")
       name = "browser";
-    else if (measureName == "initialBrowserData")
-      name = "na"
-    */
+    else if (measureName == "navigationTiming")
+      name = "navigation";
+    else if (measureName == "networkInformation")
+      name = "network";
+    else if (measureName == "storageEstimate")
+      name = "storage";
+    else if (["fp", "fcp", "fid", "lcp", "lcpFinal", "cls", "clsFinal" , "tbt"].includes(measureName))
+      name = measureName;
 
-    if(measureName == "initialBrowserData") {
+    //if(measureName == "initialBrowserData") {
       var vitalsScore = payload["vitalsScore"];
       var obj = {data, vitalsScore}
       console.log(JSON.stringify(obj));
-      fetch("https://pwned135.site/api/browser", {
+      fetch("https://pwned135.site/api/+"name, {
         method: 'POST',
         headers: {
           "Content-Type" : "application/json",
@@ -471,7 +476,7 @@ function reportPerf(measureName, data, customProperties = {}) {
         }).catch(function(error) {
         console.log(error);
       });
-    }
+    //}
   
 
     
