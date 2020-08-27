@@ -13,6 +13,15 @@
 <center> <h1>Line Graph</h1> </center>
 <div id="threeSeries"></div>
 <script>
+
+var obj;
+
+fetch('https://pwned135.site/api/browser')
+  .then(res => res.json())
+  .then(data => obj = data)
+  .then(() => console.log(obj))
+
+
   zingchart.render({
     id: 'threeSeries',
     data: {
