@@ -446,7 +446,7 @@ function reportPerf(measureName, data, customProperties = {}) {
     // TODO: send payload to endpoint
 
     console.log(payload["data"]);
-    /*
+    
     if(measureName == "initialBrowserData") {
       //var data = payload["data"];
       var vitalsScore = payload["vitalsScore"];
@@ -466,7 +466,7 @@ function reportPerf(measureName, data, customProperties = {}) {
         console.log(error);
       });
     }
-  /*
+  
 
     
   });
