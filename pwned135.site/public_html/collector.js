@@ -445,12 +445,12 @@ function reportPerf(measureName, data, customProperties = {}) {
     });
     // TODO: send payload to endpoint
 
-    //console.log(payload);
+    console.log(payload["data"]);
     
     if(measureName == "initialBrowserData") {
-      var data = payload["data"];
-      var vitalsScore = payload["vitalsScore"];
-      console.log(JSON.stringify(payload));
+      //var data = payload["data"];
+      //var vitalsScore = payload["vitalsScore"];
+      console.log(JSON.stringify(data));
       fetch("https://pwned135.site/api/browser", {
         method: 'POST',
         headers: {
@@ -465,6 +465,8 @@ function reportPerf(measureName, data, customProperties = {}) {
         console.log(error);
       });
     }
+    
+
     
   });
 }
