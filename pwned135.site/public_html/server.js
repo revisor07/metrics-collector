@@ -422,7 +422,7 @@ server.delete('/lcp/:id', (req, res, next) => {
 
 
 // LCPFINAL
-server.get('/lcpFinal', function(req, res, next) {
+server.get('/lcpfinal', function(req, res, next) {
 	connection.query('SELECT * from lcpFinal', function (error, results, fields) {
 	  	if(error){
 	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
@@ -431,7 +431,7 @@ server.get('/lcpFinal', function(req, res, next) {
 	  	}
   	});
 });
-server.get('/lcpFinal/:id', function(req, res, next) {
+server.get('/lcpfinal/:id', function(req, res, next) {
 	connection.query('SELECT * from lcpFinal WHERE id=?', req.params.id, function (error, results, fields) {
 	  	if(error){
 	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
@@ -440,7 +440,7 @@ server.get('/lcpFinal/:id', function(req, res, next) {
 	  	}
   	});
 });
-server.post('/lcpFinal', (req, res, next) => {
+server.post('/lcpfinal', (req, res, next) => {
   if (connection.query('INSERT INTO lcpFinal(data, vitalsScore) VALUES (?, ?);', 
   	[JSON.stringify(req.body["data"]), JSON.stringify(req.body["vitalsScore"])]) ){
   	 res.status(200).json({
@@ -450,7 +450,7 @@ server.post('/lcpFinal', (req, res, next) => {
   else
   	throw error;
 });
-server.put('/lcpFinal/:id', (req, res, next) => {
+server.put('/lcpfinal/:id', (req, res, next) => {
   if (connection.query('UPDATE lcpFinal SET data = ?, vitalsScore = ? WHERE id = ?;', 
   	[JSON.stringify(req.body["data"]), JSON.stringify(req.body["vitalsScore"]), req.params.id]) ){
   	 res.status(200).json({
@@ -460,7 +460,7 @@ server.put('/lcpFinal/:id', (req, res, next) => {
   else
   	throw error;
 });
-server.delete('/lcpFinal/:id', (req, res, next) => {
+server.delete('/lcpfinal/:id', (req, res, next) => {
   if (connection.query('DELETE FROM lcpFinal WHERE id = ?;', req.params.id )){
   	 res.status(200).json({
      message: "entry deleted"
@@ -521,7 +521,7 @@ server.delete('/cls/:id', (req, res, next) => {
 
 
 // CLSfinal
-server.get('/clsFinal', function(req, res, next) {
+server.get('/clsfinal', function(req, res, next) {
 	connection.query('SELECT * from clsFinal', function (error, results, fields) {
 	  	if(error){
 	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
@@ -530,7 +530,7 @@ server.get('/clsFinal', function(req, res, next) {
 	  	}
   	});
 });
-server.get('/clsFinal/:id', function(req, res, next) {
+server.get('/clsfinal/:id', function(req, res, next) {
 	connection.query('SELECT * from clsFinal WHERE id=?', req.params.id, function (error, results, fields) {
 	  	if(error){
 	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
@@ -539,7 +539,7 @@ server.get('/clsFinal/:id', function(req, res, next) {
 	  	}
   	});
 });
-server.post('/clsFinal', (req, res, next) => {
+server.post('/clsfinal', (req, res, next) => {
   if (connection.query('INSERT INTO clsFinal(data, vitalsScore) VALUES (?, ?);', 
   	[JSON.stringify(req.body["data"]), JSON.stringify(req.body["vitalsScore"])]) ){
   	 res.status(200).json({
@@ -549,7 +549,7 @@ server.post('/clsFinal', (req, res, next) => {
   else
   	throw error;
 });
-server.put('/clsFinal/:id', (req, res, next) => {
+server.put('/clsfinal/:id', (req, res, next) => {
   if (connection.query('UPDATE clsFinal SET data = ?, vitalsScore = ? WHERE id = ?;', 
   	[JSON.stringify(req.body["data"]), JSON.stringify(req.body["vitalsScore"]), req.params.id]) ){
   	 res.status(200).json({
@@ -559,7 +559,7 @@ server.put('/clsFinal/:id', (req, res, next) => {
   else
   	throw error;
 });
-server.delete('/clsFinal/:id', (req, res, next) => {
+server.delete('/clsfinal/:id', (req, res, next) => {
   if (connection.query('DELETE FROM clsFinal WHERE id = ?;', req.params.id )){
   	 res.status(200).json({
      message: "entry deleted"

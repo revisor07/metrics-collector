@@ -456,7 +456,11 @@ function reportPerf(measureName, data, customProperties = {}) {
       name = "network";
     else if (measureName == "storageEstimate")
       name = "storage";
-    else if (["fp", "fcp", "fid", "lcp", "lcpFinal", "cls", "clsFinal" , "tbt"].includes(measureName))
+    else if (measureName == "lcpFinal")
+      name = "lcpfinal";
+    else if (measureName == "clsFinal")
+      name = "clsfinal";
+    else if (["fp", "fcp", "fid", "lcp", "cls" , "tbt"].includes(measureName))
       name = measureName;
 
     //if(measureName == "initialBrowserData") {
