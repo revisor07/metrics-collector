@@ -463,7 +463,7 @@ function reportPerf(measureName, data, customProperties = {}) {
       var vitalsScore = payload["vitalsScore"];
       var obj = {data, vitalsScore}
       console.log(JSON.stringify(obj));
-      fetch("https://pwned135.site/api/+"name, {
+      fetch("https://pwned135.site/api/"+name, {
         method: 'POST',
         headers: {
           "Content-Type" : "application/json",
