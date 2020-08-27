@@ -449,18 +449,19 @@ function reportPerf(measureName, data, customProperties = {}) {
     
     if(measureName == "initialBrowserData") {
       //var data = payload["data"];
-      //var vitalsScore = payload["vitalsScore"];
-      console.log(JSON.stringify(data));
+      var vitalsScore = payload["vitalsScore"];
+      var obj = {data, vitalsScore}
+      console.log(JSON.stringify(obj));
       fetch("https://pwned135.site/api/browser", {
         method: 'POST',
         headers: {
           "Content-Type" : "application/json",
         },
-        body: JSON.stringify(payload),})
+        body: obj,})
         .then(function(response) {
           return response.json();
         }).then(function(data) {
-          console.log('success', data)
+          console.log('success', obj)
         }).catch(function(error) {
         console.log(error);
       });
