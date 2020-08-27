@@ -443,12 +443,18 @@ function reportPerf(measureName, data, customProperties = {}) {
       navigatorInformation: getNavigatorInfo(),
       vitalsScore: getVitalsScore(measureName, data),
     });
-    // TODO: send payload to endpoint
 
-    console.log(payload["data"]);
-    
+
+    console.log(payload);
+    /*
+    var name = ""
+    if(measureName == "initialBrowserData")
+      name = "browser";
+    else if (measureName == "initialBrowserData")
+      name = "na"
+    */
+
     if(measureName == "initialBrowserData") {
-      //var data = payload["data"];
       var vitalsScore = payload["vitalsScore"];
       var obj = {data, vitalsScore}
       console.log(JSON.stringify(obj));
