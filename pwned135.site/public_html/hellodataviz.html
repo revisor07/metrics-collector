@@ -18,11 +18,11 @@ var obj;
 
 fetch('https://pwned135.site/api/browser')
   .then(res => res.json())
-  .then(data => obj = JSON.parse(data))
+  .then(data => obj = data)
   .then(() => console.log(obj))
-var id = obj.id;
-var height = obj.data["innerHeight"];
-console.log(id)
+//var id = obj.id;
+//var height = obj.data["innerHeight"];
+console.log(obj.id)
 
 
   zingchart.render({
