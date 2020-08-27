@@ -434,7 +434,7 @@ function pushTask(cb) {
  * Sends the User timing measure to analyticsTracker
  */
 function reportPerf(measureName, data, customProperties = {}) {
-  pushTask(() => {
+  pushTask ( () => {
     // Send metric to custom Analytics service
     let payload = ({
       metricName: measureName,
@@ -460,7 +460,7 @@ function reportPerf(measureName, data, customProperties = {}) {
         .then(function(response) {
           return response.json();
         }).then(function(data) {
-          console.log('success', data
+          console.log('success', data)
         }).catch(function(error) {
         console.log(error);
       });
