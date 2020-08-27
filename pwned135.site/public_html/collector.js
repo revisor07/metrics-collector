@@ -444,14 +444,12 @@ function reportPerf(measureName, data, customProperties = {}) {
       vitalsScore: getVitalsScore(measureName, data),
     });
     // TODO: send payload to endpoint
-    //for (x in payload){
-    //  console.log(x["metricName"] + x["data"]);
-    //}
+
     //console.log(payload["data"]);
     if(measureName == "initialBrowserData") {
       var data = payload["data"];
       var vitalsScore = payload["vitalsScore"];
-      console.log(payload["data"]);
+      console.log(JSON.stringify(payload));
       fetch("https://pwned135.site/api/browser", {
         method: 'POST',
         headers: {
