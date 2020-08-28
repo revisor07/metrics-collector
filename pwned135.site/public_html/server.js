@@ -624,8 +624,5 @@ server.delete('/tbt/:id', (req, res, next) => {
 
 
 // Returns an Express router
-var router = jsonServer.router('db.json');
-
-server.use(router);
 
 server.listen(3000);
