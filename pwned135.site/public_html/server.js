@@ -32,7 +32,7 @@ server.get('/browser', function(req, res, next) {
 	  	if(error){
 	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
 	  	} else {
-  			res.send(JSON.parse(results));
+  			res.send(results);
 	  	}
   	});
 });
