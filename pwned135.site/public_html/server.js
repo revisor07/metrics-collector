@@ -41,7 +41,7 @@ server.get('/browser/:id', function(req, res, next) {
 	  	if(error){
 	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
 	  	} else {
-  			res.send(JSON.stringify({results}));
+  			res.send(results);
 	  	}
   	});
 });
@@ -81,7 +81,7 @@ server.get('/navigation', function(req, res, next) {
 	  	if(error){
 	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
 	  	} else {
-  			res.send(JSON.stringify({results}));
+  			res.send(results);
 	  	}
   	});
 });
@@ -90,7 +90,7 @@ server.get('/navigation/:id', function(req, res, next) {
 	  	if(error){
 	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
 	  	} else {
-  			res.send(JSON.stringify({results}));
+  			res.send(results);
 	  	}
   	});
 });
@@ -130,7 +130,7 @@ server.get('/network', function(req, res, next) {
 	  	if(error){
 	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
 	  	} else {
-  			res.send(JSON.stringify({results}));
+  			res.send(results);
 	  	}
   	});
 });
@@ -139,7 +139,7 @@ server.get('/network/:id', function(req, res, next) {
 	  	if(error){
 	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
 	  	} else {
-  			res.send(JSON.stringify({results}));
+  			res.send(results);
 	  	}
   	});
 });
@@ -179,7 +179,7 @@ server.get('/storage', function(req, res, next) {
 	  	if(error){
 	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
 	  	} else {
-  			res.send(JSON.stringify({results}));
+  			res.send(results);
 	  	}
   	});
 });
@@ -188,7 +188,7 @@ server.get('/storage/:id', function(req, res, next) {
 	  	if(error){
 	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
 	  	} else {
-  			res.send(JSON.stringify({results}));
+  			res.send(results);
 	  	}
   	});
 });
@@ -229,7 +229,7 @@ server.get('/fp', function(req, res, next) {
 	  	if(error){
 	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
 	  	} else {
-  			res.send(JSON.stringify({results}));
+  			res.send(results);
 	  	}
   	});
 });
@@ -238,7 +238,7 @@ server.get('/fp/:id', function(req, res, next) {
 	  	if(error){
 	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
 	  	} else {
-  			res.send(JSON.stringify({results}));
+  			res.send(results);
 	  	}
   	});
 });
@@ -279,7 +279,7 @@ server.get('/fcp', function(req, res, next) {
 	  	if(error){
 	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
 	  	} else {
-  			res.send(JSON.stringify({results}));
+  			res.send(results);
 	  	}
   	});
 });
@@ -288,7 +288,7 @@ server.get('/fcp/:id', function(req, res, next) {
 	  	if(error){
 	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
 	  	} else {
-  			res.send(JSON.stringify({results}));
+  			res.send(results);
 	  	}
   	});
 });
@@ -328,7 +328,7 @@ server.get('/fid', function(req, res, next) {
 	  	if(error){
 	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
 	  	} else {
-  			res.send(JSON.stringify({results}));
+  			res.send(results);
 	  	}
   	});
 });
@@ -337,7 +337,7 @@ server.get('/fid/:id', function(req, res, next) {
 	  	if(error){
 	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
 	  	} else {
-  			res.send(JSON.stringify({results}));
+  			res.send(results);
 	  	}
   	});
 });
@@ -377,7 +377,7 @@ server.get('/lcp', function(req, res, next) {
 	  	if(error){
 	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
 	  	} else {
-  			res.send(JSON.stringify({results}));
+  			res.send(results);
 	  	}
   	});
 });
@@ -386,7 +386,7 @@ server.get('/lcp/:id', function(req, res, next) {
 	  	if(error){
 	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
 	  	} else {
-  			res.send(JSON.stringify({results}));
+  			res.send(results);
 	  	}
   	});
 });
@@ -427,7 +427,7 @@ server.get('/lcpfinal', function(req, res, next) {
 	  	if(error){
 	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
 	  	} else {
-  			res.send(JSON.stringify({results}));
+  			res.send(results);
 	  	}
   	});
 });
@@ -436,7 +436,7 @@ server.get('/lcpfinal/:id', function(req, res, next) {
 	  	if(error){
 	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
 	  	} else {
-  			res.send(JSON.stringify({results}));
+  			res.send(results);
 	  	}
   	});
 });
@@ -476,7 +476,7 @@ server.get('/cls', function(req, res, next) {
 	  	if(error){
 	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
 	  	} else {
-  			res.send(JSON.stringify({results}));
+  			res.send(results);
 	  	}
   	});
 });
@@ -485,7 +485,7 @@ server.get('/cls/:id', function(req, res, next) {
 	  	if(error){
 	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
 	  	} else {
-  			res.send(JSON.stringify({results}));
+  			res.send(results);
 	  	}
   	});
 });
@@ -526,7 +526,7 @@ server.get('/clsfinal', function(req, res, next) {
 	  	if(error){
 	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
 	  	} else {
-  			res.send(JSON.stringify({results}));
+  			res.send(results);
 	  	}
   	});
 });
@@ -535,7 +535,7 @@ server.get('/clsfinal/:id', function(req, res, next) {
 	  	if(error){
 	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
 	  	} else {
-  			res.send(JSON.stringify({results}));
+  			res.send(results);
 	  	}
   	});
 });
@@ -575,7 +575,7 @@ server.get('/tbt', function(req, res, next) {
 	  	if(error){
 	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
 	  	} else {
-  			res.send(JSON.stringify({results}));
+  			res.send(results);
 	  	}
   	});
 });
@@ -584,7 +584,7 @@ server.get('/tbt/:id', function(req, res, next) {
 	  	if(error){
 	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
 	  	} else {
-  			res.send(JSON.stringify({results}));
+  			res.send(results);
 	  	}
   	});
 });
