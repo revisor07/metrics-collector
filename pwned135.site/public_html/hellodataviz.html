@@ -33,15 +33,12 @@ getData().then(() => {
     ids.push(db[x].id)
     innerHeights.push(JSON.parse(db[x].data).innerHeight)
     innerWidths.push(JSON.parse(db[x].data).innerWidth)
-    console.log(db)
     if(JSON.parse(JSON.parse(db[x].data).cookiesEnabled == true))
       cookiesYes ++;
     else if(JSON.parse(JSON.parse(db[x].data).cookiesEnabled == false))
       cookiesNo ++;
   }
 })
-
-
 
 getData().then(() => {
   zingchart.render({
@@ -82,6 +79,9 @@ getData().then(() => {
     id: 'pie',
     data: {
       type: 'pie',
+      title: {
+        text: "Pie Chart"
+      },
       series: [
         { values: [cookiesYes] },
         { values: [cookiesNo] },
