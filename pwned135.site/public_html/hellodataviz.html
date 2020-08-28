@@ -40,6 +40,8 @@ getData().then(() => {
   }
 })
 
+
+
 getData().then(() => {
   zingchart.render({
     id: 'threeSeries',
@@ -55,9 +57,11 @@ getData().then(() => {
     }
   });
 })
+</script>
 
-
-
+<center> <h1>Bar Graph</h1> </center>
+<div id="twoSeries"></div>
+<script>
 getData().then(() => {
   zingchart.render({
     id: 'twoSeries',
@@ -73,7 +77,11 @@ getData().then(() => {
     }
   });
 })
+</script>
 
+<center> <h1>Pie Chart</h1> </center>
+<div id="pie"></div>
+<script>
 getData().then(() => {
   zingchart.render({
     id: 'pie',
