@@ -48,6 +48,7 @@ getData().then(() => {
 <center> <h1>Bar Graph</h1> </center>
 <div id="twoSeries"></div>
 <script>
+getData().then(() => {
   zingchart.render({
     id: 'twoSeries',
     data: {
@@ -58,6 +59,7 @@ getData().then(() => {
       ]
     }
   });
+})
 </script>
 
 <center> <h1>Pie Chart</h1> </center>
