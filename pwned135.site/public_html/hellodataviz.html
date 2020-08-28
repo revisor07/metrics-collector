@@ -28,9 +28,9 @@ getData().then(() => {
   ids = []
   innerHeights = []
   for(x in db){
-    ids.push(JSON.parse(x))
+    ids.push(x.id)
   }
-  console.log(db)
+  //console.log(db)
   console.log(ids)
 })
 
