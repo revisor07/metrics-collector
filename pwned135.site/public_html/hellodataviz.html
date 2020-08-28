@@ -34,6 +34,7 @@ getData().then(() => {
     ids.push(db[x].id)
     innerHeights.push(JSON.parse(db[x].data).innerHeight)
     innerWidths.push(JSON.parse(db[x].data).innerWidth)
+    console.log(db[x].vitalsScore)
     if(JSON.parse(db[x].vitalsScore == null))
       VSNull ++;
     else if (JSON.parse(db[x].vitalsScore == "poor"))
