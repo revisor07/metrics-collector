@@ -16,13 +16,18 @@
 
 var obj;
 
-var snake = fetch('https://pwned135.site/api/browser')
-  .then(res => res.json())
-  .then(data => obj = data)
+//var snake = fetch('https://pwned135.site/api/browser')
+  //.then(res => res.json())
+  //.then(data => obj = data)
  // .then(() => console.log(obj))
 //var id = obj.id;
 //var height = obj.data["innerHeight"];
-console.log(snake.values())
+let response = await fetch('https://pwned135.site/api/browser');
+
+let snake = await response.json(); // read response body and parse as JSON
+
+console.log(snake[0]);
+//console.log(snake.values())
 
 
   zingchart.render({
