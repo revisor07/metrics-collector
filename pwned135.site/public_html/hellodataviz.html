@@ -13,10 +13,13 @@
 <center> <h1>Line Graph</h1> </center>
 <div id="threeSeries"></div>
 <script>
-db = {}
-ids = []
-innerHeights = []
-innerWidths = []
+db = {};
+ids = [];
+innerHeights = [];
+innerWidths = [];
+VSnull = 0;
+VSgood = 0;
+VSpoor = 0;
 async function getData() {
         try {
             var res = await fetch('https://pwned135.site/api/browser');
@@ -31,7 +34,18 @@ getData().then(() => {
     ids.push(db[x].id)
     innerHeights.push(JSON.parse(db[x].data).innerHeight)
     innerWidths.push(JSON.parse(db[x].data).innerWidth)
+    if(JSON.parse(db[x].vitalsScore == null))
+      VSNull ++;
+    else if (JSON.parse(db[x].vitalsScore == "poor"))
+      VSpoor ++;
+    else if (JSON.parse(db[x].vitalsScore == "good"))
+      VSgood ++;
   }
+})
+
+
+
+getData().then(() => {
   zingchart.render({
     id: 'threeSeries',
     data: {
@@ -65,16 +79,19 @@ getData().then(() => {
 <center> <h1>Pie Chart</h1> </center>
 <div id="pie"></div>
 <script>
+getData().then(() => {
   zingchart.render({
     id: 'pie',
     data: {
       type: 'pie',
       series: [
-        { values: [54,23,34,23,43] },
-        { values: [10,15,16,20,40] }
+        { values: VSnull },
+        { values: Vgood },
+        { values: VSpoor }
       ]
     }
   });
+})
 </script>
 </body>
 
