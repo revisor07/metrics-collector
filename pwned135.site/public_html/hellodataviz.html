@@ -13,9 +13,7 @@
 <center> <h1>Line Graph</h1> </center>
 <div id="threeSeries"></div>
 <script>
-
 db = {}
-
 async function getData() {
         try {
             var res = await fetch('https://pwned135.site/api/browser');
@@ -32,8 +30,7 @@ getData().then(() => {
     ids.push(db[x].id)
     innerHeights.push(JSON.parse(db[x].data).innerHeight)
   }
-  //console.log(JSON.parse(db[0].data).userAgent)
-    zingchart.render({
+  zingchart.render({
     id: 'threeSeries',
     data: {
       type: 'line',
@@ -44,8 +41,6 @@ getData().then(() => {
     }
   });
 })
-console.log(ids)
-console.log(innerHeights)
 
 
 </script>
