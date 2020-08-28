@@ -17,6 +17,7 @@ ids = [];
 innerHeights = [];
 innerWidths = [];
 cookiesYes = 0;
+//just to make the pie chart look pretty since everyone has them enabled
 cookiesNo = 20;
 async function getData() {
         try {
@@ -82,6 +83,15 @@ getData().then(() => {
     id: 'pie',
     data: {
       type: 'pie',
+      labels: [
+    // Label 1
+        {
+        text: "35%",
+        "font-family": "Georgia",
+        "font-size": "50",
+        x: "60%",
+        y: "20%",
+        },
       title: {
         text: "Pie Chart"
       },
