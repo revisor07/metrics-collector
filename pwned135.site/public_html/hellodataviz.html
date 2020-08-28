@@ -32,9 +32,9 @@ getData().then(() => {
     ids.push(db[x].id)
     innerHeights.push(JSON.parse(db[x].data).innerHeight)
     innerWidths.push(JSON.parse(db[x].data).innerWidth)
-    if(JSON.parse(JSON.parse(db[x].data).cookiesEnabled == true))
+    if(JSON.parse(JSON.parse(db[x].data).cookieEnabled == true))
       cookiesYes ++;
-    else if(JSON.parse(JSON.parse(db[x].data).cookiesEnabled == false))
+    else if(JSON.parse(JSON.parse(db[x].data).cookieEnabled == false))
       cookiesNo ++;
   }
 })
