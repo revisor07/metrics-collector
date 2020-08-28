@@ -13,7 +13,7 @@
 <center> <h1>Line Graph</h1> </center>
 <div id="threeSeries"></div>
 <script>
-db2 = {}
+
 db = {}
 async function getData() {
         try {
@@ -25,10 +25,9 @@ async function getData() {
         }
 }
 getData().then(() => {
-  db2 = db
-  //console.log(db)
+
+  console.log(db)
 })
-console.log(db2)
 
 
   zingchart.render({
