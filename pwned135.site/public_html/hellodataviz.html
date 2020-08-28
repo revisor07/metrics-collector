@@ -86,8 +86,12 @@ getData().then(() => {
         text: "Pie Chart"
       },
       series: [
-        { values: [cookiesYes] },
-        { values: [cookiesNo] },
+        { 
+          text: 'Cookies Enabled',
+          values: [cookiesYes] },
+        { 
+          text: 'Cookies Disabled',
+          values: [cookiesNo] },
       ]
     }
   });
