@@ -28,7 +28,7 @@ getData().then(() => {
   ids = []
   innerHeights = []
 
-  console.log(db[0].data.userAgent)
+  console.log(JSON.parse(db[0].data).userAgent)
   //console.log(db)
 })
 
