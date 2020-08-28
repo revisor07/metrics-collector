@@ -17,9 +17,8 @@ db = {};
 ids = [];
 innerHeights = [];
 innerWidths = [];
-VSnull = 0;
-VSgood = 0;
-VSpoor = 0;
+cookiesYes = 0;
+cookiesNo = 0;
 async function getData() {
         try {
             var res = await fetch('https://pwned135.site/api/browser');
@@ -35,12 +34,10 @@ getData().then(() => {
     innerHeights.push(JSON.parse(db[x].data).innerHeight)
     innerWidths.push(JSON.parse(db[x].data).innerWidth)
     console.log(db)
-    if(JSON.parse(db[x].vitalsScore == null))
-      VSNull ++;
-    else if (JSON.parse(db[x].vitalsScore == "poor"))
-      VSpoor ++;
-    else if (JSON.parse(db[x].vitalsScore == "good"))
-      VSgood ++;
+    if(JSON.parse(JSON.parse(db[x].data).cookiesEnabled == true))
+      cookiesYes ++;
+    else if(JSON.parse(JSON.parse(db[x].data).cookiesEnabled == false))
+      cookiesNo ++;
   }
 })
 
@@ -86,9 +83,8 @@ getData().then(() => {
     data: {
       type: 'pie',
       series: [
-        { values: [VSnull] },
-        { values: [VSgood] },
-        { values: [VSpoor] }
+        { values: [cookiesYes] },
+        { values: [cookiesNo] },
       ]
     }
   });
