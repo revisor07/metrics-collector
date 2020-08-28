@@ -28,8 +28,8 @@ getData().then(() => {
   ids = []
   innerHeights = []
   for (x in db){
-    ids.push(x.id)
-    innerHeights.push(JSON.parse(x.data).userAgent)
+    ids.push(db[x].id)
+    innerHeights.push(JSON.parse(db[x].data).userAgent)
   }
   //console.log(JSON.parse(db[0].data).userAgent)
   console.log(ids)
