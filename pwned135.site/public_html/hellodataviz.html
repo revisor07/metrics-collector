@@ -14,20 +14,17 @@
 <div id="threeSeries"></div>
 <script>
 
-var obj;
-
-var snake = fetch('https://pwned135.site/api/browser')
-  .then(res => res.json())
-  .then(data => obj = data)
-  //.then(() => console.log(obj))
-//var id = obj.id;
-//var height = obj.data["innerHeight"];
-//let response = fetch('https://pwned135.site/api/browser');
-
-//let snake = response.json(); // read response body and parse as JSON
-
-console.log(snake.results[0]);
-//console.log(snake.values())
+db = {}
+async function getData() {
+        try {
+            var res = await fetch('https://andy-cse135.xyz/api/browser');
+            var data = await res.json();
+            db= data;
+        } catch (err) {
+            console.error(err.message);
+        }
+}
+console.log(db)
 
 
   zingchart.render({
