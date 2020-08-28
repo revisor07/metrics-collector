@@ -23,9 +23,10 @@ async function getData() {
             console.error(err.message);
         }
 }
+ids = []
+innerHeights = []
 getData().then(() => {
-  ids = []
-  innerHeights = []
+
   for (x in db){
     ids.push(db[x].id)
     innerHeights.push(JSON.parse(db[x].data).innerHeight)
@@ -41,13 +42,16 @@ getData().then(() => {
     }
   });
 })
-
-
 </script>
 
 <center> <h1>Bar Graph</h1> </center>
 <div id="twoSeries"></div>
 <script>
+
+
+
+
+
   zingchart.render({
     id: 'twoSeries',
     data: {
