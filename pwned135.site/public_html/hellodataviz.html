@@ -15,8 +15,8 @@
 <script>
 
 db = {}
-  ids = []
-  innerHeights = []
+ids = []
+innerHeights = []
 async function getData() {
         try {
             var res = await fetch('https://pwned135.site/api/browser');
@@ -27,16 +27,14 @@ async function getData() {
         }
 }
 getData().then(() => {
-
   for (x in db){
     ids.push(db[x].id)
     innerHeights.push(JSON.parse(db[x].data).innerHeight)
   }
   //console.log(JSON.parse(db[0].data).userAgent)
-
 })
-  console.log(ids)
-  console.log(innerHeights)
+console.log(ids)
+console.log(innerHeights)
 
   zingchart.render({
     id: 'threeSeries',
