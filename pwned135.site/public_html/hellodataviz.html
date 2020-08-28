@@ -27,9 +27,12 @@ async function getData() {
 getData().then(() => {
   ids = []
   innerHeights = []
-
-  console.log(JSON.parse(db[0].data).userAgent)
-  //console.log(db)
+  for (x in db){
+    ids.push(x.id)
+    innerHeights.push(JSON.parse(x.data).userAgent)
+  }
+  //console.log(JSON.parse(db[0].data).userAgent)
+  console.log(ids)
 })
 
 
