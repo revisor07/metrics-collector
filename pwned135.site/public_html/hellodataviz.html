@@ -15,11 +15,12 @@
 <script>
 
 db = {}
+getData()
 async function getData() {
         try {
             var res = await fetch('https://pwned135.site/api/browser');
             var data = await res.json();
-            db= data;
+            db = data;
         } catch (err) {
             console.error(err.message);
         }
