@@ -45,6 +45,9 @@ getData().then(() => {
     id: 'threeSeries',
     data: {
       type: 'line',
+      title: {
+        text: "Line Graph"
+      },
       series: [
         { values: ids },
         { values: innerHeights }
@@ -52,16 +55,17 @@ getData().then(() => {
     }
   });
 })
-</script>
 
-<center> <h1>Bar Graph</h1> </center>
-<div id="twoSeries"></div>
-<script>
+
+
 getData().then(() => {
   zingchart.render({
     id: 'twoSeries',
     data: {
       type: 'bar',
+      title: {
+        text: "Bar Graph"
+      },
       series: [
         { values: innerHeights },
         { values: innerWidths }
@@ -69,11 +73,7 @@ getData().then(() => {
     }
   });
 })
-</script>
 
-<center> <h1>Pie Chart</h1> </center>
-<div id="pie"></div>
-<script>
 getData().then(() => {
   zingchart.render({
     id: 'pie',
