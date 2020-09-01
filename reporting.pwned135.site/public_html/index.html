@@ -10,9 +10,30 @@
 <body>
   <h1>CSE 135 HW1 Lives!</h1>
   <h2>Reporting.pwned135.site</h2>
-  <script>
-    document.write(`Live @ ${new Date()}`);
-  </script>
+
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src=“https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js”></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src=“https://www.gstatic.com/firebasejs/7.19.1/firebase-analytics.js”></script>
+<script>
+  // Your web app’s Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCwk-bttP6lZ2l_4Ld3W2giivK-heZHe-k",
+    authDomain: "pwned135users.firebaseapp.com",
+    databaseURL: "https://pwned135users.firebaseio.com",
+    projectId: "pwned135users",
+    storageBucket: "pwned135users.appspot.com",
+    messagingSenderId: "1060406849830",
+    appId: "1:1060406849830:web:659f22db73dc81e2cb11e7",
+    measurementId: "G-W2J9J3E18R"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
 
 </body>
 
