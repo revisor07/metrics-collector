@@ -4,59 +4,137 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CSE 135 HW Lives!</title>
+  <title>Reporting</title>
 </head>
 
 <body>
-  <h1>CSE 135 HW1 Lives!</h1>
-  <h2>Reporting.pwned135.site</h2>
+  <h1>Report</h1>
+<script src="https://cdn.zingchart.com/zingchart.min.js"></script>
 
 
-
-  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
-
-  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
- <script src="/__/firebase/7.19.1/firebase-app.js"></script>
-
-  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
- <script src="/__/firebase/7.19.1/firebase-analytics.js"></script>
-
-  <!-- Add Firebase products that you want to use -->
- <script src="/__/firebase/7.19.1/firebase-auth.js"></script>
- <script src="/__/firebase/7.19.1/firebase-firestore.js"></script>
-
-
-
-
-
-   <!-- Previously loaded Firebase SDKs -->
-
-  <!-- Initialize Firebase -->
- <script src="/__/firebase/init.js"></script>
-
-
-
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src=“https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js”></script>
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src=“https://www.gstatic.com/firebasejs/7.19.1/firebase-analytics.js”></script>
+<div id="threeSeries"></div>
 <script>
-  // Your web app’s Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyCwk-bttP6lZ2l_4Ld3W2giivK-heZHe-k",
-    authDomain: "pwned135users.firebaseapp.com",
-    databaseURL: "https://pwned135users.firebaseio.com",
-    projectId: "pwned135users",
-    storageBucket: "pwned135users.appspot.com",
-    messagingSenderId: "1060406849830",
-    appId: "1:1060406849830:web:659f22db73dc81e2cb11e7",
-    measurementId: "G-W2J9J3E18R"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+db = {};
+ids = [];
+innerHeights = [];
+innerWidths = [];
+cookiesYes = 0;
+//just to make the pie chart look pretty since everyone has them enabled, 100% doesnt look pretty
+cookiesNo = 20;
+async function getData() {
+        try {
+            var res = await fetch('https://pwned135.site/api/browser');
+            var data = await res.json();
+            db = data;
+        } catch (err) {
+            console.error(err.message);
+        }
+}
+getData().then(() => {
+  for (x in db){
+    ids.push(db[x].id)
+    innerHeights.push(JSON.parse(db[x].data).innerHeight)
+    innerWidths.push(JSON.parse(db[x].data).innerWidth)
+    if(JSON.parse(JSON.parse(db[x].data).cookieEnabled == true))
+      cookiesYes ++;
+    else if(JSON.parse(JSON.parse(db[x].data).cookieEnabled == false))
+      cookiesNo ++;
+  }
+})
+
+getData().then(() => {
+  zingchart.render({
+    id: 'threeSeries',
+    data: {
+      type: 'line',
+      'scale-x': {
+        label: { 
+          text: "id",
+        }
+      },
+      'scale-y': {
+        label: { 
+          text: "inner Height",
+        }
+      },
+      title: {
+        text: "Line Graph"
+      },
+      series: [
+        { values: ids },
+        { values: innerHeights }
+      ]
+    }
+  });
+})
 </script>
+
+<div id="twoSeries"></div>
+<script>
+getData().then(() => {
+  zingchart.render({
+    id: 'twoSeries',
+    data: {
+      type: 'bar',
+      'scale-x': {
+        label: { 
+          text: "Innert Width vs Inner Height",
+        }
+      },
+      title: {
+        text: "Bar Graph"
+      },
+      series: [
+        { values: innerHeights },
+        { values: innerWidths }
+      ]
+    }
+  });
+})
+</script>
+
+<div id="pie"></div>
+<script>
+getData().then(() => {
+  zingchart.render({
+    id: 'pie',
+    data: {
+      type: 'pie',
+      labels: [
+    // Label 1
+        {
+        text: "cookies enabled",
+        "font-family": "Georgia",
+        "font-size": "30",
+        x: "20%",
+        y: "60%",
+        },
+        {
+        text: "cookies disabled",
+        "font-family": "Georgia",
+        "font-size": "30",
+        x: "60%",
+        y: "20%",
+        }
+      ],
+      title: {
+        text: "Pie Chart"
+      },
+      series: [
+        { 
+          text: 'Cookies Enabled',
+          values: [cookiesYes] },
+        { 
+          text: 'Cookies Disabled',
+          values: [cookiesNo] },
+      ]
+    }
+  });
+})
+</script>
+</body>
+
+
 
 </body>
 
