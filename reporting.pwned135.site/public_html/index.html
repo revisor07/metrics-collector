@@ -37,8 +37,10 @@ async function getData() {
 getData().then(() => {
   for (x in db){
     ids.push(db[x].id)
+    if(JSON.parse(db[x].data).innerHeight != null){
     innerHeights.push(JSON.parse(db[x].data).innerHeight)
     innerWidths.push(JSON.parse(db[x].data).innerWidth)
+    }
     if(JSON.parse(JSON.parse(db[x].data).cookieEnabled == true))
       cookiesYes ++;
     else if(JSON.parse(JSON.parse(db[x].data).cookieEnabled == false))
@@ -91,8 +93,10 @@ getData().then(() => {
       series: [
         { values: innerHeights },
         { values: innerWidths }
-
-
+      ]
+    }
+  });
+})
 </script>
 
 
