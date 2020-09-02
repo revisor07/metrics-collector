@@ -19,6 +19,14 @@ connection.connect(function(err) {
   console.log('Mysql Connected...');
 });
 
+
+server.get('/users', function(req, res) {
+  connection.query('SELECT * FROM users', function(err, rows, fields) {
+    if (err) throw err;
+    res.send(rows);
+  });
+});
+
 server.get('/logs', function(req, res) {
   connection.query('SELECT * FROM initialBrowserData', function(err, rows, fields) {
     if (err) throw err;
