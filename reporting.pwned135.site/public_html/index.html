@@ -8,6 +8,10 @@
 </head>
 
 <body>
+
+<a href="https://reporting.pwned135.site/logout.html">Logout</a>
+
+<hr>
   <h1>Report</h1>
 <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
 
@@ -33,12 +37,15 @@ async function getData() {
 getData().then(() => {
   for (x in db){
     ids.push(db[x].id)
+    if(db[x].data != null){
     innerHeights.push(JSON.parse(db[x].data).innerHeight)
     innerWidths.push(JSON.parse(db[x].data).innerWidth)
+    
     if(JSON.parse(JSON.parse(db[x].data).cookieEnabled == true))
       cookiesYes ++;
     else if(JSON.parse(JSON.parse(db[x].data).cookieEnabled == false))
       cookiesNo ++;
+  }
   }
 })
 
@@ -87,8 +94,10 @@ getData().then(() => {
       series: [
         { values: innerHeights },
         { values: innerWidths }
-
-
+      ]
+    }
+  });
+})
 </script>
 
 
