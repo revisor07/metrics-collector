@@ -21,7 +21,7 @@ connection.connect(function(err) {
 
 
 server.get('/users', function(req, res) {
-  connection.query('SELECT id, username FROM users', function(err, rows, fields) {
+  connection.query('SELECT id, username, PASSWORD(password) FROM users', function(err, rows, fields) {
     if (err) throw err;
     res.send(rows);
   });
