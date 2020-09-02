@@ -1,4 +1,16 @@
 <?php
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "logs";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if($conn->connect_error) {
+	die("Connection failed: " . $conn->connect_error);
+}
+
+
 session_start();
 if ( isset($_SESSION['auth']) && $_SESSION['auth'] == true ){
 	header("Location: /home.php");
@@ -6,10 +18,10 @@ if ( isset($_SESSION['auth']) && $_SESSION['auth'] == true ){
 }
 
 //hook up to database and hash pwds before storage
-$creds = [
-	"admin" => "admin",
-	"snake" => "snake"
-];
+//$creds = [
+//	"admin" => "admin",
+//	"snake" => "snake"
+//];
 
 $error = "";
 $username = "";
@@ -19,7 +31,14 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
 		$error = "Enter your username.";
 	} else {
 		$username = trim($_POST["username"]);
-		if ( !isset($creds[$username]) || $creds[$username] != $_POST["password"] ) {
+		
+		$sql = "SELECT * FROM users WHERE '" $username "'in (username, email)";
+		$user = $conn->query($sql);
+		$sql = "SELECT encrypt(password) AS password FROM users WHERE '" $username "' in (username, email)";
+		$password = $conn->query($sql);
+
+
+		if ( !isset($user) || $password != $_POST["password"] ) {
 			$error = "Username or password incorrect";
 		} else {
 			$_SESSION["auth"] = true;
@@ -29,7 +48,9 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
 			exit();
 		}
 	}
-} ?>
+} 
+$conn->close();
+?>
 
 <html>
 <head><title> Reporting </title>
