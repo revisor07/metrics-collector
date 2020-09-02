@@ -37,7 +37,7 @@ async function getData() {
 getData().then(() => {
   for (x in db){
     ids.push(db[x].id)
-    if(JSON.parse(db[x].data).hasOwnProperty("innerHeight")){
+    if(db[x].hasOwnProperty("data")){
     innerHeights.push(JSON.parse(db[x].data).innerHeight)
     innerWidths.push(JSON.parse(db[x].data).innerWidth)
     }
