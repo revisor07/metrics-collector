@@ -6,7 +6,7 @@
 <body>
   <script>
 function logout(secUrl, redirUrl) {
-    if (bowser.msie) {
+    if (browser.msie) {
         document.execCommand('ClearAuthenticationCache', 'false');
     } else if (bowser.gecko) {
         $.ajax({
