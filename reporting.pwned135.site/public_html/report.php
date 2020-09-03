@@ -1,9 +1,6 @@
-
 <?php
 session_start();
-echo $_SESSION['auth']; 
-if( !isset($_SESSION['auth']) ){
-	//echo $_SESSION['auth']; 
+if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
 	header('Location: /login.php');
 	exit();
 } ?>
