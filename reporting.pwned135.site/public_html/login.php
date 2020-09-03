@@ -1,6 +1,12 @@
 <?php
 
-require_once "config.php";
+$conn = new mysqli("localhost","root","","logs");
+
+// Check connection
+if ($conn -> connect_errno) {
+  echo "Failed to connect to MySQL: " . $conn -> connect_error;
+  exit();
+}
 
 
 session_start();
@@ -23,7 +29,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
 		$error = "Enter your username.";
 	} else {
 		$username = trim($_POST["username"]);
-		$sql = "SELECT encrypt(password) FROM users WHERE '" $username "' in (username, email)";
+		$sql = "select encrypt(password) from users where '" $username "' in (username, email)";
 		$password = $conn->query($sql);
 		echo "SNAKE";
 
