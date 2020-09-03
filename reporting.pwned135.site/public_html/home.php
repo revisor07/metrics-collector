@@ -9,13 +9,11 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
 <head><title> Reporting</title></head>
 <body>
 <p><a href="logout.php">Logout</a></p>
-<?php
-	if($_SESSION["admin"] = true){
-		echo <p><a href="users.php">User Managment</a></p>;
-	}
-?>
 
-  <p><a href="users.php">User Managment</a></p>
+<?php if($_SESSION["admin"] = true) : ?>
+    <p><a href="users.php">User Managment</a></p>
+<?php endif; ?>
+
 
 <p>Welcome, <?php echo $_SESSION['username'] ?>!</p>
 <hr>
