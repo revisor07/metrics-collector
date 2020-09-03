@@ -445,7 +445,7 @@ function reportPerf(measureName, data, customProperties = {}) {
     });
 
 
-    //console.log(payload);
+    console.log(payload);
     
     var name = ""
     if(measureName == "initialBrowserData")
@@ -466,6 +466,7 @@ function reportPerf(measureName, data, customProperties = {}) {
       var vitalsScore = payload["vitalsScore"];
       var obj = {data, vitalsScore}
       //console.log(JSON.stringify(obj));
+      if(name != ""){
       fetch("https://pwned135.site/api/"+name, {
         method: 'POST',
         headers: {
@@ -478,7 +479,8 @@ function reportPerf(measureName, data, customProperties = {}) {
           console.log('success', obj)
         }).catch(function(error) {
         console.log(error);
-      }); 
+      });
+      } 
   });
 }
 

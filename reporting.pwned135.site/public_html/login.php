@@ -1,13 +1,11 @@
 <?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "logs";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli("localhost","root","","logs");
 
-if($conn->connect_error) {
-	die("Connection failed: " . $conn->connect_error);
+// Check connection
+if ($conn -> connect_errno) {
+  echo "Failed to connect to MySQL: " . $conn -> connect_error;
+  exit();
 }
 
 
@@ -25,24 +23,33 @@ if ( isset($_SESSION['auth']) && $_SESSION['auth'] == true ){
 
 $error = "";
 $username = "";
+$password = "";
+$admin;
 
 if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
 	if ( empty(trim($_POST["username"])) ) {
 		$error = "Enter your username.";
 	} else {
 		$username = trim($_POST["username"]);
-		
-		$sql = "SELECT * FROM users WHERE '" $username "'in (username, email)";
-		$user = $conn->query($sql);
-		$sql = "SELECT encrypt(password) AS password FROM users WHERE '" $username "' in (username, email)";
-		$password = $conn->query($sql);
-
-
-		if ( !isset($user) || $password != $_POST["password"] ) {
+		$sql = "SELECT password, admin FROM users WHERE '$username' IN (username, email)";
+		if ($result=mysqli_query($conn,$sql))
+ 		{
+  		// Fetch one and one row
+  			while ($row=mysqli_fetch_row($result))
+    		{
+  
+    		  $password= $row[0];
+    		  $admin = $row[1];
+   			}
+		}
+		if ( !isset($username) || $password != $_POST["password"] ) {
 			$error = "Username or password incorrect";
 		} else {
 			$_SESSION["auth"] = true;
 			$_SESSION["username"] = $username;
+			if($admin == 1){
+				$_SESSION["admin"] = true;
+			}
 
 			header("Location: /home.php");
 			exit();

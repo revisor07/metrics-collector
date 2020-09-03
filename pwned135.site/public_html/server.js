@@ -27,6 +27,17 @@ server.get('/users', function(req, res) {
   });
 });
 
+server.post('/users', (req, res, next) => {
+  if (connection.query('INSERT INTO user VALUES (?, ?, ?, ?, ?);', req.body) ){
+     res.status(200).json({
+     message: req.body
+    })
+  }
+  else
+    throw error;
+});
+
+
 server.get('/logs', function(req, res) {
   connection.query('SELECT * FROM initialBrowserData', function(err, rows, fields) {
     if (err) throw err;
@@ -44,6 +55,8 @@ server.get('/browser', function(req, res, next) {
 	  	}
   	});
 });
+
+
 server.get('/browser/:id', function(req, res, next) {
 	connection.query('SELECT * from initialBrowserData WHERE id=?', req.params.id, function (error, results, fields) {
 	  	if(error){
