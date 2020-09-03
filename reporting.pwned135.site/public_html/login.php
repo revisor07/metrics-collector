@@ -23,11 +23,9 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
 		$error = "Enter your username.";
 	} else {
 		$username = trim($_POST["username"]);
-		
-		$sql = "SELECT * FROM users WHERE '" $username "'in (username, email)";
-		$user = $conn->query($sql);
-		$sql = "SELECT encrypt(password) AS password FROM users WHERE '" $username "' in (username, email)";
+		$sql = "SELECT encrypt(password) FROM users WHERE '" $username "' in (username, email)";
 		$password = $conn->query($sql);
+		echo "SNAKE";
 
 
 		if ( !isset($user) || $password != $_POST["password"] ) {
