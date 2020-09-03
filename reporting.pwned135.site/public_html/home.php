@@ -9,9 +9,13 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
 <head><title> Reporting</title></head>
 <body>
 <p><a href="logout.php">Logout</a></p>
+{%if $_SESSION["admin"] == true %}
+  <p><a href="users.php">User Managment</a></p>
+{% endif %}
 <p>Welcome, <?php echo $_SESSION['username'] ?>!</p>
 <hr>
 <h1>Your Report</h1>
+
 
 
 <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
