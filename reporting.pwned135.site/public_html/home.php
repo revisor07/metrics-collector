@@ -54,8 +54,8 @@ getData().then(() => {
   for (x in ibd){
     if(ibd[x].data != null){
     ids.push(ibd[x].id)
-    innerHeights.push(JSON.parse(ibd[x].data).innerHeight)
-    innerWidths.push(JSON.parse(ibd[x].data).innerWidth)
+    innerHeights.push((JSON.parse(ibd[x].data)).innerHeight)
+    innerWidths.push((JSON.parse(ibd[x].data)).innerWidth)
     
     if(JSON.parse(ibd[x].data).cookieEnabled == true)
       cookiesYes ++;
