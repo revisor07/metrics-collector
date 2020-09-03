@@ -21,7 +21,7 @@ connection.connect(function(err) {
 
 
 server.get('/users', function(req, res) {
-  res.set("Cache-Control", "no-cache");
+  res.set("Cache-Control", "no-store");
   connection.query('SELECT id, username, email, PASSWORD(password) as password, admin FROM users', function(err, rows, fields) {
     if (err) throw err;
     res.send(rows);
