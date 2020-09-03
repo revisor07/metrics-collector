@@ -38,7 +38,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
   		// Fetch one and one row
   			while ($row=mysqli_fetch_row($result))
     		{
-    		echo ("%s\n",$row[0]);
+    		printf ("%s (%s)\n",$row[0],$row[1]);
    			}
 		}
 
