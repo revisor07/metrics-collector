@@ -65,9 +65,9 @@ body {
 <style> p.err { color: red; }</style>
 </head>
 <body>
-<h2> Reporting Console Login</h2>
+<h2 align="center"> Reporting Console Login</h2>
 <p class="err"><?php echo $error; ?></p>
-<form action="/login.php" method="POST">
+<form align="center" action="/login.php" method="POST">
 <label> Username
 	<input type="text" name="username" value="<?php echo $username; ?>">
 </label><br>
