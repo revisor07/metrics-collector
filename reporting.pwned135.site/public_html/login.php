@@ -30,9 +30,17 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
 	} else {
 		$username = trim($_POST["username"]);
 		$sql = "select password from users where ' $username ' in (username, email)";
-		$query = mysqli_query($conn,$sql);
-		$result = mysqli_fetch_assoc($query);
-		$password = $result['password'];
+		//$query = mysqli_query($conn,$sql);
+		//$result = mysqli_fetch_assoc($query);
+		//$password = $result['password'];
+		if ($result=mysqli_query($conn,$sql))
+ 		{
+  		// Fetch one and one row
+  			while ($row=mysqli_fetch_row($result))
+    		{
+    		echo ("%s\n",$row[0]);
+   			}
+		}
 
 
 		echo "snake";
