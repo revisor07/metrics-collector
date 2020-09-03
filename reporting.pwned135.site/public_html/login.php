@@ -23,7 +23,7 @@ if ( isset($_SESSION['auth']) && $_SESSION['auth'] == true ){
 
 $error = "";
 $username = "";
-$result;
+$password = "";
 
 if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
 	if ( empty(trim($_POST["username"])) ) {
@@ -34,16 +34,16 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
 		//$query = mysqli_query($conn,$sql);
 		//$result = mysqli_fetch_assoc($query);
 		//$password = $result['password'];
-		echo $sql;
 		if ($result=mysqli_query($conn,$sql))
  		{
   		// Fetch one and one row
   			while ($row=mysqli_fetch_row($result))
     		{
   
-    		echo $row[0];
+    		  $password= $row[0];
    			}
 		}
+		echo $password;
 
 		if ( !isset($username) || $password != $_POST["password"] ) {
 			$error = "Username or password incorrect";
