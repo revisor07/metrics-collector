@@ -59,7 +59,7 @@ $conn->close();
 <style> p.err { color: red; }</style>
 </head>
 <body>
- <h2 style = "font-family:georgia,garamond,serif;font-size:16px;font-style:italic;">
+ <h2 style = "font-family:arial,serif;">
          This is demo text
  </h2>
 <h2> Reporting Console Login</h2>
