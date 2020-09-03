@@ -55,14 +55,16 @@ $conn->close();
 ?>
 
 <html>
-<head><title> Reporting </title>
-<style> p.err { color: red; }</style>
-</head>
+<head>
+<title> Reporting </title>
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
 <style>
 body {
-    font-family: 'Roboto';
+    font-family: 'Roboto';font-size: 22px;
 }
-</style>
+<style> p.err { color: red; }</style>
+</head>
+<body>
 <h2> Reporting Console Login</h2>
 <p class="err"><?php echo $error; ?></p>
 <form action="/login.php" method="POST">
