@@ -9,16 +9,13 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
 <head><title> Reporting</title></head>
 <body>
 <p>Welcome, <?php echo $_SESSION['username'] ?>!</p>
-<p><a href="metricname.php">Detailed Report</a></p>
+<p><a href="metricname.php">Generate Report</a></p>
 
 <?php if($_SESSION["admin"] == true) : ?>
     <p><a href="users.php">User Managment</a></p>
 <?php endif; ?>
 <p><a href="logout.php">Logout</a></p>
 <hr>
-
-<h1 align = "center">Your Report</h1>
-
 
 
 <script src="https://cdn.zingchart.com/zingchart.min.js"></script>

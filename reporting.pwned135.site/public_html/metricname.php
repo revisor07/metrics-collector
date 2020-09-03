@@ -18,7 +18,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
 <p><a href="logout.php">Logout</a></p>
 <hr>
 
-<h1>Your Report</h1>
+<h1>Detailed Report</h1>
 
 <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
 
