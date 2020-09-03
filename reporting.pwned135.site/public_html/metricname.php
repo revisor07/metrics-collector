@@ -94,10 +94,11 @@ getData().then(() => {
 })
 </script>
 
-<zing-grid src="https://pwned135.site/api/browser" ></zing-grid>
-
 <h3>What devices are my users visiting from?</h3>
 <p> Making sure that a website is accessible to as many users as possible, and the easiest way to know what devices your website is being accessed from is by looking at the size of your user's browser. By seeing that the average size is larger (indicating a laptop) we can worry less about delays in loading times due to stronger processors, and focus on exporting visuals and a smooth scrolling layout. If the screen size is smaller it is more likely our users are browsing on their phones, so a faster response from the website is a must, and the client side technology must be able to adapt to rotation. We must remember that small web mistakes can seem like huge inconviences to users, so knowing our user a little better helps to create a more streamline webpage for their needs. </p>
+<zing-grid caption="Initial Browser Data" src="https://pwned135.site/api/browser" ></zing-grid>
+
+
 
 </body>
 </html>
