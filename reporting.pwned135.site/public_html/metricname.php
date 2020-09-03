@@ -12,12 +12,18 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
 
 </head>
 <body>
-<h1>Reporting</h1>
-<p>Welcome, <?php echo $_SESSION['username'] ?>!</p>
-<p><a href="home.php">Home</a></p>
-<p><a href="logout.php">Logout</a></p>
 
-<h1>Your Report</h1>
+<p>Welcome, <?php echo $_SESSION['username'] ?>!</p>
+
+<form action="home.php">
+    <input type="submit" value="home" />
+</form>
+<form action="logout.php">
+    <input type="submit" value="logout" />
+</form>
+<hr>
+
+<h1>Detailed Report</h1>
 
 <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
 
