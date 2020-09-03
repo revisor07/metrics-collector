@@ -31,7 +31,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
 		$username = trim($_POST["username"]);
 		$sql = "select password from users where ' $username ' in (username, email)";
 		$password = $conn->query($sql);
-		echo "snake";
+		echo $username;
 
 
 		if ( !isset($username) || $password != $_POST["password"] ) {
