@@ -21,6 +21,6 @@ $_SESSION["admin"] = 0;
 $_SESSION = array();
 session_destroy();
 
-//header("Location: login.php");
+
 exit();
 ?>
