@@ -61,7 +61,7 @@ getData().then(() => {
   }
   for (i=0; i < innerHeights.length; i++){
   	coord = [innerHeights[i], innerWidths[i]]
-    dimensions.push(array)
+    dimensions.push(coord)
   }
 
 
