@@ -105,7 +105,7 @@ getData().then(() => {
       title: {
         text: "Bar Graph"
       },
-      series: [{dimensions}]
+      series: [{values: dimensions}]
     }
   });
 })
