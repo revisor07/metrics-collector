@@ -60,7 +60,8 @@ getData().then(() => {
     }
   }
   for (i=0, i < innerHeights.length, i++){
-    dimensions.push(new array(innerHeights[i], innerWidths[i]))
+  	array = [innerHeights[i], innerWidths[i]]
+    dimensions.push(array)
   }
 
 
