@@ -59,11 +59,11 @@ $conn->close();
 <style> p.err { color: red; }</style>
 </head>
 <body>
- <p style = "font-family:georgia,garamond,serif;font-size:16px;font-style:italic;">
+ <h2 style = "font-family:georgia,garamond,serif;font-size:16px;font-style:italic;">
          This is demo text
-</p>
+ </h2>
 <h2> Reporting Console Login</h2>
-<h2 class="err"><?php echo $error; ?></h2>
+<p class="err"><?php echo $error; ?></p>
 <form action="/login.php" method="POST">
 <label> Username
 	<input type="text" name="username" value="<?php echo $username; ?>">
