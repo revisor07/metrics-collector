@@ -8,18 +8,16 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
 <html>
 <head><title> Reporting</title></head>
 <body>
-<p><a href="logout.php">Logout</a></p>
+<p>Welcome, <?php echo $_SESSION['username'] ?>!</p>
 <p><a href="metricname.php">Detailed Report</a></p>
 
 <?php if($_SESSION["admin"] == true) : ?>
     <p><a href="users.php">User Managment</a></p>
 <?php endif; ?>
-
-
-
-<p>Welcome, <?php echo $_SESSION['username'] ?>!</p>
+<p><a href="logout.php">Logout</a></p>
 <hr>
-<h1>Your Report</h1>
+
+<h1 align = "center">Your Report</h1>
 
 
 

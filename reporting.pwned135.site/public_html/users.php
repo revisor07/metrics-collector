@@ -14,8 +14,10 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true || $_SESSION['admin']
   <script src="https://cdn.zinggrid.com/zinggrid.min.js" defer></script>
 </head>
 <body>
-  <p><a href="logout.php">Logout</a></p>
+  <p>Welcome, <?php echo $_SESSION['username'] ?>!</p>
   <p><a href="home.php">Home</a></p>
+  <p><a href="logout.php">Logout</a></p>
+
   <hr>
   <h1>User Management Console</h1>
   <!--Grid Component-->
