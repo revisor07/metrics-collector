@@ -39,7 +39,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
   			while ($row=mysqli_fetch_row($result))
     		{
     		echo "snake";
-    		echo "%s (%s)\n",$row[0],$row[1];
+    		echo "(%s)\n",$row[0];
    			}
 		}
 
