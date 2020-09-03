@@ -14,8 +14,15 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
 <?php if($_SESSION["admin"] == true) : ?>
     <p><a href="users.php">User Managment</a></p>
 <?php endif; ?>
-<p><a href="logout.php">Logout</a></p>
+
+<form action="logout.php">
+    <input type="submit" value="logout" />
+</form>
+<!--<p><a href="logout.php">Logout</a></p> -->
 <hr>
+
+<h1>Your Reports</h1>
+
 
 
 <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
