@@ -15,6 +15,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true || $_SESSION['admin']
 </head>
 <body>
   <p><a href="logout.php">Logout</a></p>
+  <p><a href="home.php">Home</a></p>
   <hr>
   <h1>User Management Console</h1>
   <!--Grid Component-->
