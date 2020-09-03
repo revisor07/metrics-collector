@@ -102,8 +102,18 @@ getData().then(() => {
     id: 'myChart',
     data: {
       type: 'scatter',
+      'scale-x': {
+        label: { 
+          text: "Inner Height",
+        }
+      },
+      'scale-y': {
+        label: { 
+          text: "Inner Width",
+        }
+      },
       title: {
-        text: "Bar Graph"
+        text: "Scatter Plot"
       },
       series: [{values: dimensions}]
     }
