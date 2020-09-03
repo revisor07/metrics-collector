@@ -14,7 +14,7 @@ echo $_SESSION["admin"]
 <body>
 <p><a href="logout.php">Logout</a></p>
 
-<?php if($_SESSION["admin"] = true) : ?>
+<?php if($_SESSION["admin"] == true) : ?>
     <p><a href="users.php">User Managment</a></p>
 <?php endif; ?>
 

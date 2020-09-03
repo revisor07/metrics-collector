@@ -47,7 +47,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
 		} else {
 			$_SESSION["auth"] = true;
 			$_SESSION["username"] = $username;
-			if($admin = 1){
+			if($admin == 1){
 				$_SESSION["admin"] = true;
 			}
 
