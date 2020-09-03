@@ -59,8 +59,8 @@ getData().then(() => {
       cookiesNo ++;
     }
   }
-  for (i=0, i < innerHeights.length, i++){
-  	array = [innerHeights[i], innerWidths[i]]
+  for (i=0; i < innerHeights.length; i++){
+  	coord = [innerHeights[i], innerWidths[i]]
     dimensions.push(array)
   }
 
