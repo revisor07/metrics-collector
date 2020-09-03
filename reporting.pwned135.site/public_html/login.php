@@ -58,10 +58,11 @@ $conn->close();
 <head><title> Reporting </title>
 <style> p.err { color: red; }</style>
 </head>
-<body>
- <h2 style = "font-family:Helvetica,serif;">
-         This is demo text
- </h2>
+<style>
+body {
+    font-family: 'Roboto';font-size: 22px;
+}
+</style>
 <h2> Reporting Console Login</h2>
 <p class="err"><?php echo $error; ?></p>
 <form action="/login.php" method="POST">
