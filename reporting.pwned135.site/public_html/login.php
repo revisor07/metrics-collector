@@ -15,11 +15,6 @@ if ( isset($_SESSION['auth']) && $_SESSION['auth'] == true ){
 	exit();
 }
 
-//hook up to database and hash pwds before storage
-//$creds = [
-//	"admin" => "admin",
-//	"snake" => "snake"
-//];
 
 $error = "";
 $username = "";

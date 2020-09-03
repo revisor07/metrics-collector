@@ -9,7 +9,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
 <head><title> Reporting</title></head>
 <body>
 <p><a href="logout.php">Logout</a></p>
-<p><a href="report.php">Detailed Report</a></p>
+<p><a href="metricname.php">Detailed Report</a></p>
 
 <?php if($_SESSION["admin"] == true) : ?>
     <p><a href="users.php">User Managment</a></p>
@@ -35,13 +35,18 @@ innerHeights = [];
 innerWidths = [];
 dimensions = [];
 cookiesYes = 0;
+tbtData = [];
+exIds = [];
 //just to make the pie chart look pretty since everyone has them enabled, 100% doesnt look pretty
 cookiesNo = 0;
 async function getData() {
         try {
-            var res = await fetch('https://pwned135.site/api/browser');
-            var data = await res.json();
-            ibd = data;         
+	    var res = await fetch('https://pwned135.site/api/browser');
+	    var ex = await fetch('https://pwned135.site/api/tbt');
+	    var data = await res.json();
+	    var exData = await ex.json();
+	    ibd = data;         
+	    exIbd = exData;
         } catch (err) {
             console.error(err.message);
         }
@@ -52,13 +57,20 @@ getData().then(() => {
     ids.push(ibd[x].id)
     innerHeights.push(JSON.parse(ibd[x].data).innerHeight)
     innerWidths.push(JSON.parse(ibd[x].data).innerWidth)
-    
+
     if(JSON.parse(ibd[x].data).cookieEnabled == true)
       cookiesYes ++;
     else if(JSON.parse(ibd[x].data).cookieEnabled == false)
       cookiesNo ++;
     }
   }
+
+  for (x in exIbd){
+    if(exIbd[x].data != null){
+	tbtData.push(JSON.parse(exIbd[x].data))	  
+    }
+  }
+
   for (i=0; i < innerHeights.length; i++){
   	coord = [innerHeights[i], innerWidths[i]]
     dimensions.push(coord)
@@ -72,23 +84,23 @@ getData().then(() => {
   zingchart.render({
     id: 'threeSeries',
     data: {
-      type: 'line',
+      type: 'bar',
       'scale-x': {
         label: { 
-          text: "id",
+          text: "Data Transmitted",
         }
       },
       'scale-y': {
         label: { 
-          text: "inner Height",
+          text: "Data Transmitted",
+	  "height": "15px",
         }
       },
       title: {
-        text: "Line Graph"
+        text: "Data Transmitted During TBT"
       },
       series: [
-        { values: ids },
-        { values: innerHeights }
+        { values: tbtData}
       ]
     }
   });
@@ -110,10 +122,11 @@ getData().then(() => {
       'scale-y': {
         label: { 
           text: "Inner Width",
+	  "height": "15px",
         }
       },
       title: {
-        text: "Scatter Plot"
+        text: "Browser Dimensions"
       },
       series: [{values: dimensions}]
     }
@@ -130,29 +143,29 @@ getData().then(() => {
     data: {
       type: 'pie',
       labels: [
-    // Label 1
+	      // Label 1
         {
         text: "cookies enabled",
         "font-family": "Georgia",
-        "font-size": "30",
+        "font-size": "20",
         x: "20%",
-        y: "70%",
+	y: "70%",
         },
         {
         text: "cookies disabled",
         "font-family": "Georgia",
-        "font-size": "30",
+        "font-size": "20",
         x: "60%",
         y: "20%",
         }
       ],
       title: {
-        text: "Pie Chart"
+        text: "Cookie Status"
       },
       series: [
         { 
           text: 'Cookies Enabled',
-          values: [cookiesYes] },
+	  values: [cookiesYes] },
         { 
           text: 'Cookies Disabled',
           values: [cookiesNo] },
