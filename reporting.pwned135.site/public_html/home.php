@@ -41,11 +41,7 @@ async function getData() {
         try {
             var res = await fetch('https://pwned135.site/api/browser');
             var data = await res.json();
-            ibd = data;
-
-            res = await fetch('https://pwned135.site/api/navigation');
-            data = await res.json();
-            nt = data;           
+            ibd = data;         
         } catch (err) {
             console.error(err.message);
         }
@@ -54,8 +50,8 @@ getData().then(() => {
   for (x in ibd){
     if(ibd[x].data != null){
     ids.push(ibd[x].id)
-    innerHeights.push((JSON.parse(ibd[x].data)).innerHeight)
-    innerWidths.push((JSON.parse(ibd[x].data)).innerWidth)
+    innerHeights.push(JSON.parse(ibd[x].data).innerHeight)
+    innerWidths.push(JSON.parse(ibd[x].data).innerWidth)
     
     if(JSON.parse(ibd[x].data).cookieEnabled == true)
       cookiesYes ++;
