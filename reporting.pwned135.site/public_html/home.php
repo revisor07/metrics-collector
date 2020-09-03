@@ -33,6 +33,7 @@ nt = {}; //navigationTiming
 ids = [];
 innerHeights = [];
 innerWidths = [];
+dimensions = [];
 cookiesYes = 0;
 //just to make the pie chart look pretty since everyone has them enabled, 100% doesnt look pretty
 cookiesNo = 0;
@@ -61,6 +62,9 @@ getData().then(() => {
     else if(JSON.parse(ibd[x].data).cookieEnabled == false)
       cookiesNo ++;
     }
+  }
+  for (i=0, i < innerHeights.length, i++){
+    dimensions.push([innerHeights[i], innerWidths[i]])
   }
 
 
@@ -104,10 +108,7 @@ getData().then(() => {
       title: {
         text: "Bar Graph"
       },
-      series: [
-        { values: innerHeights },
-        { values: innerWidths }
-      ]
+      series: dimensions
     }
   });
 })
