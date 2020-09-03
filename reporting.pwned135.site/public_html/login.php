@@ -60,7 +60,7 @@ $conn->close();
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 <style>
 body {
-    font-family: 'Roboto', sans-serif; font-size: 22px;
+    font-family: 'Roboto', sans-serif; 
 }
 <style> p.err { color: red; }</style>
 </head>
