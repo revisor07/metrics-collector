@@ -31,7 +31,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
 		$username = trim($_POST["username"]);
 		$sql = "select encrypt(password) from users where ' $username ' in (username, email)";
 		$password = $conn->query($sql);
-		echo "SNAKE";
+		echo $sql;
 
 
 		if ( !isset($user) || $password != $_POST["password"] ) {
