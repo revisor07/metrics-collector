@@ -32,7 +32,7 @@ innerHeights = [];
 innerWidths = [];
 cookiesYes = 0;
 //just to make the pie chart look pretty since everyone has them enabled, 100% doesnt look pretty
-cookiesNo = 20;
+cookiesNo = 0;
 async function getData() {
         try {
             var res = await fetch('https://pwned135.site/api/browser');
