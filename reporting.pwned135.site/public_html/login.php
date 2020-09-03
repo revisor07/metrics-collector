@@ -30,7 +30,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
 		$error = "Enter your username.";
 	} else {
 		$username = trim($_POST["username"]);
-		$sql = "SELECT password FROM users WHERE '$username' IN (username, email)";
+		$sql = "SELECT password, admin FROM users WHERE '$username' IN (username, email)";
 		if ($result=mysqli_query($conn,$sql))
  		{
   		// Fetch one and one row
@@ -40,7 +40,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
     		  $password= $row[0];
    			}
 		}
-
+		echo $password
 		if ( !isset($username) || $password != $_POST["password"] ) {
 			$error = "Username or password incorrect";
 		} else {
