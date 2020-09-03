@@ -19,12 +19,9 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true || $_SESSION['admin']
   <h1>User Management Console</h1>
   <!--Grid Component-->
   <zing-grid>
-    <zg-data src="https://pwned135.site/api/users"></zg-data>
+    <zg-data src="https://pwned135.site/api/users" editor controls></zg-data>
   </zing-grid>
-  <zing-grid
-  src="https://zinggrid-rest-example-datasets.glitch.me/comments"
-  editor-controls>
-</zing-grid>
+
 </body>
 </html>
 
