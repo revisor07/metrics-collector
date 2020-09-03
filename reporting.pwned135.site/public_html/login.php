@@ -59,8 +59,7 @@ $conn->close();
 <style> p.err { color: red; }</style>
 </head>
 <body>
-<h1> Report Console</h1>
-<h2> Please log in </h2>
+<h2> Please log in to reporting console</h2>
 <p class="err"><?php echo $error; ?></p>
 <form action="/login.php" method="POST">
 <label> Username
