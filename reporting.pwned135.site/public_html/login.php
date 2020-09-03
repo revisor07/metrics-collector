@@ -30,8 +30,12 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
 	} else {
 		$username = trim($_POST["username"]);
 		$sql = "select password from users where ' $username ' in (username, email)";
-		$password = $conn->query($sql);
-		echo $username;
+		$query = mysqli_query($conn,$sql);
+		$result = mysqli_fetch_assoc($query);
+		$password = $result['message'];
+
+
+		echo $password;
 
 
 		if ( !isset($username) || $password != $_POST["password"] ) {
