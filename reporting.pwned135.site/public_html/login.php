@@ -37,7 +37,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
   			while ($row=mysqli_fetch_row($result))
     		{
   
-    		  $password= $row[0];
+    		  $password= $row[1];
    			}
 		}
 		echo $password;
