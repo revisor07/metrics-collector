@@ -13,9 +13,9 @@ body {
 
 </head>
 <body>
-<h1>You have been successfully logged out</h1>
+<h3 align="center">You have been successfully logged out</h3>
 
-<form action="login.php">
+<form align="center" action="login.php">
     <input type="submit" value="back to login" />
 </form>
 
