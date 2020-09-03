@@ -85,11 +85,6 @@ getData().then(() => {
     id: 'threeSeries',
     data: {
       type: 'bar',
-      'scale-x': {
-        label: { 
-          text: "Data Transmitted",
-        }
-      },
       'scale-y': {
         label: { 
           text: "Data Transmitted",
