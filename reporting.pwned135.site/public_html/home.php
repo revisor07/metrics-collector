@@ -28,7 +28,8 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
 
 <div id="threeSeries"></div>
 <script>
-db = {};
+ibd = {}; //initialBrowserData
+nt = {}; //navigationTiming
 ids = [];
 innerHeights = [];
 innerWidths = [];
@@ -39,24 +40,31 @@ async function getData() {
         try {
             var res = await fetch('https://pwned135.site/api/browser');
             var data = await res.json();
-            db = data;
+            ibd = data;
+
+            res = await fetch('https://pwned135.site/api/navigation');
+            data = await res.json();
+            nt = data;           
         } catch (err) {
             console.error(err.message);
         }
 }
 getData().then(() => {
-  for (x in db){
-    ids.push(db[x].id)
-    if(db[x].data != null){
-    innerHeights.push(JSON.parse(db[x].data).innerHeight)
-    innerWidths.push(JSON.parse(db[x].data).innerWidth)
+  for (x in ibd){
+    if(ibd[x].data != null){
+    ids.push(ibd[x].id)
+    innerHeights.push(JSON.parse(ibd[x].data).innerHeight)
+    innerWidths.push(JSON.parse(ibd[x].data).innerWidth)
     
-    if(JSON.parse(JSON.parse(db[x].data).cookieEnabled == true))
+    if(JSON.parse(ibd[x].data).cookieEnabled == true)
       cookiesYes ++;
-    else if(JSON.parse(JSON.parse(db[x].data).cookieEnabled == false))
+    else if(JSON.parse(ibd[x].data).cookieEnabled == false)
       cookiesNo ++;
+    }
   }
-  }
+
+
+
 })
 
 getData().then(() => {
