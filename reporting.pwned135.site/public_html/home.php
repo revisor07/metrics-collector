@@ -6,7 +6,15 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
 } ?>
 
 <html>
-<head><title> Reporting</title></head>
+<head>
+<title> Reporting</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+<style>
+body {
+    font-family: 'Roboto', sans-serif; 
+}
+<style> p.err { color: red; }</style>
+</head>
 <body>
 <p>Welcome, <?php echo $_SESSION['username'] ?>!</p>
 

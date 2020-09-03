@@ -9,7 +9,12 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
 <head><title> Reporting</title>
 
 <script src="https://cdn.zinggrid.com/zinggrid.min.js" defer></script>
-
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+<style>
+body {
+    font-family: 'Roboto', sans-serif; 
+}
+<style> p.err { color: red; }</style>
 </head>
 <body>
 
