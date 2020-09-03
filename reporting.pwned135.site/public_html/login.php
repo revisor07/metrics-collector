@@ -63,7 +63,7 @@ $conn->close();
          This is demo text
 </p>
 <h2> Reporting Console Login</h2>
-<p class="err"><?php echo $error; ?></p>
+<h2 class="err"><?php echo $error; ?></h2>
 <form action="/login.php" method="POST">
 <label> Username
 	<input type="text" name="username" value="<?php echo $username; ?>">
