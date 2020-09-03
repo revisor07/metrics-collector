@@ -14,8 +14,13 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
 <body>
 
 <p>Welcome, <?php echo $_SESSION['username'] ?>!</p>
-<p><a href="home.php">Home</a></p>
-<p><a href="logout.php">Logout</a></p>
+
+<form action="home.php">
+    <input type="submit" value="home" />
+</form>
+<form action="logout.php">
+    <input type="submit" value="logout" />
+</form>
 <hr>
 
 <h1>Detailed Report</h1>
