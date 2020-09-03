@@ -23,7 +23,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true || $_SESSION['admin']
     <zg-data src="https://pwned135.site/api/users"></zg-data>
   </zing-grid>
 -->
-  <zing-grid src="https://pwned135.site/api/users/" editor></zing-grid>
+  <zing-grid src="https://pwned135.site/api/users/" editor editor-controls></zing-grid>
 
 
 
