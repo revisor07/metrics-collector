@@ -34,7 +34,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
 		echo "snake";
 
 
-		if ( !isset($user) || $password != $_POST["password"] ) {
+		if ( !isset($username) || $password != $_POST["password"] ) {
 			$error = "Username or password incorrect";
 		} else {
 			$_SESSION["auth"] = true;
