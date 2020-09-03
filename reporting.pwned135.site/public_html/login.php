@@ -24,6 +24,7 @@ if ( isset($_SESSION['auth']) && $_SESSION['auth'] == true ){
 $error = "";
 $username = "";
 $password = "";
+$admin;
 
 if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
 	if ( empty(trim($_POST["username"])) ) {
@@ -37,15 +38,18 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
   			while ($row=mysqli_fetch_row($result))
     		{
   
-    		  $password= $row[1];
+    		  $password= $row[0];
+    		  $admin = $row[1];
    			}
 		}
-		echo $password;
 		if ( !isset($username) || $password != $_POST["password"] ) {
 			$error = "Username or password incorrect";
 		} else {
 			$_SESSION["auth"] = true;
 			$_SESSION["username"] = $username;
+			if($admin = 1){
+				$_SESSION["admin"] = true;
+			}
 
 			header("Location: /home.php");
 			exit();
