@@ -29,7 +29,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
 		$error = "Enter your username.";
 	} else {
 		$username = trim($_POST["username"]);
-		$sql = "SELECT password FROM users WHERE '%s' IN (username, email)",  mysql_real_escape_string($username);
+		$sql = "SELECT password FROM users WHERE '%s' IN (username, email)",  $username;
 		//$query = mysqli_query($conn,$sql);
 		//$result = mysqli_fetch_assoc($query);
 		//$password = $result['password'];
