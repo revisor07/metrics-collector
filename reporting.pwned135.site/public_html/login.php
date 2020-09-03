@@ -68,7 +68,7 @@ $conn->close();
 <label> Password
 	<input type="password" name="password">
 </label><br>
-<input type="submit" value="Log In">
+<input type="submit" value="loging">
 </form>
 </body>
 </html>
