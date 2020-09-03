@@ -123,7 +123,7 @@ getData().then(() => {
         "font-family": "Georgia",
         "font-size": "30",
         x: "20%",
-        y: "60%",
+        y: "70%",
         },
         {
         text: "cookies disabled",
