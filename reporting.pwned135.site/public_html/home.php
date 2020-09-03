@@ -94,18 +94,13 @@ getData().then(() => {
 })
 </script>
 
-<div id="twoSeries"></div>
+<div id="myChart"></div>
 <script>
 getData().then(() => {
   zingchart.render({
-    id: 'twoSeries',
+    id: 'myChart',
     data: {
-      type: 'bar',
-      'scale-x': {
-        label: { 
-          text: "Innert Width vs Inner Height",
-        }
-      },
+      type: 'scatter',
       title: {
         text: "Bar Graph"
       },
