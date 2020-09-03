@@ -1,5 +1,5 @@
 <?php
-session_Start();
+session_start();
 if( !isset($_SESSION['auth']) || $SESSION['auth'] != true ){
 	header('Location: /login.php');
 	exit();
