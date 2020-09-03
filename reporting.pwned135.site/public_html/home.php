@@ -13,7 +13,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
 <?php if($_SESSION["admin"] == true) : ?>
     <p><a href="users.php">User Managment</a></p>
 <?php endif; ?>
-
+<p><a href="report.php">Detailed Report</a></p>
 
 <p>Welcome, <?php echo $_SESSION['username'] ?>!</p>
 <hr>
@@ -154,7 +154,7 @@ getData().then(() => {
 
 
 
-<p><a href="reports.php">Reports</a></p>
+
 
 </body>
 </html>
