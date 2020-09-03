@@ -29,22 +29,20 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
 		$error = "Enter your username.";
 	} else {
 		$username = trim($_POST["username"]);
-		$sql = "select password from users where ' $username ' in (username, email)";
+		$sql = "SELECT password FROM users WHERE '%s' IN (username, email)",  mysql_real_escape_string($username);
 		//$query = mysqli_query($conn,$sql);
 		//$result = mysqli_fetch_assoc($query);
 		//$password = $result['password'];
+		echo $sql
 		if ($result=mysqli_query($conn,$sql))
  		{
   		// Fetch one and one row
   			while ($row=mysqli_fetch_row($result))
     		{
-    		echo "snake";
+   
     		echo "(%s)\n",$row[0];
    			}
 		}
-
-
-
 
 		if ( !isset($username) || $password != $_POST["password"] ) {
 			$error = "Username or password incorrect";
