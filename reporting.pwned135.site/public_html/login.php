@@ -43,7 +43,6 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
     		  $password= $row[0];
    			}
 		}
-		echo $password;
 
 		if ( !isset($username) || $password != $_POST["password"] ) {
 			$error = "Username or password incorrect";
