@@ -23,6 +23,7 @@ if ( isset($_SESSION['auth']) && $_SESSION['auth'] == true ){
 
 $error = "";
 $username = "";
+$result;
 
 if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
 	if ( empty(trim($_POST["username"])) ) {
@@ -34,7 +35,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
 		//$result = mysqli_fetch_assoc($query);
 		//$password = $result['password'];
 		echo $sql
-		if ($result=mysqli_query($conn,$sql))
+		if ($result==mysqli_query($conn,$sql))
  		{
   		// Fetch one and one row
   			while ($row=mysqli_fetch_row($result))
