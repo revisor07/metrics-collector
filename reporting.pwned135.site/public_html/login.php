@@ -57,10 +57,10 @@ $conn->close();
 <html>
 <head>
 <title> Reporting </title>
-<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 <style>
 body {
-    font-family: 'Roboto';font-size: 22px;
+    font-family: 'Roboto', sans-serif; font-size: 22px;
 }
 <style> p.err { color: red; }</style>
 </head>
