@@ -63,7 +63,6 @@ getData().then(() => {
   	coord = [innerHeights[i], innerWidths[i]]
     dimensions.push(coord)
   }
-  console.log(dimensions)
 
 
 
@@ -106,7 +105,7 @@ getData().then(() => {
       title: {
         text: "Bar Graph"
       },
-      series: dimensions
+      series: [{dimensions}]
     }
   });
 })
