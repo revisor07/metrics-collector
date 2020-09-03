@@ -5,10 +5,6 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
 	exit();
 } ?>
 
-<?php
-echo $_SESSION["admin"]
-?>
-
 <html>
 <head><title> Reporting</title></head>
 <body>
