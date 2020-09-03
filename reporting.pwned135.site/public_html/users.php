@@ -38,7 +38,8 @@ body {
     <zg-data src="https://pwned135.site/api/users"></zg-data>
   </zing-grid>
   -->
-  <zing-grid caption="Users Database" src="https://pwned135.site/api/users/" editor editor-controls></zing-grid>
+  <zing-grid caption="Users Database" src="https://pwned135.site/api/users/" editor="inline"
+ editor-controls="all"></zing-grid>
 
 
 
