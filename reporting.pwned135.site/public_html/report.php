@@ -2,7 +2,7 @@
 <?php
 session_start();
 echo $_SESSION['auth']; 
-if( !isset($_SESSION['auth']) || $SESSION['auth'] != 1 ){
+if( !isset($_SESSION['auth']) ){
 	//echo $_SESSION['auth']; 
 	header('Location: /login.php');
 	exit();
