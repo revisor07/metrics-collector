@@ -60,7 +60,7 @@ $conn->close();
 </head>
 <style>
 body {
-    font-family: 'Roboto';font-size: 22px;
+    font-family: 'Roboto';
 }
 </style>
 <h2> Reporting Console Login</h2>
