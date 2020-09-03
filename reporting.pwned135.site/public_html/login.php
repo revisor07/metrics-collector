@@ -34,8 +34,8 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
 		//$query = mysqli_query($conn,$sql);
 		//$result = mysqli_fetch_assoc($query);
 		//$password = $result['password'];
-		echo $sql
-		if ($result==mysqli_query($conn,$sql))
+		echo $sql;
+		if ($result=mysqli_query($conn,$sql))
  		{
   		// Fetch one and one row
   			while ($row=mysqli_fetch_row($result))
