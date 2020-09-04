@@ -87,7 +87,6 @@ getData().then(() => {
     coord = [innerHeights[i], innerWidths[i]]
     dimensions.push(coord)
   }
-  console.log(dimensions);
 
 
 
