@@ -39,6 +39,28 @@ server.post('/users', (req, res, next) => {
     throw error;
 });
 
+server.put('/users/:id', (req, res, next) => {
+  if (connection.query('UPDATE users SET id = ?, username = ?, email = ?, password = ?, admin = ? WHERE id = ?;', 
+    [req.body["id"], req.body["username"], req.body["email"], md5(req.body["password"]), req.body["admin"]]) ){
+     res.status(200).json({
+     message: req.body
+    })
+  }
+  else
+    throw error;
+});
+server.delete('/users/:id', (req, res, next) => {
+  if (connection.query('DELETE FROM users WHERE id = ?;', req.params.id )){
+     res.status(200).json({
+     message: "entry deleted"
+    })
+  }
+  else
+    throw error;
+});
+
+
+
 
 server.get('/logs', function(req, res) {
   connection.query('SELECT * FROM initialBrowserData', function(err, rows, fields) {
