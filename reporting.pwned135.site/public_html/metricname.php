@@ -20,7 +20,7 @@ body {
 
 <p>Welcome, <?php echo $_SESSION['username'] ?>!</p>
 
-<form action="home.php">
+<form action="index.php">
     <input type="submit" value="home" />
 </form>
 <form action="logout.php">
