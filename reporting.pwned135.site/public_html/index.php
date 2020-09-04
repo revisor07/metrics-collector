@@ -18,7 +18,7 @@ body {
 <body>
 <p>Welcome, <?php echo $_SESSION['username'] ?>!</p>
 
-<form action="metricname.php">
+<form action="metricName.php">
     <input type="submit" value="generate report" />
 </form>
 
@@ -36,13 +36,11 @@ body {
 <h1>Your Reports</h1>
 
 
-
 <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
-
 
 <div id="threeSeries"></div>
 <script>
-ibd = {}; //initialBrowserData
+ibd = {}; 
 cls = {};
 id = [];
 cls_data = [];
@@ -50,7 +48,6 @@ innerHeights = [];
 innerWidths = [];
 dimensions = [];
 cookiesYes = 0;
-//just to make the pie chart look pretty since everyone has them enabled, 100% doesnt look pretty
 cookiesNo = 0;
 async function getData() {
         try {
@@ -79,17 +76,14 @@ getData().then(() => {
   for (x in cls){
     if(cls[x].data != null){
     id.push(cls[x].id)
-  cls_data.push(JSON.parse(cls[x].data))    
+  cls_data.push(parseFloat(JSON.parse(cls[x].data)))    
     }
   }
 
   for (i=0; i < innerHeights.length; i++){
-    coord = [innerHeights[i], innerWidths[i]]
+    coord = [parseFloat(innerHeights[i]), parseFloat(innerWidths[i])]
     dimensions.push(coord)
   }
-
-
-
 })
 
 getData().then(() => {
@@ -105,7 +99,7 @@ getData().then(() => {
       'scale-y': {
         label: { 
           text: "Google Score",
-    "height": "5px",
+          "height": "8px",
         }
       },
       title: {
