@@ -112,7 +112,6 @@ getData().then(() => {
         text: "Cumulative Layout Shift/User experience over time"
       },
       series: [
-        { values: id },
         { values: cls_data}
       ]
     }
