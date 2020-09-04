@@ -82,6 +82,7 @@ getData().then(() => {
   cls_data.push(JSON.parse(cls[x].data))    
     }
   }
+  console.log(cls_data);
 
   for (i=0; i < innerHeights.length; i++){
     coord = [innerHeights[i], innerWidths[i]]
