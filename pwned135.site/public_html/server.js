@@ -2,6 +2,7 @@ var mysql = require('mysql');
 var jsonServer = require('json-server');
 const bodyparser = require('body-parser');
 var server = jsonServer.create();
+var md5 = require('md5');
 server.use(bodyparser.json());
 
 server.use(jsonServer.defaults());
@@ -21,14 +22,26 @@ connection.connect(function(err) {
 
 
 server.get('/users', function(req, res) {
-  connection.query('SELECT id, username, email, PASSWORD(password), admin FROM users', function(err, rows, fields) {
+  connection.query('SELECT id, username, email, password, admin FROM users', function(err, rows, fields) {
     if (err) throw err;
     res.send(rows);
   });
 });
 
 server.post('/users', (req, res, next) => {
-  if (connection.query('INSERT INTO user VALUES (?, ?, ?, ?, ?);', req.body) ){
+  if (connection.query('INSERT INTO users VALUES (?,?,?,?,?) ', [req.body["id"], req.body["username"], 
+    req.body["email"], md5(req.body["password"]), req.body["admin"]]) ){
+     res.status(200).json(
+      req.body
+     )
+  }
+  else
+    throw error;
+});
+
+server.put('/users/:id', (req, res, next) => {
+  if (connection.query('UPDATE users SET id = ?, username = ?, email = ?, password = ?, admin = ? WHERE id = ?;', 
+    [req.body["id"], req.body["username"], req.body["email"], md5(req.body["password"]), req.body["admin"], req.body["id"]]) ){
      res.status(200).json({
      message: req.body
     })
@@ -36,6 +49,17 @@ server.post('/users', (req, res, next) => {
   else
     throw error;
 });
+server.delete('/users/:id', (req, res, next) => {
+  if (connection.query('DELETE FROM users WHERE id = ?;', req.params.id )){
+     res.status(200).json({
+     message: "entry deleted"
+    })
+  }
+  else
+    throw error;
+});
+
+
 
 
 server.get('/logs', function(req, res) {

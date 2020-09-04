@@ -11,7 +11,7 @@ if ($conn -> connect_errno) {
 
 session_start();
 if ( isset($_SESSION['auth']) && $_SESSION['auth'] == true ){
-	header("Location: /home.php");
+	header("Location: /index.php");
 	exit();
 }
 
@@ -37,7 +37,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
     		  $admin = $row[1];
    			}
 		}
-		if ( !isset($username) || $password != $_POST["password"] ) {
+		if ( !isset($username) || $password != md5($_POST["password"] )) {
 			$error = "Username or password incorrect";
 		} else {
 			$_SESSION["auth"] = true;
@@ -46,7 +46,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
 				$_SESSION["admin"] = true;
 			}
 
-			header("Location: /home.php");
+			header("Location: /index.php");
 			exit();
 		}
 	}
@@ -55,21 +55,26 @@ $conn->close();
 ?>
 
 <html>
-<head><title> Reporting </title>
+<head>
+<title> Reporting </title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+<style>
+body {
+    font-family: 'Roboto', sans-serif; 
+}
 <style> p.err { color: red; }</style>
 </head>
 <body>
-<h1> Report Console</h1>
-<h2> Please log in </h2>
-<p class="err"><?php echo $error; ?></p>
-<form action="/login.php" method="POST">
+<h2 align="center"> Reporting Console Login</h2>
+<p align="center" class="err"><?php echo $error; ?></p>
+<form align="center" action="/login.php" method="POST">
 <label> Username
 	<input type="text" name="username" value="<?php echo $username; ?>">
 </label><br>
 <label> Password
 	<input type="password" name="password">
 </label><br>
-<input type="submit" value="Log In">
+<input type="submit" value="log in">
 </form>
 </body>
 </html>
