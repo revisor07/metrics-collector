@@ -36,13 +36,11 @@ body {
 <h1>Your Reports</h1>
 
 
-
 <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
-
 
 <div id="threeSeries"></div>
 <script>
-ibd = {}; //initialBrowserData
+ibd = {}; 
 cls = {};
 id = [];
 cls_data = [];
@@ -50,7 +48,6 @@ innerHeights = [];
 innerWidths = [];
 dimensions = [];
 cookiesYes = 0;
-//just to make the pie chart look pretty since everyone has them enabled, 100% doesnt look pretty
 cookiesNo = 0;
 async function getData() {
         try {
@@ -87,9 +84,6 @@ getData().then(() => {
     coord = [parseFloat(innerHeights[i]), parseFloat(innerWidths[i])]
     dimensions.push(coord)
   }
-
-
-
 })
 
 getData().then(() => {

@@ -1,7 +1,4 @@
-
 <html>
-
-
 <head>
   <title>Logout</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -26,7 +23,6 @@ session_start();
 $_SESSION["admin"] = 0;
 $_SESSION = array();
 session_destroy();
-
 
 exit();
 ?>

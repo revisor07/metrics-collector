@@ -6,8 +6,6 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true || $_SESSION['admin']
 } ?>
 
 <html>
-
-
 <head>
 <title> User Management</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -39,8 +37,6 @@ body {
   </zing-grid>
   -->
   <zing-grid caption="Users Database" src="https://pwned135.site/api/users" editor editor-controls></zing-grid>
-
-
 
 </body>
 </html>

@@ -42,7 +42,6 @@ innerHeights = [];
 innerWidths = [];
 dimensions = [];
 cookiesYes = 0;
-//just to make the pie chart look pretty since everyone has them enabled, 100% doesnt look pretty
 cookiesNo = 0;
 phone = 0;
 tab = 0;
@@ -81,9 +80,6 @@ getData().then(() => {
         coord = [innerHeights[i], innerWidths[i]]
     dimensions.push(coord)
   }
- 
-
-
 })
 
 getData().then(() => {
@@ -167,8 +163,6 @@ getData().then(() => {
 
 <br>
 <zing-grid caption="Initial Browser Data" src="https://pwned135.site/api/browser" ></zing-grid>
-
-
 
 </body>
 </html>
