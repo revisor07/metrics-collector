@@ -41,7 +41,7 @@ server.post('/users', (req, res, next) => {
 
 server.put('/users/:id', (req, res, next) => {
   if (connection.query('UPDATE users SET id = ?, username = ?, email = ?, password = ?, admin = ? WHERE id = ?;', 
-    [req.body["id"], req.body["username"], req.body["email"], md5(req.body["password"]), req.body["admin"]]) ){
+    [req.body["id"], req.body["username"], req.body["email"], md5(req.body["password"]), req.body["admin"], req.body["id"]]) ){
      res.status(200).json({
      message: req.body
     })
