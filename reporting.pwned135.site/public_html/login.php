@@ -66,7 +66,7 @@ body {
 </head>
 <body>
 <h2 align="center"> Reporting Console Login</h2>
-<p alight="center" class="err"><?php echo $error; ?></p>
+<p align="center" class="err"><?php echo $error; ?></p>
 <form align="center" action="/login.php" method="POST">
 <label> Username
 	<input type="text" name="username" value="<?php echo $username; ?>">
