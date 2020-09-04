@@ -29,8 +29,8 @@ server.get('/users', function(req, res) {
 });
 
 server.post('/users', (req, res, next) => {
-  if (connection.query('INSERT INTO users VALUES (?,?,?,?,?) ', req.body["id"], req.body["username"], 
-    req.body["email"], md5(req.body["password"]), req.body["admin"]) ){
+  if (connection.query('INSERT INTO users VALUES (?,?,?,?,?) ', [req.body["id"], req.body["username"], 
+    req.body["email"], md5(req.body["password"]), req.body["admin"]]) ){
      res.status(200).json(
      req.body
      )
