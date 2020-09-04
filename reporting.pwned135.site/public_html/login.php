@@ -37,7 +37,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
     		  $admin = $row[1];
    			}
 		}
-		if ( !isset($username) || $password != $_POST["password"] ) {
+		if ( !isset($username) || $password != md5($_POST["password"] )) {
 			$error = "Username or password incorrect";
 		} else {
 			$_SESSION["auth"] = true;
@@ -66,7 +66,7 @@ body {
 </head>
 <body>
 <h2 align="center"> Reporting Console Login</h2>
-<p class="err"><?php echo $error; ?></p>
+<p alight="center" class="err"><?php echo $error; ?></p>
 <form align="center" action="/login.php" method="POST">
 <label> Username
 	<input type="text" name="username" value="<?php echo $username; ?>">

@@ -22,7 +22,7 @@ connection.connect(function(err) {
 
 
 server.get('/users', function(req, res) {
-  connection.query('SELECT id, username, email, PASSWORD(password) as password, admin FROM users', function(err, rows, fields) {
+  connection.query('SELECT id, username, email, password, admin FROM users', function(err, rows, fields) {
     if (err) throw err;
     res.send(rows);
   });
@@ -32,8 +32,7 @@ server.post('/users', (req, res, next) => {
   if (connection.query('INSERT INTO users VALUES (?,?,?,?,?) ', [req.body["id"], req.body["username"], 
     req.body["email"], md5(req.body["password"]), req.body["admin"]]) ){
      res.status(200).json(
-     {"id" :req.body["id"], "username":req.body["username"], 
-      "email":req.body["email"], "password":md5(req.body["password"]), "admin":req.body["admin"]}
+      req.body
      )
   }
   else
