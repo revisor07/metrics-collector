@@ -83,10 +83,8 @@ getData().then(() => {
     }
   }
 
-  console.log(typeof(cls_data[0][0]))
-
   for (i=0; i < innerHeights.length; i++){
-    coord = [innerHeights[i], innerWidths[i]]
+    coord = [parseFloat(innerHeights[i]), parseFloat(innerWidths[i])]
     dimensions.push(coord)
   }
 
