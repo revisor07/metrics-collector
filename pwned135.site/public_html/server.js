@@ -2,6 +2,7 @@ var mysql = require('mysql');
 var jsonServer = require('json-server');
 const bodyparser = require('body-parser');
 var server = jsonServer.create();
+var md5 = require('md5');
 server.use(bodyparser.json());
 
 server.use(jsonServer.defaults());
@@ -28,7 +29,8 @@ server.get('/users', function(req, res) {
 });
 
 server.post('/users', (req, res, next) => {
-  if (connection.query('INSERT INTO users SET ?', req.body) ){
+  if (connection.query('INSERT INTO users SET ? ', req.body["id"], req.body["username"], 
+    req.body["email"], md5(req.body["password"]), req.body["admin"]) ){
      res.status(200).json(
      req.body
      )
