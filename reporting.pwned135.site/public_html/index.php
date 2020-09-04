@@ -98,6 +98,7 @@ getData().then(() => {
     id: 'threeSeries',
     data: {
       type: 'line',
+      aspect: "spline",
       'scale-x': {
         label: { 
           text: "recorded entries",
@@ -127,6 +128,15 @@ getData().then(() => {
     id: 'myChart',
     data: {
       type: 'scatter',
+      clustered: true,
+      plot: {
+        clusterOffset: 5,
+        marker: {
+        alpha: 0.5,
+        borderWidth: '0px',
+        size: '4px'
+        }
+       },
       'scale-x': {
         label: { 
           text: "Inner Height",
