@@ -86,7 +86,7 @@ getData().then(() => {
   console.log(typeof(cls_data[0][0]))
 
   for (i=0; i < innerHeights.length; i++){
-    coord = [parseFloat(innerHeights[i]), parseFloat(innerWidths[i])]
+    coord = [innerHeights[i], innerWidths[i]]
     dimensions.push(coord)
   }
 
@@ -105,6 +105,7 @@ getData().then(() => {
         }
       },
       'scale-y': {
+        decimals: 2,
         label: { 
           text: "Google Score",
           "height": "5px",
