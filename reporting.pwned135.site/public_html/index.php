@@ -97,7 +97,7 @@ getData().then(() => {
   zingchart.render({
     id: 'threeSeries',
     data: {
-      type: 'line',
+      type: 'scatter',
       'scale-x': {
         label: { 
           text: "recorded entries",
