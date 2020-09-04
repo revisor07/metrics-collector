@@ -97,7 +97,7 @@ getData().then(() => {
   zingchart.render({
     id: 'threeSeries',
     data: {
-      type: 'scatter',
+      type: 'line',
       'scale-x': {
         label: { 
           text: "recorded entries",
@@ -106,7 +106,7 @@ getData().then(() => {
       'scale-y': {
         label: { 
           text: "Google Score",
-    "height": "15px",
+    "height": "25px",
         }
       },
       title: {
