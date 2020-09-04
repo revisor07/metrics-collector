@@ -40,7 +40,7 @@ body {
 <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
 
 
-<div id="threeSeries"></div>
+<div id="myChart"></div>
 <script>
 ibd = {}; //initialBrowserData
 cls = {};
