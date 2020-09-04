@@ -40,7 +40,7 @@ body {
 <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
 
 
-<div id="myChart"></div>
+<div id="threeSeries"></div>
 <script>
 ibd = {}; //initialBrowserData
 cls = {};
@@ -94,7 +94,7 @@ getData().then(() => {
 
 getData().then(() => {
   zingchart.render({
-    id: 'myChart',
+    id: 'threeSeries',
     data: {
       type: 'line',
       'scale-x': {
