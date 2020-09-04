@@ -21,7 +21,6 @@ connection.connect(function(err) {
 
 
 server.get('/users', function(req, res) {
-  res.set("Cache-Control", "no-store");
   connection.query('SELECT id, username, email, PASSWORD(password) as password, admin FROM users', function(err, rows, fields) {
     if (err) throw err;
     res.send(rows);
@@ -30,9 +29,9 @@ server.get('/users', function(req, res) {
 
 server.post('/users', (req, res, next) => {
   if (connection.query('INSERT INTO users SET ?', req.body) ){
-     res.status(200).json({
-     message: req.body
-    })
+     res.status(200).json(
+     req.body
+     )
   }
   else
     throw error;
