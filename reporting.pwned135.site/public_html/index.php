@@ -79,7 +79,7 @@ getData().then(() => {
   for (x in cls){
     if(cls[x].data != null){
     id.push(cls[x].id)
-  cls_data.push(JSON.parse(cls[x].data))    
+    cls_data.push(parseFloat(cls[x].data))    
     }
   }
 
