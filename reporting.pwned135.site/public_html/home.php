@@ -96,17 +96,23 @@ getData().then(() => {
   zingchart.render({
     id: 'threeSeries',
     data: {
-      type: 'bar',
+      type: 'line',
+      'scale-x': {
+        label: { 
+          text: "recorded entries",
+        }
+      },
       'scale-y': {
         label: { 
-          text: "Cumulative Layout Shift/User experience over time",
+          text: "Google Score",
 	  "height": "15px",
         }
       },
       title: {
-        text: "Data Transmitted During TBT"
+        text: "Cumulative Layout Shift/User experience over time"
       },
       series: [
+        { values: id },
         { values: cls_data}
       ]
     }
