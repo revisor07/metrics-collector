@@ -58,8 +58,8 @@ async function getData() {
       var res2 = await fetch('https://pwned135.site/api/cls');
       var data1 = await res.json();
       var data2= await res2.json();
-      ibd = data;         
-      cls = exData;
+      ibd = data1;         
+      cls = data2;
         } catch (err) {
             console.error(err.message);
         }
