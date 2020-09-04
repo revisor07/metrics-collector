@@ -107,7 +107,7 @@ getData().then(() => {
       'scale-y': {
         label: { 
           text: "Google Score",
-          "height": "13px",
+          "height": "10px",
         }
       },
       title: {
