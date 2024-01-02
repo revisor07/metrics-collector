@@ -12,7 +12,7 @@ var connection = mysql.createConnection({
     //port: "3306",
     user : "root",
     password : "",
-    database : "logs",
+    database : "metrics_data",
 });
 
 connection.connect(function(err) {
