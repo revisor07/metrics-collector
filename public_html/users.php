@@ -36,7 +36,7 @@ body {
     <zg-data src="https://pwned135.site/api/users"></zg-data>
   </zing-grid>
   -->
-  <zing-grid caption="Users Database" src="146.190.15.250/api/users" editor editor-controls></zing-grid>
+  <zing-grid caption="Users Database" src="https://146.190.15.250/api/users" editor editor-controls></zing-grid>
 
 </body>
 </html>

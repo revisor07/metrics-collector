@@ -162,7 +162,7 @@ getData().then(() => {
 </div>
 
 <br>
-<zing-grid caption="Initial Browser Data" src="146.190.15.250/api/browser" ></zing-grid>
+<zing-grid caption="Initial Browser Data" src="https://146.190.15.250/api/browser" ></zing-grid>
 
 </body>
 </html>

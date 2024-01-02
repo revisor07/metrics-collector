@@ -51,8 +51,8 @@ cookiesYes = 0;
 cookiesNo = 0;
 async function getData() {
         try {
-      var res = await fetch('146.190.15.250/api/browser');
-      var res2 = await fetch('146.190.15.250/api/cls');
+      var res = await fetch('https://146.190.15.250/api/browser');
+      var res2 = await fetch('https://146.190.15.250/api/cls');
       var data1 = await res.json();
       var data2= await res2.json();
       ibd = data1;         
