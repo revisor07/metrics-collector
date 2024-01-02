@@ -80,6 +80,16 @@ server.get('/browser', function(req, res, next) {
   	});
 });
 
+server.get('api/browser', function(req, res, next) {
+	connection.query('SELECT * from initialBrowserData', function (error, results, fields) {
+	  	if(error){
+	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
+	  	} else {
+  			res.send(results);
+	  	}
+  	});
+});
+
 
 server.get('/browser/:id', function(req, res, next) {
 	connection.query('SELECT * from initialBrowserData WHERE id=?', req.params.id, function (error, results, fields) {
@@ -91,7 +101,6 @@ server.get('/browser/:id', function(req, res, next) {
   	});
 });
 server.post('/browser', (req, res, next) => {
-  console.log("SNAKE");
   if (connection.query('INSERT INTO initialBrowserData(data, vitalsScore) VALUES (?, ?);', 
   	[JSON.stringify(req.body["data"]), JSON.stringify(req.body["vitalsScore"])]) ){
   	 res.status(200).json({
