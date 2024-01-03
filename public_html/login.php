@@ -46,7 +46,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
 				$_SESSION["admin"] = true;
 			}
 
-			header("Location: /index.php");
+			header("Location: /reporting.php");
 			exit();
 		}
 	}
