@@ -190,12 +190,5 @@ getData().then(() => {
 })
 </script>
 
-
-
-
-
-
-
-
 </body>
 </html>

@@ -21,7 +21,7 @@ body {
 
 <p>Welcome, <?php echo $_SESSION['username'] ?>!</p>
 
-<form action="index.php">
+<form action="reporting.php">
     <input type="submit" value="home" />
 </form>
 <form action="logout.php">
