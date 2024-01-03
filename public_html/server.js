@@ -22,7 +22,6 @@ connection.connect(function(err) {
 
 
 server.get('/users', function(req, res) {
-  console.log('SNAKE');
   connection.query('SELECT id, username, email, password, admin FROM users', function(err, rows, fields) {
     if (err) throw err;
     res.send(rows);
