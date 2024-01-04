@@ -42,16 +42,6 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
     <script>
 
       let connection_data;
-/*
-      async function getConnData() {
-        await fetch('connections.json')
-        .then(response => response.json())
-        .then(data => {
-          connection_data = data;
-        })
-        .catch(error => console.error('Error loading connections.json:', error));
-      }*/
-
       ibd = {}; 
       cls = {};
       id = [];
@@ -78,7 +68,6 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
                   console.error(err.message);
               }
       }
-      //getConnData().then(() => { 
       getData().then(() => {
         for (x in ibd){
           if(ibd[x].data != null){
@@ -103,9 +92,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
           dimensions.push(coord)
         }
       })
-      //});
 
-      //getConnData().then(() => { 
       getData().then(() => {
         zingchart.render({
           id: 'threeSeries',
@@ -131,12 +118,11 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
           }
         });
       });
-    //});
+
     </script>
 
     <div id="myChart"></div>
     <script>
-      //getConnData().then(() => { 
       getData().then(() => {
         zingchart.render({
           id: 'myChart',
@@ -169,13 +155,13 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
           }
         });
       });
-    //});
+
     </script>
 
 
     <div id="pie"></div>
     <script>
-      //getConnData().then(() => { 
+
       getData().then(() => {
         zingchart.render({
           id: 'pie',
@@ -214,7 +200,6 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
       });
       
 
-      //})
     </script>
   </body>
 </html>

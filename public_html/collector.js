@@ -466,12 +466,8 @@ function reportPerf(measureName, data, customProperties = {}) {
     var connection_data;
     if(name != ""){
       async function getConnData() {
-        await fetch('connections.json')
-        .then(response => response.json())
-        .then(data => {
-          connection_data = data;
-        })
-        .catch(error => console.error('Error loading connections.json:', error));
+        connection_data = (await fetch('connections.json')).json();
+        //connection_data = await connection_data_raw.json();
       }
       getConnData().then(() => {
       fetch(`${connection_data.protocol}://${connection_data.server}/api/${name}`, {
