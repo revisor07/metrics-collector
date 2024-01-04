@@ -277,13 +277,13 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
     </body>
     <footer>
     <script>
-      let connection_data;
+      let connection_data2;
       async function getConnData() {
         connection_data_raw = await fetch('connections.json');
-        connection_data = await connection_data_raw.json();
+        connection_data2 = await connection_data_raw.json();
       }
       getConnData().then(() => {
-      let apiUrl = `${connection_data.protocol}://${connection_data.server}/api/browser`;
+      let apiUrl = `${connection_data2.protocol}://${connection_data2.server}/api/browser`;
       let zingGridElement = document.getElementById("browsingTable");
       console.log(apiUrl);
       zingGridElement.setAttribute("src", apiUrl);
