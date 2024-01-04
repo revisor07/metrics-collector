@@ -280,7 +280,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
         connection_data2 = await connection_data_raw.json();
       }*/
       getData().then(() => {
-      let apiUrl = `${connection_data2.protocol}://${connection_data2.server}/api/browser`;
+      let apiUrl = `${connection_data.protocol}://${connection_data.server}/api/browser`;
       let zingGridElement = document.getElementById("browsingTable");
       zingGridElement.setAttribute("src", apiUrl);
       });
