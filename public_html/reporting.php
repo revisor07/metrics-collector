@@ -55,8 +55,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
       getConnData().then(() => {
         resUrl = `${connection_data.protocol}://${connection_data.server}/api/browser`;
         res2Url = `${connection_data.protocol}://${connection_data.server}/api/cls`;
-      });
-
+      
       ibd = {}; 
       cls = {};
       id = [];
@@ -78,6 +77,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
                   console.error(err.message);
               }
       }
+      });
       getData().then(() => {
         for (x in ibd){
           if(ibd[x].data != null){
