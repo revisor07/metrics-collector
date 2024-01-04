@@ -21,7 +21,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true || $_SESSION['admin']
 
     <p>Welcome, <?php echo $_SESSION['username'] ?>!</p>
 
-    <form action="reporting.php">
+    <form action="report.php">
         <input type="submit" value="home" />
     </form>
     <form action="logout.php">

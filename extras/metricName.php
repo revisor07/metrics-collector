@@ -64,13 +64,13 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
           ids.push(ibd[x].id)
           innerHeights.push(JSON.parse(ibd[x].data).innerHeight)
           innerWidths.push(JSON.parse(ibd[x].data).innerWidth)
-          
           if(JSON.parse(ibd[x].data).cookieEnabled == true)
             cookiesYes ++;
           else if(JSON.parse(ibd[x].data).cookieEnabled == false)
             cookiesNo ++;
           }
         }
+        
         for (i=0; i < innerHeights.length; i++){
         if(innerWidths[i] < 500){
             phone++;
@@ -179,7 +179,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
       let apiUrl = `${connection_data.protocol}://${connection_data.server}/api/browser`;
       let zingGridElement = document.getElementById("browsingTable");
       zingGridElement.setAttribute("src", apiUrl);
-    });
+      });
     </script>
   </footer>
 
