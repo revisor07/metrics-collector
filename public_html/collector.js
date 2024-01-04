@@ -480,9 +480,20 @@ function reportPerf(measureName, data, customProperties = {}) {
     else if (["fp", "fcp", "fid", "lcp", "cls" , "tbt"].includes(measureName))
       name = measureName;
 
-      var vitalsScore = payload["vitalsScore"];
-      var obj = {data, vitalsScore}
-      if(name != ""){
+    var vitalsScore = payload["vitalsScore"];
+    var obj = {data, vitalsScore}
+    if(name != ""){
+      let connection_data;
+      async function getData() {
+        fetch('connections.json')
+        .then(response => response.json())
+        .then(data => {
+          connection_data = data;
+        })
+        .catch(error => console.error('Error loading connections.json:', error));
+        console.log("SNAKE", connection_data)
+      }
+      getData().then(() => {
       fetch(`${connection_data.protocol}://${connection_data.server}/api/${name}`, {
         method: 'POST',
         headers: {
@@ -495,9 +506,10 @@ function reportPerf(measureName, data, customProperties = {}) {
           console.log('success', obj)
         }).catch(function(error) {
         console.log(error);
+        });
       });
-      }
-      
+    }
+  
       
   });
 }
