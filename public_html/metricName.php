@@ -43,8 +43,6 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
       })
       .catch(error => console.error('Error loading connections.json:', error));
 
-      let apiUrl = `${connection_data.protocol}://${connection_data.server}/api/browser`;
-
       ibd = {}; //initialBrowserData
       nt = {}; //navigationTiming
       ids = [];
@@ -58,6 +56,9 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
       comp = 0;
       async function getData() {
               try {
+                  connection_data_raw = await fetch('connections.json');
+                  connection_data = await connection_data_raw.json();
+                  let apiUrl = `${connection_data.protocol}://${connection_data.server}/api/browser`;
                   var res = await fetch(apiUrl);
                   var data = await res.json();
                   ibd = data;         
