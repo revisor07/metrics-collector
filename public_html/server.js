@@ -8,7 +8,7 @@ server.use(jsonServer.defaults());
 const fs = require('fs');
 
 try {
-	var connection_data = JSON.parse(fs.readFileSync('connections.json', 'utf8'));
+	var connection_data = JSON.parse(fs.readFileSync('public_html/connections.json', 'utf8'));
   
 	// Now you can use jsonData as a JavaScript object
 	console.log(jsonData);
