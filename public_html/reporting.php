@@ -285,6 +285,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
       getConnData().then(() => {
       let apiUrl = `${connection_data.protocol}://${connection_data.server}/api/browser`;
       let zingGridElement = document.getElementById("browsingTable");
+      console.log(apiUrl);
       zingGridElement.setAttribute("src", apiUrl);
       });
     </script>
