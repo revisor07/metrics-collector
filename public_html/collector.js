@@ -445,7 +445,7 @@ function reportPerf(measureName, data, customProperties = {}) {
     });
 
     let connection_data;
-    fetch('public_html/connections.json')
+    fetch('connections.json')
     .then(response => response.json())
     .then(data => {
       connection_data = data;
