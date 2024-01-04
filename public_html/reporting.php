@@ -52,10 +52,6 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
       }
       let resUrl;
       let resUrl2;
-      getConnData().then(() => {
-        resUrl = `${connection_data.protocol}://${connection_data.server}/api/browser`;
-        res2Url = `${connection_data.protocol}://${connection_data.server}/api/cls`;
-      
       ibd = {}; 
       cls = {};
       id = [];
@@ -66,7 +62,10 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
       cookiesYes = 0;
       cookiesNo = 0;
       async function getData() {
+        getConnData().then(() => { 
           try {
+            resUrl = `${connection_data.protocol}://${connection_data.server}/api/browser`;
+            res2Url = `${connection_data.protocol}://${connection_data.server}/api/cls`;
             var res = await fetch(resUrl);
             var res2 = await fetch(res2Url);
             var data1 = await res.json();
@@ -76,8 +75,9 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
               } catch (err) {
                   console.error(err.message);
               }
+          });
       }
-      });
+      
       getData().then(() => {
         for (x in ibd){
           if(ibd[x].data != null){
@@ -204,6 +204,9 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
             ]
           }
         });
+
+      
+
       })
     </script>
   </body>
