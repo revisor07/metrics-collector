@@ -444,6 +444,14 @@ function reportPerf(measureName, data, customProperties = {}) {
       vitalsScore: getVitalsScore(measureName, data),
     });
 
+    let connection_data;
+    fetch('connections.json')
+    .then(response => response.json())
+    .then(data => {
+      connection_data = data;
+    })
+    .catch(error => console.error('Error loading connections.json:', error));
+
 
     console.log(payload);
     
@@ -466,7 +474,8 @@ function reportPerf(measureName, data, customProperties = {}) {
       var vitalsScore = payload["vitalsScore"];
       var obj = {data, vitalsScore}
       if(name != ""){
-      fetch("http://146.190.15.250/api/"+name, {
+      fetch(`${connection_data.protocol}://${connection_data.server}/api/${name}`, {
+      //fetch("http://146.190.15.250/api/"+name, {
         method: 'POST',
         headers: {
           "Content-Type" : "application/json",

@@ -6,7 +6,7 @@ var md5 = require('md5');
 server.use(bodyparser.json());
 server.use(jsonServer.defaults());
 
-var connections;
+let connection_data;
 fetch('connections.json')
 .then(response => response.json())
 .then(data => {
@@ -15,11 +15,11 @@ fetch('connections.json')
 .catch(error => console.error('Error loading connections.json:', error));
 
 var connection = mysql.createConnection({
-    host : connections.server,
+    host : connection_data.server,
     //port: "3306",
-    user : connections.user,
-    password : connections.password,
-    database : connections.db_name,
+    user : connection_data.user,
+    password : connection_data.password,
+    database : connection_data.db_name,
 });
 
 connection.connect(function(err) {
