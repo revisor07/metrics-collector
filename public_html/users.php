@@ -35,16 +35,15 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true || $_SESSION['admin']
   <footer>
     <script>
       let connection_data;
-      fetch('connections.json')
-      .then(response => response.json())
-      .then(data => {
-        connection_data = data;
-      })
-      .catch(error => console.error('Error loading connections.json:', error));
-
+      async function getConnData() {
+        connection_data_raw = await fetch('connections.json');
+        connection_data = await connection_data_raw.json();
+      }
+      getConnData().then(() => {
       let apiUrl = `${connection_data.protocol}://${connection_data.server}/api/users`;
       let zingGridElement = document.getElementById("usersDatabase");
       zingGridElement.setAttribute("src", apiUrl);
+      });
     </script>
   </footer>
 
