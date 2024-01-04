@@ -64,7 +64,8 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
       
       async function getData() {
           try {
-            connection_data = await fetch('connections.json');
+            connection_data_raw = await fetch('connections.json');
+            connection_data = await connection_data_raw.json();
             let resUrl = `${connection_data.protocol}://${connection_data.server}/api/browser`;
             let res2Url = `${connection_data.protocol}://${connection_data.server}/api/cls`;
             var res = await fetch(resUrl);
