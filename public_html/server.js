@@ -4,15 +4,22 @@ const bodyparser = require('body-parser');
 var server = jsonServer.create();
 var md5 = require('md5');
 server.use(bodyparser.json());
-
 server.use(jsonServer.defaults());
 
+var connections;
+fetch('connections.json')
+.then(response => response.json())
+.then(data => {
+	connections = data;
+})
+.catch(error => console.error('Error loading connections.json:', error));
+
 var connection = mysql.createConnection({
-    host : "127.0.0.1",
+    host : connections.server,
     //port: "3306",
-    user : "root",
-    password : "",
-    database : "metrics_data",
+    user : connections.user,
+    password : connections.password,
+    database : connections.db_name,
 });
 
 connection.connect(function(err) {
