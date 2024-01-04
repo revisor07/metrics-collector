@@ -277,7 +277,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
     </body>
     <footer>
     <script>
-      //let connection_data;
+      let connection_data;
       async function getConnData() {
         connection_data_raw = await fetch('connections.json');
         connection_data = await connection_data_raw.json();
