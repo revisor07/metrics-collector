@@ -471,6 +471,7 @@ function reportPerf(measureName, data, customProperties = {}) {
           connection_data = data;
         })
         .catch(error => console.error('Error loading connections.json:', error));
+        console.log("SNAKE", connection_data)
       fetch(`${connection_data.protocol}://${connection_data.server}/api/${name}`, {
       //fetch("http://146.190.15.250/api/"+name, {
         method: 'POST',
