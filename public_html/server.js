@@ -15,7 +15,7 @@ fetch('connections.json')
 .catch(error => console.error('Error loading connections.json:', error));
 
 var connection = mysql.createConnection({
-    host : connection_data.server,
+    host : "127.0.0.1",
     //port: "3306",
     user : connection_data.db_user,
     password : connection_data.db_password,
