@@ -42,7 +42,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
     <script>
 
       let connection_data;
-
+/*
       async function getConnData() {
         await fetch('connections.json')
         .then(response => response.json())
@@ -50,7 +50,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
           connection_data = data;
         })
         .catch(error => console.error('Error loading connections.json:', error));
-      }
+      }*/
 
       ibd = {}; 
       cls = {};
@@ -64,6 +64,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
       
       async function getData() {
           try {
+            connection_data = await fetch('connections.json');
             let resUrl = `${connection_data.protocol}://${connection_data.server}/api/browser`;
             let res2Url = `${connection_data.protocol}://${connection_data.server}/api/cls`;
             var res = await fetch(resUrl);
@@ -76,7 +77,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
                   console.error(err.message);
               }
       }
-      getConnData().then(() => { 
+      //getConnData().then(() => { 
       getData().then(() => {
         for (x in ibd){
           if(ibd[x].data != null){
@@ -101,9 +102,9 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
           dimensions.push(coord)
         }
       })
-      });
+      //});
 
-      getConnData().then(() => { 
+      //getConnData().then(() => { 
       getData().then(() => {
         zingchart.render({
           id: 'threeSeries',
@@ -128,13 +129,13 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
             ]
           }
         });
-      })
-    });
+      });
+    //});
     </script>
 
     <div id="myChart"></div>
     <script>
-      getConnData().then(() => { 
+      //getConnData().then(() => { 
       getData().then(() => {
         zingchart.render({
           id: 'myChart',
@@ -166,14 +167,14 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
             series: [{values: dimensions}]
           }
         });
-      })
-    });
+      });
+    //});
     </script>
 
 
     <div id="pie"></div>
     <script>
-      getConnData().then(() => { 
+      //getConnData().then(() => { 
       getData().then(() => {
         zingchart.render({
           id: 'pie',
@@ -212,7 +213,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
       });
       
 
-      })
+      //})
     </script>
   </body>
 </html>
