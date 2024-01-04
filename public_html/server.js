@@ -9,6 +9,7 @@ const fs = require('fs');
 
 var connection_data;
 fs.readFile('connections.json', 'utf8', (err, data) => {
+  console.log("SNAKE");
   if (err) {
     console.error('Error reading JSON file:', err);
     return;
