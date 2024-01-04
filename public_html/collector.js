@@ -473,10 +473,10 @@ function reportPerf(measureName, data, customProperties = {}) {
 
     var vitalsScore = payload["vitalsScore"];
     var obj = {data, vitalsScore}
+    var connection_data;
     if(name != ""){
-      let connection_data;
       async function getData() {
-        fetch('public_html/connections.json')
+        fetch('connections.json')
         .then(response => response.json())
         .then(data => {
           connection_data = data;
