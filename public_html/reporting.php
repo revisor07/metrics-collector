@@ -14,6 +14,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
         font-family: 'Roboto', sans-serif; 
     }
     <style> p.err { color: red; }</style>
+    <script src="https://cdn.zinggrid.com/zinggrid.min.js" defer></script>
   </head>
   <body>
     <p>Welcome, <?php echo $_SESSION['username'] ?>!</p>
