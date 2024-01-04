@@ -476,7 +476,7 @@ function reportPerf(measureName, data, customProperties = {}) {
     if(name != ""){
       let connection_data;
       async function getData() {
-        fetch('connections.json')
+        fetch('public_html/connections.json')
         .then(response => response.json())
         .then(data => {
           connection_data = data;
