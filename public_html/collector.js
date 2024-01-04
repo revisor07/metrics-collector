@@ -445,13 +445,14 @@ function reportPerf(measureName, data, customProperties = {}) {
     });
     console.log(payload);
 
-    var connection_data;
+    let connection_data;
     fetch('connections.json')
     .then(response => response.json())
     .then(data => {
       connection_data = data;
     })
     .catch(error => console.error('Error loading connections.json:', error));
+    console.log(connection_data);
 
 
     
