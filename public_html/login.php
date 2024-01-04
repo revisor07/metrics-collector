@@ -1,6 +1,6 @@
 <?php
 
-$connection_data = json_decode(file_get_contents('connections.json');, true);
+$connection_data = json_decode(file_get_contents('connections.json'), true);
 $conn = new mysqli("localhost",$connection_data["db_user"],$connection_data["db_password"],$connection_data["db_name"], 3306);
 //$conn = new mysqli("localhost","root","","metrics_data", 3306);
 
