@@ -262,8 +262,6 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
       });
     </script>
 
-    </script>
-
     <br>
 
     <h3>What devices are my users visiting from?</h3>
@@ -286,7 +284,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
       console.log(apiUrl);
       zingGridElement.setAttribute("src", apiUrl);
       });
-      
+
     </script>
 
     </body>
