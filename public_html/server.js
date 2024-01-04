@@ -10,15 +10,15 @@ let connection_data;
 fetch('connections.json')
 .then(response => response.json())
 .then(data => {
-	connections = data;
+	connection_data = data;
 })
 .catch(error => console.error('Error loading connections.json:', error));
 
 var connection = mysql.createConnection({
     host : connection_data.server,
     //port: "3306",
-    user : connection_data.user,
-    password : connection_data.password,
+    user : connection_data.db_user,
+    password : connection_data.db_password,
     database : connection_data.db_name,
 });
 
