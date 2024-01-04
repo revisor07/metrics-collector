@@ -475,7 +475,6 @@ function reportPerf(measureName, data, customProperties = {}) {
       var obj = {data, vitalsScore}
       if(name != ""){
       fetch(`${connection_data.protocol}://${connection_data.server}/api/${name}`, {
-      //fetch("http://146.190.15.250/api/"+name, {
         method: 'POST',
         headers: {
           "Content-Type" : "application/json",

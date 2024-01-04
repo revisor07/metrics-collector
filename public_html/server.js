@@ -9,10 +9,8 @@ const fs = require('fs');
 
 try {
 	var connection_data = JSON.parse(fs.readFileSync('public_html/connections.json', 'utf8'));  
-	// Continue with your server.js logic here
   } catch (error) {
 	console.error('Error reading or parsing JSON file:', error);
-	// Handle the error appropriately, e.g., exit the process
 	process.exit(1);
 }
 

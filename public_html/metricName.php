@@ -35,6 +35,16 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
 
     <div id="myChart" class="chart--container"></div>
     <script>
+      let connection_data;
+      fetch('connections.json')
+      .then(response => response.json())
+      .then(data => {
+        connection_data = data;
+      })
+      .catch(error => console.error('Error loading connections.json:', error));
+
+      let apiUrl = `${connection_data.protocol}://${connection_data.server}/api/browser`;
+
       ibd = {}; //initialBrowserData
       nt = {}; //navigationTiming
       ids = [];
@@ -48,7 +58,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
       comp = 0;
       async function getData() {
               try {
-                  var res = await fetch('http://146.190.15.250/api/browser');
+                  var res = await fetch(apiUrl);
                   var data = await res.json();
                   ibd = data;         
               } catch (err) {
@@ -167,10 +177,18 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
   </body>
   <footer>
     <script>
-        var apiUrl = "http://146.190.15.250/api/browser";
-        var zingGridElement = document.getElementById("browsingTable");
-        zingGridElement.setAttribute("src", apiUrl);
-      </script>
+      let connection_data;
+      fetch('connections.json')
+      .then(response => response.json())
+      .then(data => {
+        connection_data = data;
+      })
+      .catch(error => console.error('Error loading connections.json:', error));
+
+      let apiUrl = `${connection_data.protocol}://${connection_data.server}/api/browser`;
+      let zingGridElement = document.getElementById("browsingTable");
+      zingGridElement.setAttribute("src", apiUrl);
+    </script>
   </footer>
 
 </html>
