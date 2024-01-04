@@ -444,9 +444,9 @@ function reportPerf(measureName, data, customProperties = {}) {
       vitalsScore: getVitalsScore(measureName, data),
     });
     console.log(payload);
-    
+
     let connection_data;
-    fetch('connections.json')
+    fetch('public_html/connections.json')
     .then(response => response.json())
     .then(data => {
       connection_data = data;
