@@ -48,7 +48,7 @@ tab = 0;
 comp = 0;
 async function getData() {
         try {
-            var res = await fetch('146.190.15.250/api/browser');
+            var res = await fetch('http://146.190.15.250/api/browser');
             var data = await res.json();
             ibd = data;         
         } catch (err) {
