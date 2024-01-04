@@ -6,7 +6,7 @@ var md5 = require('md5');
 server.use(bodyparser.json());
 server.use(jsonServer.defaults());
 
-let connection_data;
+var connection_data;
 fetch('connections.json')
 .then(response => response.json())
 .then(data => {
