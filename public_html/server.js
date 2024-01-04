@@ -5,14 +5,16 @@ var server = jsonServer.create();
 var md5 = require('md5');
 server.use(bodyparser.json());
 server.use(jsonServer.defaults());
+const fs = require('fs');
 
 var connection_data;
-fetch('connections.json')
-.then(response => response.json())
-.then(data => {
-	connection_data = data;
-})
-.catch(error => console.error('Error loading connections.json:', error));
+fs.readFile('connections.json', 'utf8', (err, data) => {
+  if (err) {
+    console.error('Error reading JSON file:', err);
+    return;
+  }
+  connection_data = JSON.parse(data);
+});
 
 var connection = mysql.createConnection({
     host : "127.0.0.1",
