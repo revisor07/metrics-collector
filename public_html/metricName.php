@@ -35,123 +35,123 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
 
     <div id="myChart" class="chart--container"></div>
     <script>
-    ibd = {}; //initialBrowserData
-    nt = {}; //navigationTiming
-    ids = [];
-    innerHeights = [];
-    innerWidths = [];
-    dimensions = [];
-    cookiesYes = 0;
-    cookiesNo = 0;
-    phone = 0;
-    tab = 0;
-    comp = 0;
-    async function getData() {
-            try {
-                var res = await fetch('http://146.190.15.250/api/browser');
-                var data = await res.json();
-                ibd = data;         
-            } catch (err) {
-                console.error(err.message);
-            }
-    }
-    getData().then(() => {
-      for (x in ibd){
-        if(ibd[x].data != null){
-        ids.push(ibd[x].id)
-        innerHeights.push(JSON.parse(ibd[x].data).innerHeight)
-        innerWidths.push(JSON.parse(ibd[x].data).innerWidth)
-        
-        if(JSON.parse(ibd[x].data).cookieEnabled == true)
-          cookiesYes ++;
-        else if(JSON.parse(ibd[x].data).cookieEnabled == false)
-          cookiesNo ++;
+      ibd = {}; //initialBrowserData
+      nt = {}; //navigationTiming
+      ids = [];
+      innerHeights = [];
+      innerWidths = [];
+      dimensions = [];
+      cookiesYes = 0;
+      cookiesNo = 0;
+      phone = 0;
+      tab = 0;
+      comp = 0;
+      async function getData() {
+              try {
+                  var res = await fetch('http://146.190.15.250/api/browser');
+                  var data = await res.json();
+                  ibd = data;         
+              } catch (err) {
+                  console.error(err.message);
+              }
+      }
+      getData().then(() => {
+        for (x in ibd){
+          if(ibd[x].data != null){
+          ids.push(ibd[x].id)
+          innerHeights.push(JSON.parse(ibd[x].data).innerHeight)
+          innerWidths.push(JSON.parse(ibd[x].data).innerWidth)
+          
+          if(JSON.parse(ibd[x].data).cookieEnabled == true)
+            cookiesYes ++;
+          else if(JSON.parse(ibd[x].data).cookieEnabled == false)
+            cookiesNo ++;
+          }
         }
-      }
-      for (i=0; i < innerHeights.length; i++){
-      if(innerWidths[i] < 500){
-          phone++;
-      } 
-      else if ( innerWidths[i] < 1300){
-        tab++;
-      } else {
-        comp++;
-      }
-            coord = [innerHeights[i], innerWidths[i]]
-        dimensions.push(coord)
-      }
-    })
-
-    getData().then(() => {
-      zingchart.render({
-        id: 'myChart',
-        data: {
-          type: 'scatter',
-          'scale-x': {
-            label: { 
-              text: "Inner Height",
-            }
-          },
-          'scale-y': {
-            label: { 
-        text: "Inner Width",
-        "height": "15px",
-            }
-          },
-          title: {
-            text: "Browser Dimensions"
-          },
-          series: [{values: dimensions}]
-      },
-      });
-    })
-    </script>
-
-
-    <div id="pie"></div>
-    <script>
-    getData().then(() => {
-      zingchart.render({
-        id: 'pie',
-        data: {
-          type: 'pie',
-          labels: [
-            {
-            text: "Computer",
-      "font-size": "20", 
-      x: "30%",
-      y: "70%",
-            },
-            {
-            text: "Tablet",
-            "font-size": "20",
-      x: "63%",
-      y: "73%",
-            },
-            {
-            text: "Phone",
-            "font-size": "20",
-      x: "65%",
-      y: "48%",
-            }
-          ],
-          title: {
-            text: "Type of User's Machine"
-          },
-          series: [
-            { 
-              text: 'Computer',
-        values: [comp] },
-            { 
-              text: 'Tablet',
-              values: [tab] },
-            { 
-              text: 'Phone',
-              values: [phone] },
-          ]
+        for (i=0; i < innerHeights.length; i++){
+        if(innerWidths[i] < 500){
+            phone++;
+        } 
+        else if ( innerWidths[i] < 1300){
+          tab++;
+        } else {
+          comp++;
         }
-      });
-    })
+              coord = [innerHeights[i], innerWidths[i]]
+          dimensions.push(coord)
+        }
+      })
+
+      getData().then(() => {
+        zingchart.render({
+          id: 'myChart',
+          data: {
+            type: 'scatter',
+            'scale-x': {
+              label: { 
+                text: "Inner Height",
+              }
+            },
+            'scale-y': {
+              label: { 
+          text: "Inner Width",
+          "height": "15px",
+              }
+            },
+            title: {
+              text: "Browser Dimensions"
+            },
+            series: [{values: dimensions}]
+        },
+        });
+      })
+      </script>
+
+
+      <div id="pie"></div>
+      <script>
+      getData().then(() => {
+        zingchart.render({
+          id: 'pie',
+          data: {
+            type: 'pie',
+            labels: [
+              {
+              text: "Computer",
+        "font-size": "20", 
+        x: "30%",
+        y: "70%",
+              },
+              {
+              text: "Tablet",
+              "font-size": "20",
+        x: "63%",
+        y: "73%",
+              },
+              {
+              text: "Phone",
+              "font-size": "20",
+        x: "65%",
+        y: "48%",
+              }
+            ],
+            title: {
+              text: "Type of User's Machine"
+            },
+            series: [
+              { 
+                text: 'Computer',
+          values: [comp] },
+              { 
+                text: 'Tablet',
+                values: [tab] },
+              { 
+                text: 'Phone',
+                values: [phone] },
+            ]
+          }
+        });
+      })
     </script>
 
     <br>
@@ -163,9 +163,18 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
 
     <br>
     <script>
+      // Assuming apiUrl is defined or loaded from an external file
       var apiUrl = "http://146.190.15.250/api/browser";
+
+      // Find the <zing-grid> element by tag name
+      var zingGridElement = document.querySelector("zing-grid");
+
+      // Set the src attribute dynamically
+      zingGridElement.setAttribute("src", apiUrl);
+      //var apiUrl = "http://146.190.15.250/api/browser";
+
     </script>
-    <zing-grid caption="Initial Browser Data" src="javascript:apiUrl"></zing-grid>
+    <zing-grid caption="Initial Browser Data"></zing-grid>
 
   </body>
 </html>
