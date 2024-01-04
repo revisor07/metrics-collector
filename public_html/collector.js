@@ -445,6 +445,15 @@ function reportPerf(measureName, data, customProperties = {}) {
     });
     console.log(payload);
     
+    let connection_data;
+    fetch('public_html/connections.json')
+    .then(response => response.json())
+    .then(data => {
+      connection_data = data;
+    })
+    .catch(error => console.error('Error loading connections.json:', error));
+    console.log("SNAKE", connection_data)
+
     var name = ""
     if(measureName == "initialBrowserData")
       name = "browser";
@@ -464,16 +473,7 @@ function reportPerf(measureName, data, customProperties = {}) {
       var vitalsScore = payload["vitalsScore"];
       var obj = {data, vitalsScore}
       if(name != ""){
-        let connection_data;
-        fetch('connections.json')
-        .then(response => response.json())
-        .then(data => {
-          connection_data = data;
-        })
-        .catch(error => console.error('Error loading connections.json:', error));
-        console.log("SNAKE", connection_data)
       fetch(`${connection_data.protocol}://${connection_data.server}/api/${name}`, {
-      //fetch("http://146.190.15.250/api/"+name, {
         method: 'POST',
         headers: {
           "Content-Type" : "application/json",
