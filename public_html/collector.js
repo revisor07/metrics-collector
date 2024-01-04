@@ -7,6 +7,7 @@
  * Initialize global constants
  * Window, Window.console, Window.navigator, Window.performance
  */
+const fs = require('fs');
 const W = window;
 const C = W.console;
 const D = document;
