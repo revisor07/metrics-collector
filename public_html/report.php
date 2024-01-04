@@ -19,10 +19,6 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
   <body>
     <p>Welcome, <?php echo $_SESSION['username'] ?>!</p>
 
-    <form action="metricName.php">
-        <input type="submit" value="generate report" />
-    </form>
-
     <?php if($_SESSION["admin"] == true) : ?>
     <form action="users.php">
         <input type="submit" value="user management" />
@@ -273,12 +269,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
     <br>
     <zing-grid id = "browsingTable" caption="Initial Browser Data"></zing-grid>
 
-    <script>/*
-      let connection_data2;
-      async function getConnData() {
-        connection_data_raw = await fetch('connections.json');
-        connection_data2 = await connection_data_raw.json();
-      }*/
+    <script>
       getData().then(() => {
       let apiUrl = `${connection_data.protocol}://${connection_data.server}/api/browser`;
       let zingGridElement = document.getElementById("browsingTable");
