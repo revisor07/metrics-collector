@@ -260,13 +260,6 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
     </script>
 
     <br>
-
-    <h3>What devices are my users visiting from?</h3>
-    <div>
-    <p> Making sure that a website is accessible to as many users as possible, and the easiest way to know what devices your website is being accessed from is by looking at the size of your user's browser, specifically inner width and inner height of the browser window. From here, we found the average width (in pixels) of phones(less than 500px) tablets(less than 1000 px) and computers(everything above 1000px). We then used this to measure how many users visit our site on these various devices, of which the pie chart is the result. By seeing that the average size is larger (indicating a laptop) we can worry less about delays in loading times due to stronger processors, and focus on exporting visuals and a smooth scrolling layout. This assumption about the average device used is further confirmed by looking at the 'data' portion of the table and noticing that the website is mostly visited from Linux, Mac OS, and Windows, operating systems associated with computers.If the screen size is smaller it is more likely our users are browsing on their phones, so a faster response from the website is a must, and the client side technology must be able to adapt to rotation. We must remember that small web mistakes can seem like huge inconviences to users, so knowing our user a little better helps to create a more streamline webpage for their needs. </p>
-    </div>
-
-    <br>
     <zing-grid id = "browsingTable" caption="Initial Browser Data"></zing-grid>
 
     <script>

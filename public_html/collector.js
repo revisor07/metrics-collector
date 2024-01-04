@@ -1,5 +1,5 @@
 /**
- * This code was adapted from Perfume.js for use in CSE 135 
+ * Parts of this code were adapted from Perfume.js 
  * https://github.com/Zizzamia/perfume.js
  */
 
@@ -443,7 +443,7 @@ function reportPerf(measureName, data, customProperties = {}) {
       navigatorInformation: getNavigatorInfo(),
       vitalsScore: getVitalsScore(measureName, data),
     });
-    console.log(payload);
+    //console.log(payload);
 
     var name = ""
     if(measureName == "initialBrowserData")

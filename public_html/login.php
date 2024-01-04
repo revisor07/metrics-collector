@@ -13,7 +13,7 @@ if ($conn -> connect_errno) {
 
 session_start();
 if ( isset($_SESSION['auth']) && $_SESSION['auth'] == true ){
-	header("Location: /reporting.php");
+	header("Location: /report.php");
 	exit();
 }
 
@@ -48,7 +48,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
 				$_SESSION["admin"] = true;
 			}
 
-			header("Location: /reporting.php");
+			header("Location: /report.php");
 			exit();
 		}
 	}
