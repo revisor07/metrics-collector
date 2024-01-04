@@ -466,8 +466,8 @@ function reportPerf(measureName, data, customProperties = {}) {
     var connection_data;
     if(name != ""){
       async function getConnData() {
-        connection_data = await fetch('connections.json').json();
-        //connection_data = await connection_data_raw.json();
+        connection_data_raw = await fetch('connections.json');
+        connection_data = await connection_data_raw.json();
       }
       getConnData().then(() => {
       fetch(`${connection_data.protocol}://${connection_data.server}/api/${name}`, {
