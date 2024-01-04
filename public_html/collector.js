@@ -465,7 +465,7 @@ function reportPerf(measureName, data, customProperties = {}) {
     var obj = {data, vitalsScore}
     var connection_data;
     if(name != ""){
-      async function getData() {
+      async function getConnData() {
         await fetch('connections.json')
         .then(response => response.json())
         .then(data => {
@@ -473,7 +473,7 @@ function reportPerf(measureName, data, customProperties = {}) {
         })
         .catch(error => console.error('Error loading connections.json:', error));
       }
-      getData().then(() => {
+      getConnData().then(() => {
       fetch(`${connection_data.protocol}://${connection_data.server}/api/${name}`, {
         method: 'POST',
         headers: {

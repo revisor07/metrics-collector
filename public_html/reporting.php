@@ -42,15 +42,20 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
     <script>
 
       let connection_data;
-      fetch('connections.json')
-      .then(response => response.json())
-      .then(data => {
-        connection_data = data;
-      })
-      .catch(error => console.error('Error loading connections.json:', error));
-
-      let resUrl = `${connection_data.protocol}://${connection_data.server}/api/browser`;
-      let res2Url = `${connection_data.protocol}://${connection_data.server}/api/cls`;
+      async function getConnData() {
+        await fetch('connections.json')
+        .then(response => response.json())
+        .then(data => {
+          connection_data = data;
+        })
+        .catch(error => console.error('Error loading connections.json:', error));
+      }
+      let resUrl;
+      let resUrl2;
+      getConnData().then(() => {
+        resUrl = `${connection_data.protocol}://${connection_data.server}/api/browser`;
+        res2Url = `${connection_data.protocol}://${connection_data.server}/api/cls`;
+      });
 
       ibd = {}; 
       cls = {};
