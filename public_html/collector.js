@@ -443,19 +443,17 @@ function reportPerf(measureName, data, customProperties = {}) {
       navigatorInformation: getNavigatorInfo(),
       vitalsScore: getVitalsScore(measureName, data),
     });
-    console.log(payload);
 
     let connection_data;
-    fetch('./connections.json')
+    fetch('connections.json')
     .then(response => response.json())
     .then(data => {
       connection_data = data;
     })
     .catch(error => console.error('Error loading connections.json:', error));
-    console.log(connection_data);
 
 
-    
+    console.log(payload);
     
     var name = ""
     if(measureName == "initialBrowserData")
@@ -477,6 +475,7 @@ function reportPerf(measureName, data, customProperties = {}) {
       var obj = {data, vitalsScore}
       if(name != ""){
       fetch(`${connection_data.protocol}://${connection_data.server}/api/${name}`, {
+      //fetch("http://146.190.15.250/api/"+name, {
         method: 'POST',
         headers: {
           "Content-Type" : "application/json",
