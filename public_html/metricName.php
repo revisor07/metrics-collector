@@ -20,7 +20,7 @@ body {
 
 <p>Welcome, <?php echo $_SESSION['username'] ?>!</p>
 
-<form action="index.php">
+<form action="reporting.php">
     <input type="submit" value="home" />
 </form>
 <form action="logout.php">
@@ -162,7 +162,7 @@ getData().then(() => {
 </div>
 
 <br>
-<zing-grid caption="Initial Browser Data" src="https://146.190.15.250/api/browser" ></zing-grid>
+<zing-grid caption="Initial Browser Data" src="http://146.190.15.250/api/browser" ></zing-grid>
 
 </body>
 </html>
