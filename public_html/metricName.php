@@ -162,20 +162,23 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
     </div>
 
     <br>
-    <script>
-      // Assuming apiUrl is defined or loaded from an external file
-      var apiUrl = "http://146.190.15.250/api/browser";
-
-      // Find the <zing-grid> element by tag name
-      var zingGridElement = document.querySelector("zing-grid");
-
-      // Set the src attribute dynamically
-      zingGridElement.setAttribute("src", apiUrl);
-      //var apiUrl = "http://146.190.15.250/api/browser";
-
-    </script>
     <zing-grid caption="Initial Browser Data"></zing-grid>
 
   </body>
+  <footer>
+    <script>
+        // Assuming apiUrl is defined or loaded from an external file
+        var apiUrl = "http://146.190.15.250/api/browser";
+
+        // Find the <zing-grid> element by tag name
+        var zingGridElement = document.querySelector("zing-grid");
+
+        // Set the src attribute dynamically
+        zingGridElement.setAttribute("src", apiUrl);
+        //var apiUrl = "http://146.190.15.250/api/browser";
+
+      </script>
+  </footer>
+
 </html>
 
