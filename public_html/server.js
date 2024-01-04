@@ -7,15 +7,19 @@ server.use(bodyparser.json());
 server.use(jsonServer.defaults());
 const fs = require('fs');
 
-var connection_data;
-fs.readFile('connections.json', 'utf8', (err, data) => {
-  console.log("SNAKE");
-  if (err) {
-    console.error('Error reading JSON file:', err);
-    return;
-  }
-  connection_data = JSON.parse(data);
-});
+try {
+	var connection_data = JSON.parse(fs.readFileSync('connections.json', 'utf8'));
+  
+	// Now you can use jsonData as a JavaScript object
+	console.log(jsonData);
+  
+	// Continue with your server.js logic here
+  } catch (error) {
+	console.error('Error reading or parsing JSON file:', error);
+	// Handle the error appropriately, e.g., exit the process
+	process.exit(1);
+}
+
 
 var connection = mysql.createConnection({
     host : "127.0.0.1",
