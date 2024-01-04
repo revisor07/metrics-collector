@@ -274,8 +274,6 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
     <br>
     <zing-grid id = "browsingTable" caption="Initial Browser Data"></zing-grid>
 
-    </body>
-    <footer>
     <script>
       let connection_data2;
       async function getConnData() {
@@ -288,7 +286,11 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
       console.log(apiUrl);
       zingGridElement.setAttribute("src", apiUrl);
       });
+      
     </script>
+
+    </body>
+
   
   </body>
 </html>
