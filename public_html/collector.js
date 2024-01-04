@@ -444,7 +444,15 @@ function reportPerf(measureName, data, customProperties = {}) {
       vitalsScore: getVitalsScore(measureName, data),
     });
     console.log(payload);
-    
+    let connection_data;
+
+    try {
+      connection_data = JSON.parse(fs.readFileSync('public_html/connections.json', 'utf8'));  
+      } catch (error) {
+      console.error('Error reading or parsing JSON file:', error);
+      process.exit(1);
+    }
+/*
     let connection_data;
     fetch('connections.json')
     .then(response => response.json())
@@ -453,6 +461,7 @@ function reportPerf(measureName, data, customProperties = {}) {
     })
     .catch(error => console.error('Error loading connections.json:', error));
     console.log("SNAKE", connection_data)
+    */
 
     var name = ""
     if(measureName == "initialBrowserData")
@@ -486,7 +495,9 @@ function reportPerf(measureName, data, customProperties = {}) {
         }).catch(function(error) {
         console.log(error);
       });
-      } 
+      }
+      
+      
   });
 }
 
