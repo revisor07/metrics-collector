@@ -51,8 +51,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
         })
         .catch(error => console.error('Error loading connections.json:', error));
       }
-      let resUrl = `${connection_data.protocol}://${connection_data.server}/api/browser`;
-      let res2Url = `${connection_data.protocol}://${connection_data.server}/api/cls`;
+
       ibd = {}; 
       cls = {};
       id = [];
@@ -65,6 +64,8 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
       
       async function getData() {
           try {
+            let resUrl = `${connection_data.protocol}://${connection_data.server}/api/browser`;
+            let res2Url = `${connection_data.protocol}://${connection_data.server}/api/cls`;
             var res = await fetch(resUrl);
             var res2 = await fetch(res2Url);
             var data1 = await res.json();
