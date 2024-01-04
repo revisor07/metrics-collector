@@ -444,14 +444,6 @@ function reportPerf(measureName, data, customProperties = {}) {
       vitalsScore: getVitalsScore(measureName, data),
     });
     console.log(payload);
-    let connection_data;
-
-    try {
-      connection_data = JSON.parse(fs.readFileSync('public_html/connections.json', 'utf8'));  
-      } catch (error) {
-      console.error('Error reading or parsing JSON file:', error);
-      process.exit(1);
-    }
 /*
     let connection_data;
     fetch('connections.json')
