@@ -67,6 +67,8 @@ $conn->close();
 		<style> p.err { color: red; }</style>
 	</head>
 	<body>
+	<div class = info_block_wrapper>
+    <div class = info_block>
 		<h2 align="center"> Reporting Console Login</h2>
 		<p align="center" class="err"><?php echo $error; ?></p>
 		<form align="center" action="/login.php" method="POST">
@@ -78,5 +80,7 @@ $conn->close();
 		</label><br>
 		<input type="submit" value="log in">
 		</form>
+	</div>
+	</div>
 	</body>
 </html>

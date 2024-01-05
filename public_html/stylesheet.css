@@ -25,10 +25,10 @@ h1,h2,h3,h4, details, output{
     font-family: 'Helvetica', 'Arial', monospace;
 }
 
-#intro_block {
+.info_block {
     margin-top: 30vh;
 }
-#intro_block_wrapper {
+.info_block_wrapper {
     display: flex;
     justify-content: center;
 }
