@@ -7,8 +7,8 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true || $_SESSION['admin']
 
 <html>
   <head>
-    <title> User Management</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <title> User Management </title>
+    <link rel="stylesheet" href="stylesheet.css">
     <style>
     body {
         font-family: 'Roboto', sans-serif; 
@@ -22,8 +22,15 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true || $_SESSION['admin']
     <p>Welcome, <?php echo $_SESSION['username'] ?>!</p>
 
     <form action="report.php">
-        <input type="submit" value="home" />
+        <input type="submit" value="report" />
     </form>
+
+    <?php if($_SESSION["admin"] == true) : ?>
+    <form action="users.php">
+        <input type="submit" value="user management" />
+    </form>
+    <?php endif; ?>
+
     <form action="logout.php">
         <input type="submit" value="logout" />
     </form>

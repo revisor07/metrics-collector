@@ -7,8 +7,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
 
 <html>
   <head>
-    <title> Reporting</title>
-      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <title> Report</title>
       <link rel="stylesheet" href="stylesheet.css">
     <style>
     body {
@@ -19,6 +18,10 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
   </head>
   <body>
     <p>Welcome, <?php echo $_SESSION['username'] ?>!</p>
+
+    <form action="report.php">
+        <input type="submit" value="report" />
+    </form>
 
     <?php if($_SESSION["admin"] == true) : ?>
     <form action="users.php">

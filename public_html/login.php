@@ -57,26 +57,26 @@ $conn->close();
 ?>
 
 <html>
-<head>
-<title> Reporting </title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-<style>
-body {
-    font-family: 'Roboto', sans-serif; 
-}
-<style> p.err { color: red; }</style>
-</head>
-<body>
-<h2 align="center"> Reporting Console Login</h2>
-<p align="center" class="err"><?php echo $error; ?></p>
-<form align="center" action="/login.php" method="POST">
-<label> Username
-	<input type="text" name="username" value="<?php echo $username; ?>">
-</label><br>
-<label> Password
-	<input type="password" name="password">
-</label><br>
-<input type="submit" value="log in">
-</form>
-</body>
+	<head>
+		<title> Log In </title>
+		<link rel="stylesheet" href="stylesheet.css">
+		<style>
+		body {
+			font-family: 'Roboto', sans-serif; 
+		}
+		<style> p.err { color: red; }</style>
+	</head>
+	<body>
+		<h2 align="center"> Reporting Console Login</h2>
+		<p align="center" class="err"><?php echo $error; ?></p>
+		<form align="center" action="/login.php" method="POST">
+		<label> Username
+			<input type="text" name="username" value="<?php echo $username; ?>">
+		</label><br>
+		<label> Password
+			<input type="password" name="password">
+		</label><br>
+		<input type="submit" value="log in">
+		</form>
+	</body>
 </html>
