@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto&family=Roboto+Mono:wght@300&display=swap');
 :root {
-    --background-color: #24252A;
-    --text-color: white;
+    --background-color: white;
+    --text-color: #24252A;
     --menu-underline-color: #bc60fb;
     --star-color: gold;
   }
 /* global settings */
 * {
     box-sizing: border-box;
-    color: var(--text-color, white);
+    color: var(--text-color, black);
     scroll-margin-top: 2em; 
 }
 html {
