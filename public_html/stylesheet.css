@@ -35,7 +35,7 @@ h1,h2,h3,h4, details, output{
 
 
 input[type="text"]{
-    margin-bottom: 2em;
+    margin-bottom: 0.8em;
 }
 
 button, input[type = "submit"]{
