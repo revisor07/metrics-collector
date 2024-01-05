@@ -269,7 +269,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
     </script>
 
     <br>
-    <zing-grid id = "browsingTable" caption="Initial Browser Data"></zing-grid>
+    <zing-grid id = "browsingTable" caption="Initial Browser Data" limit = "10"></zing-grid>
 
     <script>
       getData().then(() => {
