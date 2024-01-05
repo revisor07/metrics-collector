@@ -69,3 +69,6 @@ ul.nav li{
     margin-left: 5em;
     margin-top: 2em;
 }
+.error{
+    color: red;
+}

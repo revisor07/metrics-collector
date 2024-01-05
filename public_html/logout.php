@@ -1,20 +1,15 @@
 <html>
   <head>
     <title>Logout</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <style>
-    body {
-        font-family: 'Roboto', sans-serif; 
-    }
-    <style> p.err { color: red; }</style>
+		<link rel="stylesheet" href="stylesheet.css">
 
   </head>
   <body>
     <div class = info_block_wrapper>
     <div class = info_block>
-    <h3 align="center">You have been successfully logged out</h3>
+    <h3>You have been successfully logged out</h3>
 
-    <form align="center" action="login.php">
+    <form action="login.php">
         <input type="submit" value="back to login" />
     </form>
   </div>

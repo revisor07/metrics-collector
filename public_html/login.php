@@ -60,18 +60,13 @@ $conn->close();
 	<head>
 		<title> Log In </title>
 		<link rel="stylesheet" href="stylesheet.css">
-		<style>
-		body {
-			font-family: 'Roboto', sans-serif; 
-		}
-		<style> p.err { color: red; }</style>
 	</head>
 	<body>
 	<div class = info_block_wrapper>
     <div class = info_block>
-		<h2 align="center"> Reporting Console Login</h2>
-		<p align="center" class="err"><?php echo $error; ?></p>
-		<form align="center" action="/login.php" method="POST">
+		<h2> Reporting Console Login</h2>
+		<p class="err"><?php echo $error; ?></p>
+		<form action="/login.php" method="POST">
 		<label> Username
 			<input type="text" name="username" value="<?php echo $username; ?>">
 		</label><br>
