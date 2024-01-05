@@ -19,23 +19,34 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
   <body>
     <p>Welcome, <?php echo $_SESSION['username'] ?>!</p>
 
-    <form action="index.html">
-        <input class = "nav_btn" type="submit" value="home" />
-    </form>
+    <ul class = nav>
+      <li>
+      <form action="index.html">
+          <input class = "nav_btn" type="submit" value="home" />
+      </form>
+      </li>
 
-    <form action="report.php">
-        <input class = "nav_btn" type="submit" value="report" />
-    </form>
+      <li>
+      <form action="report.php">
+          <input class = "nav_btn" type="submit" value="report" />
+      </form>
+      </li>
 
-    <?php if($_SESSION["admin"] == true) : ?>
-    <form action="users.php">
-        <input class = "nav_btn" type="submit" value="user management" />
-    </form>
-    <?php endif; ?>
+      <li>
+      <?php if($_SESSION["admin"] == true) : ?>
+      <form action="users.php">
+          <input class = "nav_btn" type="submit" value="user management" />
+      </form>
+      <?php endif; ?>
+      </li>
 
-    <form action="logout.php">
-        <input class = "nav_btn" type="submit" value="logout" />
-    </form>
+      <li>
+      <form action="logout.php">
+          <input class = "nav_btn" type="submit" value="logout" />
+      </form>
+      </li>
+    </ul>
+
     <hr>
 
     <h1>Your Reports</h1>

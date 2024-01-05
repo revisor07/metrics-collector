@@ -56,3 +56,6 @@ button:hover, input[type = "submit"]:hover{
 .nav_btn{
     width: 10em;
 }
+.nav{
+    display: inline;
+}
