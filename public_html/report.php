@@ -9,6 +9,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
   <head>
     <title> Reporting</title>
       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="stylesheet.css">
     <style>
     body {
         font-family: 'Roboto', sans-serif; 
@@ -32,7 +33,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
 
     <h1>Your Reports</h1>
 
-    
+
 
     <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
 
