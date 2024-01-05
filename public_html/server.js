@@ -79,7 +79,8 @@ server.get('/logs', function(req, res) {
 
 // BROWSER
 server.get('/browser', function(req, res, next) {
-	connection.query('SELECT * from initialBrowserData', function (error, results, fields) {
+	connection.query('SELECT * from initialBrowserData LIMIT 10', function (error, results, fields) {
+	//connection.query('SELECT * from initialBrowserData', function (error, results, fields) {
 	  	if(error){
 	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
 	  	} else {
