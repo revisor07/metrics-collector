@@ -19,7 +19,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
   <body>
     <p>Welcome, <?php echo $_SESSION['username'] ?>!</p>
 
-    <ul class = nav>
+    <ul class = "nav">
       <li>
       <form action="index.html">
           <input class = "nav_btn" type="submit" value="home" />
