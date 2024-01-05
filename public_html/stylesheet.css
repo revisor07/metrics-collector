@@ -39,7 +39,6 @@ button, input[type = "submit"]{
     background-color: #0e0e0e;
     color: white;
     border: 0;
-    font-size: 1.5em;
     padding: 0.5em;
     border-radius: 5px;
     transition: 0.3s;
@@ -47,6 +46,6 @@ button, input[type = "submit"]{
     margin-top: 1em;
     opacity: 70%;
 }
-#button:hover, input[type = "submit"]#hover{
+button:hover, input[type = "submit"]:hover{
     opacity: 100%;
 }
