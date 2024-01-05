@@ -7,7 +7,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
 
 <html>
   <head>
-    <title> Report</title>
+    <title>Reports</title>
       <link rel="stylesheet" href="stylesheet.css">
     <style>
     body {
@@ -28,7 +28,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
 
       <li>
         <form action="report.php">
-            <input class = "nav_btn" type="submit" value="report" />
+            <input class = "nav_btn" type="submit" value="reports" />
         </form>
       </li>
 
@@ -48,10 +48,6 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
     </ul>
 
     <hr>
-
-    <h1>Your Reports</h1>
-
-
 
     <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
 

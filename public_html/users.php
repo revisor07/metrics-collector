@@ -30,7 +30,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true || $_SESSION['admin']
 
       <li>
         <form action="report.php">
-            <input class = "nav_btn" type="submit" value="report" />
+            <input class = "nav_btn" type="submit" value="reports" />
         </form>
       </li>
 
@@ -50,8 +50,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true || $_SESSION['admin']
     </ul>
 
     <hr>
-    <h1>User Management Console</h1>
-      <zing-grid id = "usersDatabase" caption="Users Database" editor editor-controls></zing-grid>
+    <zing-grid id = "usersDatabase" caption="Users Database" editor editor-controls></zing-grid>
   </body>
   <footer>
     <script>
