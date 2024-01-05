@@ -24,8 +24,12 @@ a,p,i,figcaption,b, label, input, button{
 h1,h2,h3,h4, details, output{
     font-family: 'Helvetica', 'Arial', monospace;
 }
-
+/*
 #intro_block {
     align-items: center;
     text-align: center;
+}*/
+#intro_block_wrapper {
+    display: flex;
+    justify-content: center;
 }
