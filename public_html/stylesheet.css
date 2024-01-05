@@ -33,7 +33,20 @@ h1,h2,h3,h4, details, output{
     justify-content: center;
 }
 
-button {
-    background-color: var(--text-color);
-    color: var(--background-color); 
+
+
+button, input[type = "submit"]{
+    background-color: #0e0e0e;
+    color: white;
+    border: 0;
+    font-size: 1.5em;
+    padding: 0.5em;
+    border-radius: 5px;
+    transition: 0.3s;
+    min-width: 0;
+    margin-top: 1em;
+    opacity: 70%;
+}
+#button:hover, input[type = "submit"]#hover{
+    opacity: 100%;
 }
