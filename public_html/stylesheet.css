@@ -58,6 +58,7 @@ button:hover, input[type = "submit"]:hover{
 }
 ul.nav li{
     display: inline-block;
+    margin-right: 2em;
 }
 .nav{
     list-style: none;
@@ -66,5 +67,5 @@ ul.nav li{
 }
 .welcome_msg{
     margin-left: 5em;
-    margin-top: 5em;
+    margin-top: 2em;
 }
