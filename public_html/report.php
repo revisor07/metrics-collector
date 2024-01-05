@@ -21,29 +21,29 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
 
     <ul class = "nav">
       <li>
-      <form action="index.html">
-          <input class = "nav_btn" type="submit" value="home" />
-      </form>
+        <form action="index.html">
+            <input class = "nav_btn" type="submit" value="home" />
+        </form>
       </li>
 
       <li>
-      <form action="report.php">
-          <input class = "nav_btn" type="submit" value="report" />
-      </form>
+        <form action="report.php">
+            <input class = "nav_btn" type="submit" value="report" />
+        </form>
       </li>
 
       <li>
-      <?php if($_SESSION["admin"] == true) : ?>
-      <form action="users.php">
-          <input class = "nav_btn" type="submit" value="user management" />
-      </form>
-      <?php endif; ?>
+        <?php if($_SESSION["admin"] == true) : ?>
+        <form action="users.php">
+            <input class = "nav_btn" type="submit" value="user management" />
+        </form>
+        <?php endif; ?>
       </li>
 
       <li>
-      <form action="logout.php">
-          <input class = "nav_btn" type="submit" value="logout" />
-      </form>
+        <form action="logout.php">
+            <input class = "nav_btn" type="submit" value="logout" />
+        </form>
       </li>
     </ul>
 
