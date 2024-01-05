@@ -34,6 +34,9 @@ h1,h2,h3,h4, details, output{
 }
 
 
+input[type="text"]{
+    margin-bottom: 2em;
+}
 
 button, input[type = "submit"]{
     background-color: #0e0e0e;
@@ -45,7 +48,6 @@ button, input[type = "submit"]{
     min-width: 0;
     margin-top: 1em;
     opacity: 70%;
-    align-items: center;
 }
 button:hover, input[type = "submit"]:hover{
     opacity: 100%;
