@@ -51,7 +51,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
 
     <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
 
-    <div id="threeSeries"></div>
+    <div id="threeSeries" class = "report"></div>
     <script>
 
       let connection_data;
