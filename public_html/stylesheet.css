@@ -62,5 +62,9 @@ ul.nav li{
 .nav{
     list-style: none;
     padding: 0;
-    margin-left: 10em;
+    margin-left: 5em;
+}
+.welcome_msg{
+    margin-left: 5em;
+    margin-top: 5em;
 }

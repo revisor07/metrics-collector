@@ -17,7 +17,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
     <script src="https://cdn.zinggrid.com/zinggrid.min.js" defer></script>
   </head>
   <body>
-    <p>Welcome, <?php echo $_SESSION['username'] ?>!</p>
+    <p class = "welcome_msg" >Welcome, <?php echo $_SESSION['username'] ?>!</p>
 
     <ul class = "nav">
       <li>
