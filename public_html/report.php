@@ -20,21 +20,21 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
     <p>Welcome, <?php echo $_SESSION['username'] ?>!</p>
 
     <form action="index.html">
-        <input type="submit" value="home" />
+        <input class = "nav_btn" type="submit" value="home" />
     </form>
 
     <form action="report.php">
-        <input type="submit" value="report" />
+        <input class = "nav_btn" type="submit" value="report" />
     </form>
 
     <?php if($_SESSION["admin"] == true) : ?>
     <form action="users.php">
-        <input type="submit" value="user management" />
+        <input class = "nav_btn" type="submit" value="user management" />
     </form>
     <?php endif; ?>
 
     <form action="logout.php">
-        <input type="submit" value="logout" />
+        <input class = "nav_btn" type="submit" value="logout" />
     </form>
     <hr>
 
@@ -269,7 +269,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
     </script>
 
     <br>
-    <zing-grid id = "browsingTable" caption="Initial Browser Data"></zing-grid>
+    <zing-grid id = "browsingTable" caption="initialBrowserData Table Preview"></zing-grid>
 
     <script>
       getData().then(() => {

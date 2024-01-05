@@ -53,3 +53,6 @@ button:hover, input[type = "submit"]:hover{
 #zg-caption-user-text{
     color: white;
 }
+.nav_btn{
+    width: 1em;
+}
