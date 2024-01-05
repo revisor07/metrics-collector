@@ -18,18 +18,22 @@ body{
     background-color: var(--background-color, gray);
     margin: 0;
 }
-a,p,i,figcaption,b, label, input, button{
+a,p,i,figcaption,b, label, input, button, li{
     font-family: 'Roboto Mono', 'Arial', monospace;
 }
 h1,h2,h3,h4, details, output{
     font-family: 'Helvetica', 'Arial', monospace;
 }
-/*
+
 #intro_block {
-    align-items: center;
-    text-align: center;
-}*/
+    margin-top: 30vh;
+}
 #intro_block_wrapper {
     display: flex;
     justify-content: center;
+}
+
+button {
+    background-color: var(--text-color);
+    color: var(--background-color); 
 }
