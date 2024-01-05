@@ -76,5 +76,8 @@ ul.nav li{
     color: #FF6F61;
 }
 hr{
-    height: 1px;
+    height: 0.5px;
+}
+.report{
+    margin-top: 10em;
 }

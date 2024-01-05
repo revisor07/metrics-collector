@@ -152,7 +152,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
 
     </script>
 
-    <div id="myChart"></div>
+    <div id="myChart" class = "report"></div>
     <script>
       getData().then(() => {
         zingchart.render({
@@ -188,7 +188,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
       });
     </script>
 
-    <div id="pie"></div>
+    <div id="pie" class = "report"></div>
       <script>
       getData().then(() => {
         zingchart.render({
@@ -235,7 +235,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
     </script>
 
 
-    <div id="pie2"></div>
+    <div id="pie2" class = "report"></div>
     <script>
       getData().then(() => {
         zingchart.render({
@@ -276,7 +276,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true ){
     </script>
 
     <br>
-    <zing-grid id = "browsingTable" caption="initialBrowserData Table Preview"></zing-grid>
+    <zing-grid id = "browsingTable" caption="initialBrowserData Table Preview" class = "report"></zing-grid>
 
     <script>
       getData().then(() => {
