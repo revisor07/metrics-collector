@@ -27,6 +27,7 @@ h1,h2,h3,h4, details, output{
 
 .info_block {
     margin-top: 30vh;
+    max-width: 30em;
 }
 .info_block_wrapper {
     display: flex;
