@@ -9,8 +9,8 @@
     <div class = info_block>
     <h2>You have been successfully logged out</h2>
 
-    <form action="login.php">
-        <input type="submit" value="back to login" />
+    <form action="index.html">
+        <input type="submit" value="exit />
     </form>
   </div>
   </div>

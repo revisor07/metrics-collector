@@ -24,7 +24,7 @@ if( !isset($_SESSION['auth']) || $_SESSION['auth'] != true || $_SESSION['admin']
     <ul class = "nav">
       <li>
         <form action="index.html">
-            <input class = "nav_btn" type="submit" value="home" />
+            <input class = "nav_btn" type="submit" value="intro" />
         </form>
       </li>
 
