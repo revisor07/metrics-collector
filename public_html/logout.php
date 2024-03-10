@@ -10,7 +10,7 @@
     <h2>You have been successfully logged out</h2>
 
     <form action="index.html">
-        <input type="submit" value="exit />
+        <input type="submit" value="exit" />
     </form>
   </div>
   </div>
