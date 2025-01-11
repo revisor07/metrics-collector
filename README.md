@@ -45,12 +45,18 @@ sudo apt install php libapache2-mod-php
 sudo apt install mysql-server
 sudo apt install php-mysqli
 ```
-Configure MySQL user and setup database (don't need to create a user if root)
+Configure MySQL user (don't need to create a user if root)
 ```
 sudo mysql 
+
 CREATE USER 'ubuntu'@'localhost' IDENTIFIED BY '';
 ALTER USER 'ubuntu'@'localhost' IDENTIFIED WITH mysql_native_password BY '';
 CREATE DATABASE data;
+GRANT ALL PRIVILEGES ON data.* TO 'ubuntu'@'localhost';
+FLUSH PRIVILEGES;
+```
+Setup database
+```
 USE data;
 CREATE TABLE users (id INT PRIMARY KEY AUTO_INCREMENT, email VARCHAR(255), username VARCHAR(255),password VARCHAR(255), admin INT);
 INSERT INTO users (email, username, password, admin) VALUES ('admin@gmail.com', 'admin', 'de1b2a7baf7850243db71c4abd4e5a39', 1);
@@ -66,8 +72,6 @@ CREATE TABLE clsFinal like initialBrowserData;
 CREATE TABLE tbt like initialBrowserData;
 CREATE TABLE storageEstimate like initialBrowserData;
 CREATE TABLE fp like initialBrowserData;
-GRANT ALL PRIVILEGES ON data.* TO 'ubuntu'@'localhost';
-FLUSH PRIVILEGES;
 ```
 Install and setup Node.js and PM2
 ```
