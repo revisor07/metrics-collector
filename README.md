@@ -44,6 +44,7 @@ Install PHP and MySQL
 ```
 sudo apt install php libapache2-mod-php
 sudo apt install mysql-server
+sudo apt install php-mysqli
 ```
 Setup database and tables
 ```
