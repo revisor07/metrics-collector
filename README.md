@@ -37,7 +37,7 @@ Add the following to the just opened conf file
 Activate apache
 ```
 sudo a2ensite metrics-collector
-systemctl reload apache2
+sudo systemctl reload apache2
 ```
 Install PHP and MySQL
 ```
