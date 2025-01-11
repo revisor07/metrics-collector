@@ -7,12 +7,11 @@
       "start": "node public_html/server.js"
     },
     "dependencies": {
-      "body-parser": "latest",
-      "json-server": "latest",
-      "md5": "latest",
-      "mysql": "latest"
+        "body-parser": "^1.20.3",
+        "json-server": "^0.17.4",
+        "md5": "^2.3.0",
+        "mysql": "^2.18.1"
     },
     "author": "Your Name",
     "license": "MIT"
-  }
-  
+}
