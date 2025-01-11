@@ -18,10 +18,11 @@ sudo ufw enable
 ```
 Clone repo and setup apache configuration
 ```
-git clone https://github.com/revisor07/metrics-collector.git /var/www/html
+cd /var/www/html
+sudo git clone https://github.com/revisor07/metrics-collector.git
 sudo a2enmod proxy
 sudo a2enmod proxy_http
-vi /etc/apache2/sites-available/metrics-collector.conf
+sudo vi /etc/apache2/sites-available/metrics-collector.conf
 ```
 Add the following to the just opened conf file
 ```
