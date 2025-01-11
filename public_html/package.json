@@ -1,7 +1,7 @@
 {
     "name": "metrics-collector",
     "version": "1.0.0",
-    "description": "A project to collect metrics",
+    "description": "express server for REST api",
     "main": "public_html/server.js",
     "scripts": {
       "start": "node public_html/server.js"
@@ -12,6 +12,6 @@
         "md5": "^2.3.0",
         "mysql": "^2.18.1"
     },
-    "author": "Your Name",
+    "author": "revisor07",
     "license": "MIT"
 }
