@@ -1,16 +1,18 @@
 {
-  "name": "public_html",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "json-server": "^0.16.1"
+    "name": "metrics-collector",
+    "version": "1.0.0",
+    "description": "A project to collect metrics",
+    "main": "public_html/server.js",
+    "scripts": {
+      "start": "node public_html/server.js"
+    },
+    "dependencies": {
+      "body-parser": "latest",
+      "json-server": "latest",
+      "md5": "latest",
+      "mysql": "latest"
+    },
+    "author": "Your Name",
+    "license": "MIT"
   }
-}
+  
