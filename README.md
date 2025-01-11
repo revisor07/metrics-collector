@@ -74,7 +74,7 @@ sudo apt install npm
 sudo npm i pm2 -g
 cd /var/www/html/metrics-collector/public_html
 sudo npm i
-pm2 start public_html/server.js
+pm2 start server.js
 ```
 ### Useful commands
 ```
