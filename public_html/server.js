@@ -8,7 +8,9 @@ server.use(jsonServer.defaults());
 const fs = require('fs');
 
 try {
-	var connection_data = JSON.parse(fs.readFileSync('public_html/connections.json', 'utf8'));  
+  // either version of the line might work
+  //var connection_data = JSON.parse(fs.readFileSync('public_html/connections.json', 'utf8'));
+	var connection_data = JSON.parse(fs.readFileSync('connections.json', 'utf8'));  
   } catch (error) {
 	console.error('Error reading or parsing JSON file:', error);
 	process.exit(1);
