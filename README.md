@@ -9,6 +9,7 @@ Note: the tool requires a server with at least 1gb ram.
 
 Install apache and setup firewall
 ```
+sudo apt update
 sudo apt install apache2 apache2-utils
 sudo ufw allow 'Apache Full'
 sudo ufw allow OpenSSH
