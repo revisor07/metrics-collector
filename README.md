@@ -44,11 +44,12 @@ Install PHP and MySQL
 ```
 sudo apt install php libapache2-mod-php
 sudo apt install mysql-server
-sudo mysql ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '';
-sudo mysql 
 ```
 Setup database and tables
 ```
+sudo mysql
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '';
+
 CREATE DATABASE data;
 USE data;
 CREATE TABLE users (id INT PRIMARY KEY AUTO_INCREMENT, email VARCHAR(255), username VARCHAR(255),password VARCHAR(255), admin INT);
