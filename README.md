@@ -48,7 +48,7 @@ sudo apt install mysql-server
 Setup database and tables
 ```
 sudo mysql
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '';
+ALTER USER 'ubuntu'@'localhost' IDENTIFIED WITH mysql_native_password BY '';
 
 CREATE DATABASE data;
 USE data;
