@@ -2,7 +2,7 @@
 
 A node.js server with a front end hosted via apache which communicates with an sql database through REST API. When users reloads this page, their browser's metrics get dumped and sent over to the endpoints. This tool allows you to view some visualizations of real time data from the express server. This tool also allows you to preview one of the database tables as well as add and remove users. 
 
-Tool is currently hosted on a digital ocean droplet at: http://146.190.15.250/
+Tool is currently hosted on AWS EC2 at: http://52.53.86.68
 
 ## Local Setup Instructions
 Note: the following tutorial works for an ubuntu server with at least 1gb ram.
@@ -28,9 +28,8 @@ sudo vi /etc/apache2/sites-available/metrics-collector.conf
 Add the following to the just opened conf file
 ```
 <VirtualHost *:80>
-     ServerName 146.190.15.250
+     ServerName 52.53.86.68
      DocumentRoot /var/www/html/metrics-collector/public_html/
-
      ProxyPass /api http://127.0.0.1:3000
      ProxyPassReverse /api http://127.0.0.1:3000
 </VirtualHost>
