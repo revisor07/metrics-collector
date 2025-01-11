@@ -5,7 +5,7 @@ A node.js server with a front end hosted via apache which communicates with an s
 Tool is currently hosted on a digital ocean droplet at: http://146.190.15.250/
 
 ## Local Setup Instructions
-Note: the tool requires a server with at least 1gb ram.
+Note: the following tutorial works for an ubuntu server with at least 1gb ram.
 
 Install apache and setup firewall
 ```
