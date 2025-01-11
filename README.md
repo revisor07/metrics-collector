@@ -1,6 +1,6 @@
 # Metrics Collector
 
-A node.js server with a front end hosted via apache which communicates with an sql database through REST API. When users reloads this page, their browser's metrics get dumped and sent over to the endpoints. This tool allows you to view some visualizations of real time data from the express server. This tool also allows you to preview one of the database tables as well as add and remove users. 
+An Express server on node.js with a front end hosted via apache which communicates with an sql database through REST API. When users reloads this page, their browser's metrics get dumped and sent over to the endpoints. This tool allows you to view some visualizations of real time data from the express server. This tool also allows you to preview one of the database tables as well as add and remove users. 
 
 Tool is currently hosted on AWS EC2 at: http://52.53.86.68
 
