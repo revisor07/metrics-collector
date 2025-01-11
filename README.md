@@ -4,7 +4,7 @@ An Express server on node.js with a front end hosted via apache which communicat
 
 Tool is currently hosted on AWS EC2 at: http://52.53.86.68
 
-## Local Setup Instructions
+## Server Setup Instructions
 Note: the following tutorial works for an ubuntu server with at least 1gb ram.
 
 Install apache and setup firewall
