@@ -2,6 +2,6 @@
     "server": "100.28.35.60",
     "protocol": "http",
     "db_name": "data",
-    "db_user": "root",
+    "db_user": "ubuntu",
     "db_password": ""
 }
