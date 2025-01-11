@@ -72,6 +72,8 @@ Install and setup Node.js and PM2
 sudo apt install nodejs
 sudo apt install npm
 sudo npm i pm2 -g
+cd /var/www/html/metrics-collector/public_html
+npm install
 pm2 start public_html/server.js
 ```
 ### Useful commands
