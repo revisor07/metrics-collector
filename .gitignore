@@ -3,6 +3,5 @@ build
 npm-debug.log
 .env
 .DS_Store
-*.pem
 /package-lock.json
-
+*.pem
